@@ -1,0 +1,20 @@
+[
+    {
+        "title": "E-commerce Redesign",
+        "date": "2024-12-01",
+        "description": "A complete redesign of an e-commerce platform focusing on user experience and conversion optimization.",
+        "image": "images/project1.jpg"
+    },
+    {
+        "title": "Weather App",
+        "date": "2024-10-15",
+        "description": "A minimal weather application with real-time data and clean visualizations.",
+        "image": "images/project2.jpg"
+    },
+    {
+        "title": "Brand Identity",
+        "date": "2024-08-20",
+        "description": "Complete brand identity design including logo, typography, and color system for a tech startup.",
+        "image": ""
+    }
+]
