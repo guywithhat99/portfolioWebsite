@@ -8,7 +8,7 @@ Copy the st7789.py for Raspberry Pi Pico from the release assets.
 """
 
 class ST7789:
-    def __init__(self, spi, width, height, dc, cs, reset=None, backlight=None, **kwargs):
+    def __init__(self, spi, width, height, dc=None, cs=None, reset=None, backlight=None, **kwargs):
         self.width = width
         self.height = height
 
