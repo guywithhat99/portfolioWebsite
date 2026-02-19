@@ -56,13 +56,14 @@ MESSAGES = {
 
 def _load_sprite(mood):
     """Load a 120x120 RGB565 raw image from the images/ directory."""
-    path = f"images/{mood}.raw"
-    try:
-        with open(path, "rb") as f:
-            return f.read()
-    except OSError:
-        # Fallback: solid grey block if file missing
-        return bytes([0x84, 0x10] * (SPRITE_W * SPRITE_H))
+    for path in (f"/images/{mood}.raw", f"images/{mood}.raw"):
+        try:
+            with open(path, "rb") as f:
+                return f.read()
+        except OSError:
+            pass
+    # Fallback: solid grey block if file missing (memory-efficient)
+    return b'\x84\x10' * (SPRITE_W * SPRITE_H)
 
 
 # ── Pet class ─────────────────────────────────────────────────────────────────
@@ -97,6 +98,7 @@ class Pet:
         self._backlight_on  = True
         self._last_mood     = None
         self._current_msg   = ""
+        self._last_alert    = 0  # cooldown timer for alerts
 
         # Draw initial screen
         self._lcd.fill(Display.BLACK)
@@ -145,9 +147,11 @@ class Pet:
         if new_mood != self._last_mood:
             self._redraw()
 
-        # Alert if any stat is critical
+        # Alert if any stat is critical (with 15-second cooldown)
         if self.needs_alert():
-            self._trigger_alert()
+            if time.ticks_diff(now, self._last_alert) >= 15000:
+                self._last_alert = now
+                self._trigger_alert()
 
     # ── Stat logic ───────────────────────────────────────────────────────────
 

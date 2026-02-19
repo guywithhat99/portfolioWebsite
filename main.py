@@ -19,7 +19,6 @@
 
 from machine import Pin, PWM
 import time
-import machine
 from tamagotchi import Pet
 
 
@@ -135,4 +134,4 @@ while True:
     last_green  = green
 
     pet.update()
-    machine.lightsleep(50)  # low-power wait between loop iterations
+    time.sleep_ms(50)  # wait between loop iterations
