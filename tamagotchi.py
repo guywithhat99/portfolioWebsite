@@ -9,8 +9,7 @@ but reading it is encouraged!
 
 import time
 import urandom
-import machine
-import st7789
+from display import Display
 
 # ── Constants ────────────────────────────────────────────────────────────────
 
@@ -28,28 +27,21 @@ BACKLIGHT_TIMEOUT = 30000  # ms of inactivity before backlight turns off
 ALERT_FREQ      = 880   # Hz
 ALERT_DURATION  = 150   # ms
 
-# Display
-LCD_WIDTH  = 240
-LCD_HEIGHT = 240
+# Display layout
 SPRITE_W   = 120
 SPRITE_H   = 120
-SPRITE_X   = (LCD_WIDTH - SPRITE_W) // 2   # centered
+SPRITE_X   = (Display.WIDTH - SPRITE_W) // 2   # centered
 SPRITE_Y   = 20
 
 # Text zone (below sprite)
 TEXT_Y     = SPRITE_Y + SPRITE_H + 10
-TEXT_COLOR = 0xFFFF  # white
 
 # Button indicator row
-INDICATOR_Y    = LCD_HEIGHT - 30
-INDICATOR_R    = 8     # circle radius in pixels
-INDICATOR_POSITIONS = [40, 120, 200]  # x centres for red, yellow, green
-INDICATOR_COLORS    = [0xF800, 0xFFE0, 0x07E0]  # red, yellow, green (RGB565)
+INDICATOR_Y    = Display.HEIGHT - 30
+INDICATOR_R    = 8
+INDICATOR_POSITIONS = [40, 120, 200]
+INDICATOR_COLORS    = [Display.RED, Display.YELLOW, Display.GREEN]
 INDICATOR_LABELS    = ["Food", "Water", "Move"]
-
-# Colors
-BLACK = 0x0000
-WHITE = 0xFFFF
 
 # Encouragement messages per action
 MESSAGES = {
@@ -60,21 +52,7 @@ MESSAGES = {
 }
 
 
-# ── Display helpers ───────────────────────────────────────────────────────────
-
-def _init_lcd():
-    spi = machine.SPI(1, baudrate=50_000_000, polarity=0, phase=0,
-                      sck=machine.Pin(10), mosi=machine.Pin(11))
-    dc  = machine.Pin(8,  machine.Pin.OUT)
-    cs  = machine.Pin(9,  machine.Pin.OUT)
-    rst = machine.Pin(12, machine.Pin.OUT)
-    bl  = machine.Pin(13, machine.Pin.OUT)
-    bl.value(1)
-    lcd = st7789.ST7789(spi, LCD_WIDTH, LCD_HEIGHT,
-                        dc=dc, cs=cs, reset=rst)
-    lcd.init()
-    return lcd, bl
-
+# ── Sprite loading ───────────────────────────────────────────────────────────
 
 def _load_sprite(mood):
     """Load a 120x120 RGB565 raw image from the images/ directory."""
@@ -85,14 +63,6 @@ def _load_sprite(mood):
     except OSError:
         # Fallback: solid grey block if file missing
         return bytes([0x84, 0x10] * (SPRITE_W * SPRITE_H))
-
-
-def _draw_circle(lcd, cx, cy, r, color):
-    """Draw a filled circle."""
-    for y in range(-r, r + 1):
-        for x in range(-r, r + 1):
-            if x * x + y * y <= r * r:
-                lcd.pixel(cx + x, cy + y, color)
 
 
 # ── Pet class ─────────────────────────────────────────────────────────────────
@@ -113,7 +83,7 @@ class Pet:
     def __init__(self, play_tone, set_led):
         self._play_tone = play_tone
         self._set_led   = set_led
-        self._lcd, self._bl = _init_lcd()
+        self._lcd       = Display()
 
         # Stats
         self.food   = STAT_MAX
@@ -129,7 +99,7 @@ class Pet:
         self._current_msg   = ""
 
         # Draw initial screen
-        self._lcd.fill(BLACK)
+        self._lcd.fill(Display.BLACK)
         self._draw_indicators()
         self._redraw()
 
@@ -167,7 +137,7 @@ class Pet:
         # We use machine.lightsleep() in the main loop for the same reason.
         if self._backlight_on:
             if time.ticks_diff(now, self._last_activity) >= BACKLIGHT_TIMEOUT:
-                self._bl.value(0)
+                self._lcd.backlight(False)
                 self._backlight_on = False
 
         # Redraw if mood changed
@@ -208,7 +178,7 @@ class Pet:
         """Shared logic for all button actions."""
         self._last_activity = time.ticks_ms()
         if not self._backlight_on:
-            self._bl.value(1)
+            self._lcd.backlight(True)
             self._backlight_on = True
         msg = MESSAGES[action][urandom.randint(0, len(MESSAGES[action]) - 1)]
         self._show_message(msg)
@@ -233,16 +203,17 @@ class Pet:
 
     def _redraw_sprite(self, name):
         data = _load_sprite(name)
-        self._lcd.blit_buffer(data, SPRITE_X, SPRITE_Y, SPRITE_W, SPRITE_H)
+        self._lcd.sprite(data, SPRITE_X, SPRITE_Y, SPRITE_W, SPRITE_H)
 
     def _draw_indicators(self):
         """Draw the static button indicator row. Called once at init."""
-        for i, (x, color, label) in enumerate(
-                zip(INDICATOR_POSITIONS, INDICATOR_COLORS, INDICATOR_LABELS)):
-            _draw_circle(self._lcd, x, INDICATOR_Y, INDICATOR_R, color)
-            # Centre label text under circle
-            lx = x - len(label) * 4  # rough centering for 8px-wide chars
-            self._lcd.text(label, lx, INDICATOR_Y + INDICATOR_R + 4, WHITE)
+        for x, color, label in zip(
+                INDICATOR_POSITIONS, INDICATOR_COLORS, INDICATOR_LABELS):
+            self._lcd.fill_circle(x, INDICATOR_Y, INDICATOR_R, color)
+            # Centre label text under its circle
+            lx = x - self._lcd.text_width(label) // 2
+            self._lcd.text(label, lx, INDICATOR_Y + INDICATOR_R + 4,
+                           Display.WHITE)
 
     def _show_message(self, msg):
         self._current_msg = msg
@@ -251,8 +222,7 @@ class Pet:
 
     def _draw_text(self, msg):
         self._clear_text_zone()
-        x = max(0, (LCD_WIDTH - len(msg) * 8) // 2)  # rough centre
-        self._lcd.text(msg, x, TEXT_Y, TEXT_COLOR)
+        self._lcd.text_centered(msg, TEXT_Y, Display.WHITE, scale=2)
 
     def _clear_text_zone(self):
-        self._lcd.fill_rect(0, TEXT_Y, LCD_WIDTH, 20, BLACK)
+        self._lcd.fill_rect(0, TEXT_Y, Display.WIDTH, 30, Display.BLACK)
