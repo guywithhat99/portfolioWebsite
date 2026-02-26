@@ -2,32 +2,34 @@
 // TOMOGATCHI WORKSHOP
 // =============================================================================
 //
-// Your pet is alive — but barely. It shows one face and does nothing else.
+// Your pet is alive -- but barely. It shows one face and does nothing else.
 // Work through each section to bring it to life.
 //
 // Files you will write (open each tab above):
-//   buttons.h / buttons.cpp  — Section 1: wire up buttons, make the pet speak
-//   sound.h   / sound.cpp    — Section 2: add sound and compose a melody
-//   leds.h    / leds.cpp     — Section 3: add the RGB LED, play Simon Says
-//   tomogatchi.ino           — Section 4: enable decay, add button mash (this file)
+//   buttons.h / buttons.cpp  -- Section 1: wire up buttons, make the pet speak
+//   sound.h   / sound.cpp    -- Section 2: add sound and compose a melody
+//   leds.h    / leds.cpp     -- Section 3: add the RGB LED, play Simon Says
+//   game.h    / game.cpp     -- Section 4: write the button mash game
+//   tomogatchi.ino           -- Section 4: wire mash into the game loop (this file)
 //
 // Files to READ but NOT edit:
-//   Pet.h / Pet.cpp          — the pet engine (read it, it's interesting!)
-//   sprites.h                — sprite pixel data stored in flash memory
+//   Pet.h / Pet.cpp          -- the pet engine (read it, it's interesting!)
+//   sprites.h                -- sprite pixel data stored in flash memory
 //
 // Pet API quick reference:
-//   pet.say(text)            — show text on screen for 2 seconds
-//   pet.catchphrase()        — returns a phrase based on the pet's mood
-//   pet.feed()               — increase food stat
-//   pet.drink()              — increase water stat
-//   pet.exercise(boost)      — increase energy by boost (max 30)
-//   pet.enableDecay()        — start stat decay (call once in Section 4)
-//   pet.mood()               — returns Mood::HAPPY, OKAY, SAD, or DEAD
+//   pet.say(text)            -- show text on screen for 2 seconds
+//   pet.catchphrase()        -- returns a phrase based on the pet's mood
+//   pet.feed()               -- increase food stat
+//   pet.drink()              -- increase water stat
+//   pet.exercise(boost)      -- increase energy by boost (max 30)
+//   pet.enableDecay()        -- start stat decay (call once in Section 4)
+//   pet.mood()               -- returns Mood::HAPPY, OKAY, SAD, or DEAD
 // =============================================================================
 
 #include "buttons.h"
 #include "sound.h"
 #include "leds.h"
+#include "game.h"
 #include "Pet.h"
 
 Pet pet;
@@ -58,32 +60,23 @@ void loop() {
 
 
 // =============================================================================
-// SECTION 4 — BUTTON MASH
+// SECTION 4 -- WIRE IN THE BUTTON MASH
 // =============================================================================
-// When you reach Section 4, replace the loop() above with this one.
-// It adds a 3-second button mash window for the green button.
+// Once you've written buttonMash() in game.cpp, replace loop() above
+// with this version. It calls your function and passes the result to
+// pet.exercise().
 //
-// New concepts: millis(), elapsed time, counters
+// Your task here: fill in the two blanks marked ??? below.
+//   - What pin is the green button on?
+//   - How long should the mash window last (in ms)?
 //
 // void loop() {
 //     static bool lastGreen = false;
 //     bool green = digitalRead(19);
 //
-//     // --- Button mash (green button) ---
 //     if (green && !lastGreen) {
-//         int presses = 0;
-//         unsigned long start = millis();
-//         bool prevBtn = true;
-//
 //         pet.say("MASH IT!");
-//
-//         while (millis() - start < 3000) {
-//             bool btn = digitalRead(19);
-//             if (btn && !prevBtn) presses++;
-//             prevBtn = btn;
-//             pet.update();
-//             delay(10);
-//         }
+//         int presses = buttonMash(???, ???);   // <- fill these in
 //         pet.exercise(presses);
 //     }
 //
@@ -95,7 +88,7 @@ void loop() {
 
 
 // =============================================================================
-// FALLBACK — full working sketch (uncomment everything below if stuck)
+// FALLBACK -- full working sketch (uncomment if stuck)
 // =============================================================================
 // void setup() {
 //     pet.begin();
@@ -110,17 +103,8 @@ void loop() {
 //     bool green = digitalRead(19);
 //
 //     if (green && !lastGreen) {
-//         int presses = 0;
-//         unsigned long start = millis();
-//         bool prevBtn = true;
 //         pet.say("MASH IT!");
-//         while (millis() - start < 3000) {
-//             bool btn = digitalRead(19);
-//             if (btn && !prevBtn) presses++;
-//             prevBtn = btn;
-//             pet.update();
-//             delay(10);
-//         }
+//         int presses = buttonMash(19, 3000);
 //         pet.exercise(presses);
 //     }
 //
