@@ -3,16 +3,11 @@
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-static const int STAT_MAX          = 100;
-static const int STAT_MIN          = 0;
-static const int HAPPY_THRESHOLD   = 60;
-static const int SAD_THRESHOLD     = 40;
-static const int ALERT_THRESHOLD   = 30;
-static const int FEED_AMOUNT       = 20;
-static const int DECAY_RATE        = 1;
-static const int EXERCISE_MAX_BOOST = 30;
+static const int STAT_MAX        = 100;
+static const int STAT_MIN        = 0;
+static const int HAPPY_THRESHOLD = 60;
+static const int SAD_THRESHOLD   = 40;
 
-static const unsigned long DECAY_INTERVAL    = 10000;  // ms
 static const unsigned long BACKLIGHT_TIMEOUT = 30000;  // ms
 static const unsigned long ALERT_COOLDOWN    = 15000;  // ms
 static const unsigned long MSG_DURATION      = 2000;   // ms
@@ -41,10 +36,9 @@ static const int IND_X[3]        = { 40, 120, 200 };
 static const uint16_t IND_COL[3] = { 0xF800, 0xFFE0, 0x07E0 }; // RED YELLOW GREEN
 static const char* IND_LABEL[3]  = { "Food", "Water", "Move" };
 
-// ── Forward declaration ───────────────────────────────────────────────────────
-// playTone and setLed are implemented by participants in sound.cpp and leds.cpp
-extern void playTone(int freq, int duration);
-extern void setLed(int r, int g, int b);
+// ── Weak stubs (overridden when participants add sound.cpp / leds.cpp) ───────
+__attribute__((weak)) void playTone(int freq, int duration) { (void)freq; (void)duration; }
+__attribute__((weak)) void setLed(int r, int g, int b) { (void)r; (void)g; (void)b; }
 
 // ── Constructor ──────────────────────────────────────────────────────────────
 
@@ -59,6 +53,13 @@ Pet::Pet()
 // ── Public API ───────────────────────────────────────────────────────────────
 
 void Pet::begin() {
+    PetConfig defaults;
+    begin(defaults);
+}
+
+void Pet::begin(PetConfig cfg) {
+    _cfg = cfg;
+
     pinMode(PIN_BL, OUTPUT);
     digitalWrite(PIN_BL, HIGH);
 
@@ -77,7 +78,7 @@ void Pet::update() {
     unsigned long now = millis();
 
     // Stat decay
-    if (_decayEnabled && (now - _lastDecay >= DECAY_INTERVAL)) {
+    if (_decayEnabled && (now - _lastDecay >= (unsigned long)_cfg.decayInterval)) {
         _decayAll();
         _lastDecay = now;
     }
@@ -108,23 +109,39 @@ void Pet::update() {
 }
 
 void Pet::feed() {
-    food = min(STAT_MAX, food + FEED_AMOUNT);
+    food = min(STAT_MAX, food + _cfg.feedAmount);
     _lastActivity = millis();
     if (!_backlightOn) { digitalWrite(PIN_BL, HIGH); _backlightOn = true; }
-    _showMessage(catchphrase());
+
+    String msg;
+    switch (_computeMood()) {
+        case Mood::HAPPY: { const char* p[] = {"Yum!", "So full!", "Mmm!", "Delicious!"}; msg = p[random(4)]; break; }
+        case Mood::SAD:   { const char* p[] = {"Finally...", "Needed that", "More please..."}; msg = p[random(3)]; break; }
+        case Mood::DEAD:  msg = "*munch*"; break;
+        default:          { const char* p[] = {"Thanks!", "Nom!", "Tasty!"}; msg = p[random(3)]; break; }
+    }
+    _showMessage(msg);
     _redraw();
 }
 
 void Pet::drink() {
-    water = min(STAT_MAX, water + FEED_AMOUNT);
+    water = min(STAT_MAX, water + _cfg.drinkAmount);
     _lastActivity = millis();
     if (!_backlightOn) { digitalWrite(PIN_BL, HIGH); _backlightOn = true; }
-    _showMessage(catchphrase());
+
+    String msg;
+    switch (_computeMood()) {
+        case Mood::HAPPY: { const char* p[] = {"Ahhh!", "Refreshing!", "Glug glug!", "Hydrated!"}; msg = p[random(4)]; break; }
+        case Mood::SAD:   { const char* p[] = {"So thirsty...", "Needed that...", "*sip*"}; msg = p[random(3)]; break; }
+        case Mood::DEAD:  msg = "*slurp*"; break;
+        default:          { const char* p[] = {"Thanks!", "Glug!", "Nice!"}; msg = p[random(3)]; break; }
+    }
+    _showMessage(msg);
     _redraw();
 }
 
 void Pet::exercise(int boost) {
-    energy = min(STAT_MAX, energy + constrain(boost, 0, EXERCISE_MAX_BOOST));
+    energy = min(STAT_MAX, energy + constrain(boost, 0, _cfg.exerciseCap));
     _lastActivity = millis();
     if (!_backlightOn) { digitalWrite(PIN_BL, HIGH); _backlightOn = true; }
     _showMessage("Nice work!");
@@ -165,9 +182,9 @@ Mood Pet::mood() {
 }
 
 bool Pet::needsAlert() {
-    return (food < ALERT_THRESHOLD ||
-            water < ALERT_THRESHOLD ||
-            energy < ALERT_THRESHOLD);
+    return (food < _cfg.alertThreshold ||
+            water < _cfg.alertThreshold ||
+            energy < _cfg.alertThreshold);
 }
 
 // ── Private helpers ──────────────────────────────────────────────────────────
@@ -187,9 +204,9 @@ Mood Pet::_computeMood() {
 }
 
 void Pet::_decayAll() {
-    food   = max(STAT_MIN, food   - DECAY_RATE);
-    water  = max(STAT_MIN, water  - DECAY_RATE);
-    energy = max(STAT_MIN, energy - DECAY_RATE);
+    food   = max(STAT_MIN, food   - _cfg.decayRate);
+    water  = max(STAT_MIN, water  - _cfg.decayRate);
+    energy = max(STAT_MIN, energy - _cfg.decayRate);
 }
 
 void Pet::_redraw() {

@@ -7,6 +7,17 @@
 
 enum class Mood { HAPPY, OKAY, SAD, DEAD };
 
+// ── Config ───────────────────────────────────────────────────────────────────
+
+struct PetConfig {
+    int decayRate      = 1;
+    int decayInterval  = 10000;
+    int feedAmount     = 20;
+    int drinkAmount    = 20;
+    int exerciseCap    = 30;
+    int alertThreshold = 30;
+};
+
 // ── Pet ──────────────────────────────────────────────────────────────────────
 //
 // The virtual pet. Read this file to understand the API.
@@ -35,6 +46,7 @@ class Pet {
 public:
     Pet();
     void begin();
+    void begin(PetConfig cfg);
     void update();
 
     // ── Actions ──────────────────────────────────────────────────────────────
@@ -68,12 +80,15 @@ private:
     unsigned long _msgClearAt;
     unsigned long _lastAlert;
 
+    PetConfig _cfg;
+
     Mood   _computeMood();
     void   _decayAll();
     void   _redraw();
     void   _drawSprite(Mood m);
     void   _drawIndicators();
     void   _showMessage(String msg);
+    void   _drawText(String msg);
     void   _clearTextZone();
     void   _triggerAlert();
 };
