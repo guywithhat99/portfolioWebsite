@@ -1,68 +1,40 @@
 # Tomogatchi Workshop Guide
 
-> Facilitator reference — structured for slide import.
-> Each heading = one slide. Body text = slide bullets + speaker notes.
+> Facilitator reference — each heading = one slide.
 > Total time: ~2 hours
 
 ---
 
 ## Welcome to the Tomogatchi Workshop
 
-**What we're building today:**
-- A virtual pet that lives on a Raspberry Pi Pico microcontroller
-- It gets hungry, thirsty, and tired — your job is to keep it happy
-- Three buttons: feed it, water it, get it moving
+- We're building a virtual pet on a Raspberry Pi Pico with 3 buttons, an LED, a buzzer, and a screen
+- Your pet gets hungry, thirsty, and tired — keep it alive
+- "Your pet starts alive but broken — one face, does nothing. You bring it to life piece by piece."
 
-**Your pet starts alive — but broken.**
-It shows one face and does nothing else. You're going to bring it to life,
-piece by piece, by wiring up each hardware system and writing the code to drive it.
-
-**What you'll learn:**
-- How to wire a circuit on a breadboard
-- How to write C++ that talks directly to physical hardware
-- How multi-file programs are structured
-- How Arduino sketches work on real embedded hardware
-
-> **Facilitator note:** 5 minutes max. Show the finished device running so
-> participants know what they're working toward. Emphasise: "everything you
-> see happening was written by someone in a workshop like this one."
+> **Facilitator note:** 5 min max. Show the finished device running.
 
 ---
 
 ## Why C++?
 
-- Arduino C++ is the language of real embedded systems
-- The same patterns you'll write today — `pinMode`, `digitalRead`, `tone` —
-  work on STM32, ESP32, AVR, and almost every other microcontroller
-- You're learning something that transfers directly to industry work
-- MicroPython is great for scripting. C++ is great for hardware.
+- Arduino C++ is real embedded — the same `pinMode`, `digitalRead`, `tone` patterns work on STM32, ESP32, AVR
+- You're learning something that transfers directly to industry hardware work
 
-> **Facilitator note:** Keep this to 2 minutes. IEEE audience will appreciate
-> the framing. Don't dwell — they're here to build.
+> **Facilitator note:** 2 min.
 
 ---
 
 ## What Is a Raspberry Pi Pico?
 
-- A microcontroller — a tiny computer designed to control hardware directly
-- Runs C++ compiled with the Arduino toolchain
-- No operating system, no file system, no screen of its own
-- Your compiled code IS the program — it runs the moment it powers on
-- Used in robotics, sensor networks, wearables, and this workshop
+- A microcontroller — no OS, no file system, bare metal
+- Your compiled code IS the program — runs the moment it powers on
+- `setup()` runs once, `loop()` runs forever
 
-**Key difference from a regular computer:**
-- No OS — your code has full control of every pin
-- Code runs bare-metal directly on the RP2040 chip
-- `setup()` runs once; `loop()` runs forever
-
-> **Facilitator note:** Show the physical Pico. Point out the GPIO pins along
-> the edges. Have the pinout diagram visible on screen.
+> **Facilitator note:** Show the physical Pico. Point out GPIO pins along the edges.
 
 ---
 
 ## Toolchain Setup
-
-**If not already installed:**
 
 1. Download **Arduino IDE 2** from arduino.cc
 2. Open Preferences, paste this URL into "Additional boards manager URLs":
@@ -75,62 +47,27 @@ piece by piece, by wiring up each hardware system and writing the code to drive 
    - `Adafruit ST7789`
    - `Adafruit GFX Library`
 
-> **Facilitator note:** Ideally pre-installed on workshop laptops.
-> If not, allow 10 minutes here. Common issue: participants install the
-> official Arduino-Mbed Pico package instead of Earle Philhower — wrong one.
-
----
-
-## How Arduino Sketches Work
-
-- A sketch is a folder containing `.ino`, `.h`, and `.cpp` files
-- **All files in the same folder are compiled together** — the IDE shows them as tabs
-- `.h` = header file: declares functions so other files can call them
-- `.cpp` = source file: defines (implements) the functions
-- `.ino` = the main sketch: contains `setup()` and `loop()`
-
-**Today's file structure:**
-```
-tomogatchi/
-  tomogatchi.ino    <- your main sketch (you edit this)
-  buttons.h/.cpp   <- Section 1 (you write this)
-  sound.h/.cpp     <- Section 2 (you write this)
-  leds.h/.cpp      <- Section 3 (you write this)
-  Pet.h/.cpp       <- the pet engine (read-only, read it!)
-  sprites.h        <- pixel art stored in flash memory
-```
-
-> **Facilitator note:** Click through the tabs in the IDE to show this live.
-> Explain: "Pet.h is like a public API. You call its methods but you don't
-> need to understand every line inside it — same as using any library."
+> **Facilitator note:** Ideally pre-installed on workshop laptops. Allow 10 min if not. Common issue: participants install the Arduino-Mbed Pico package instead of Earle Philhower — wrong one.
 
 ---
 
 ## Reading the Pinout
 
-- GPIO = General Purpose Input/Output
-- Each numbered pin can be an input (read a button) or output (control an LED)
+- GPIO = General Purpose Input/Output — each pin can be input or output
 - Some pins have special functions: SPI for the display, PWM for audio
 - We'll use: GP6, GP8-13, GP16-19, GP21-22
 
 > **Facilitator note:** Hand out or display the pinout diagram.
-> Walk through the pin table together. Participants do not need to
-> memorise this — they'll refer to it during wiring.
 
 ---
 
 ## Breadboard Basics
 
-- A breadboard lets you build circuits without soldering
 - Holes in the same row are electrically connected
-- The two rails down the sides are for power (red = 3.3V) and ground (blue = GND)
-- Components and jumper wires plug straight in
+- The two rails down the sides are for power (3.3V) and ground (GND)
+- **Rule of thumb:** If it doesn't work, check your wiring first.
 
-**Rule of thumb:** If it doesn't work, check your wiring first.
-
-> **Facilitator note:** Draw or show a breadboard diagram. Demonstrate
-> plugging in a single wire and explain the row connection.
-> Common mistake: plugging into the wrong row by one hole.
+> **Facilitator note:** Show a breadboard diagram. Demonstrate the row connection.
 
 ---
 
@@ -171,283 +108,647 @@ Wire in this order. Check each section before moving on.
 | Yellow | GP21     | GND       |
 | Green  | GP19     | GND       |
 
-> **Facilitator note:** 20 minutes. Walk the room as participants wire up.
-> Common pitfalls: buttons not seated fully, LED legs in wrong order,
-> buzzer polarity reversed (swap + and - if silent).
+> **Facilitator note:** 20 min. Walk the room as participants wire up. Common pitfalls: buttons not seated fully, LED legs in wrong order, buzzer polarity reversed.
 
 ---
 
-## Checkpoint 0 - Pet Boots
+## Step 0 — Hello World
 
-**Upload the sketch:**
-1. Open the `tomogatchi` folder in Arduino IDE
-2. Connect your Pico via USB
-3. Select **Tools > Board > Raspberry Pi Pico**
-4. Select the correct port under **Tools > Port**
-5. Click **Upload** (the right-arrow button)
+**Concept:** How Arduino sketches work — `setup()` runs once, `loop()` runs forever.
 
-**You should see:** Your pet's face appears on the display.
-Pressing buttons does nothing. No sound. LED is off. That's correct for now.
+An Arduino sketch is a folder. All `.h`, `.cpp`, and `.ino` files inside it compile together — the IDE shows them as tabs. Three files are already provided: `Pet.h`, `Pet.cpp`, and `sprites.h`. These are the pet engine — you call their methods but don't need to edit them.
 
-> **Facilitator note:** 5 minutes. Most issues here are port selection or the
-> Pico needing to be unplugged and replugged. If upload fails, try holding
-> BOOTSEL while plugging in to force bootloader mode.
+**Create** `tomogatchi.ino`:
 
----
-
-## Section 1 - Buttons + Catchphrases
-
-**Files: `buttons.h` and `buttons.cpp`**
-
-**New concepts:**
-- `pinMode(pin, INPUT_PULLDOWN)` - configure a pin to read input
-- `INPUT_PULLDOWN` keeps the pin at LOW until the button connects it to 3.3V
-- `digitalRead(pin)` - returns HIGH (1) or LOW (0)
-- The "last state" trick - detect a fresh press, not a held press
-
-**Your tasks:**
-
-In `buttons.h` - declare the functions:
 ```cpp
+#include "Pet.h"
+
+Pet pet;
+
+void setup() {
+    pet.begin();
+}
+
+void loop() {
+    pet.update();
+    delay(50);
+}
+```
+
+Upload. Your pet's face appears on the display. Buttons do nothing yet.
+
+> **Facilitator note:** 5 min. Most issues are port selection or needing BOOTSEL mode (hold BOOTSEL while plugging in).
+
+---
+
+## Step 1 — Teach It to Listen
+
+**Concept:** Digital input with `pinMode` and `digitalRead`. Edge detection. Header/source file split.
+
+**Key ideas:**
+- `.h` file = declarations (tells the compiler "this function exists")
+- `.cpp` file = definitions (the actual code)
+- `#pragma once` = only include this file once
+- `pinMode(pin, INPUT_PULLDOWN)` — configures a pin to read button presses. INPUT_PULLDOWN keeps the pin LOW until the button connects it to 3.3V
+- `digitalRead(pin)` — returns HIGH (pressed) or LOW (not pressed)
+- The "last state" trick — detect a fresh press, not a held button:
+  ```cpp
+  static bool lastRed = false;
+  bool red = digitalRead(22);
+  if (red && !lastRed) { /* fresh press! */ }
+  lastRed = red;
+  ```
+
+**Create** `buttons.h`:
+
+```cpp
+#pragma once
+#include "Pet.h"
+
 void setupButtons();
 void readButtons(Pet& pet);
 ```
 
-In `buttons.cpp` - implement them:
+**Create** `buttons.cpp`:
+
 ```cpp
+#include <Arduino.h>
+#include "buttons.h"
+
+const int PIN_BTN_RED    = 22;
+const int PIN_BTN_YELLOW = 21;
+const int PIN_BTN_GREEN  = 19;
+
+static bool lastRed = false, lastYellow = false, lastGreen = false;
+
 void setupButtons() {
-    pinMode(22, INPUT_PULLDOWN);
-    pinMode(21, INPUT_PULLDOWN);
-    pinMode(19, INPUT_PULLDOWN);
+    pinMode(PIN_BTN_RED,    INPUT_PULLDOWN);
+    pinMode(PIN_BTN_YELLOW, INPUT_PULLDOWN);
+    pinMode(PIN_BTN_GREEN,  INPUT_PULLDOWN);
 }
 
 void readButtons(Pet& pet) {
-    static bool lastRed = false, lastYellow = false, lastGreen = false;
-    bool red    = digitalRead(22);
-    bool yellow = digitalRead(21);
-    bool green  = digitalRead(19);
-    if (red    && !lastRed)    pet.say(pet.catchphrase());
-    if (yellow && !lastYellow) pet.say(pet.catchphrase());
-    if (green  && !lastGreen)  pet.say(pet.catchphrase());
-    lastRed = red; lastYellow = yellow; lastGreen = green;
+    bool red    = digitalRead(PIN_BTN_RED);
+    bool yellow = digitalRead(PIN_BTN_YELLOW);
+    bool green  = digitalRead(PIN_BTN_GREEN);
+
+    if (red && !lastRed)       pet.feed();
+    if (yellow && !lastYellow) pet.drink();
+    if (green && !lastGreen)   pet.say(pet.catchphrase());
+
+    lastRed = red;
+    lastYellow = yellow;
+    lastGreen = green;
 }
 ```
 
-Then in `tomogatchi.ino` uncomment `setupButtons()` and `readButtons(pet)`.
+**Update** `tomogatchi.ino` — add the buttons include and calls:
 
-> **Facilitator note:** 20 minutes including Checkpoint 1.
-> Common mistake: forgetting `INPUT_PULLDOWN` - buttons fire randomly.
-> The `static` keyword inside a function is new to many - explain it persists
-> between calls. Note: INPUT_PULLDOWN is Pico-specific. Standard Arduino boards
-> use INPUT_PULLUP with inverted logic (HIGH = not pressed).
-
----
-
-## Checkpoint 1 - Pet Speaks
-
-Press any button. Your pet shows a phrase on screen.
-
-The phrase changes based on the pet's mood - try pressing when happy vs sad.
-
-> **Facilitator note:** If a button always reads as pressed: short circuit or
-> wrong pull mode. If it never responds: check wiring.
-
----
-
-## Section 2 - Buzzer + Melody
-
-**Files: `sound.h` and `sound.cpp`**
-
-**New concepts:**
-- `tone(pin, freq, duration)` - generates a square wave at the given frequency
-- `noTone(pin)` - stops the tone
-- Frequency = pitch: 440Hz = A4, 523Hz = C5, higher = higher pitch
-- A 2D array to store a melody: `int notes[][2] = {{523, 150}, {659, 150}}`
-
-**Your tasks:**
-
-In `sound.h` - declare:
 ```cpp
+#include "Pet.h"
+#include "buttons.h"
+
+Pet pet;
+
+void setup() {
+    pet.begin();
+    setupButtons();
+}
+
+void loop() {
+    readButtons(pet);
+    pet.update();
+    delay(50);
+}
+```
+
+**Checkpoint 1:** Press red — "Yum!", "So full!". Press yellow — "Refreshing!". Press green — mood phrase. Each button does something meaningful.
+
+> **Facilitator note:** 20 min. Common mistake: forgetting INPUT_PULLDOWN (buttons fire randomly). `static` keyword persists between calls — explain briefly. INPUT_PULLDOWN is Pico-specific.
+
+---
+
+## Step 2 — Give It a Voice
+
+**Concept:** `tone()` for sound, frequency = pitch, arrays, for-loops, composing a melody.
+
+**Key ideas:**
+- `tone(pin, freq, duration)` — generates a square wave at the given frequency
+- `noTone(pin)` — stops the tone
+- Frequency = pitch: 440Hz = A4, 523Hz = C5, higher number = higher pitch
+- A melody is an array of {frequency, duration} pairs
+
+**Frequency reference:**
+| Note | Hz  |
+|------|-----|
+| C5   | 523 |
+| D5   | 587 |
+| E5   | 659 |
+| F5   | 698 |
+| G5   | 784 |
+| A5   | 880 |
+| B5   | 988 |
+
+**Create** `sound.h`:
+
+```cpp
+#pragma once
+#include "Pet.h"
+
 void setupBuzzer();
 void playTone(int freq, int duration);
-void playMelody(int notes[][2], int len);
+void playMelody(const int notes[][2], int len);
+void chirp(Mood m);
+
+// Pre-made melodies
+extern const int WAKE_TUNE[][2];
+extern const int WAKE_TUNE_LEN;
+
+extern const int HAPPY_TUNE[][2];
+extern const int HAPPY_TUNE_LEN;
+
+extern const int SAD_TUNE[][2];
+extern const int SAD_TUNE_LEN;
+
+extern const int VICTORY_TUNE[][2];
+extern const int VICTORY_TUNE_LEN;
+
+extern const int DEATH_TUNE[][2];
+extern const int DEATH_TUNE_LEN;
 ```
 
-In `sound.cpp` - implement and compose your melody:
+**Create** `sound.cpp`:
+
 ```cpp
-void setupBuzzer() { pinMode(6, OUTPUT); }
+#include <Arduino.h>
+#include "sound.h"
+
+const int PIN_BUZZER = 6;
+
+void setupBuzzer() {
+    pinMode(PIN_BUZZER, OUTPUT);
+}
 
 void playTone(int freq, int duration) {
-    tone(6, freq, duration);
-    delay(duration);
-    noTone(6);
+    if (freq > 0) {
+        tone(PIN_BUZZER, freq, duration);
+        delay(duration);
+        noTone(PIN_BUZZER);
+    } else {
+        delay(duration);  // rest
+    }
 }
 
-int WAKE_MELODY[][2] = {{523,150},{659,150},{784,300}};
-const int WAKE_MELODY_LEN = 3;
-
-void playMelody(int notes[][2], int len) {
-    for (int i = 0; i < len; i++)
+void playMelody(const int notes[][2], int len) {
+    for (int i = 0; i < len; i++) {
         playTone(notes[i][0], notes[i][1]);
+    }
+}
+
+void chirp(Mood m) {
+    switch (m) {
+        case Mood::HAPPY:
+            playTone(880, 80);
+            playTone(988, 80);
+            break;
+        case Mood::SAD:
+            playTone(330, 200);
+            playTone(262, 300);
+            break;
+        case Mood::DEAD:
+            playTone(150, 400);
+            break;
+        default:
+            playTone(523, 100);
+            break;
+    }
+}
+
+// Pre-made melodies — use these or compose your own!
+
+const int WAKE_TUNE[][2] = {
+    {523, 150}, {523, 150}, {0, 50},
+    {523, 150}, {0, 50}, {415, 150},
+    {523, 200}, {659, 200}, {523, 200}
+};
+const int WAKE_TUNE_LEN = 9;
+
+const int HAPPY_TUNE[][2] = {
+    {523, 120}, {659, 120}, {784, 120},
+    {880, 200}, {784, 120}, {880, 300}
+};
+const int HAPPY_TUNE_LEN = 6;
+
+const int SAD_TUNE[][2] = {
+    {440, 300}, {392, 300}, {349, 400}, {330, 500}
+};
+const int SAD_TUNE_LEN = 4;
+
+const int VICTORY_TUNE[][2] = {
+    {523, 150}, {523, 150}, {523, 150},
+    {659, 400}, {587, 150}, {523, 150},
+    {587, 150}, {659, 200}, {523, 200}
+};
+const int VICTORY_TUNE_LEN = 9;
+
+const int DEATH_TUNE[][2] = {
+    {294, 400}, {277, 400}, {262, 400}, {247, 600}
+};
+const int DEATH_TUNE_LEN = 4;
+```
+
+**Update** `buttons.cpp` — add `#include "sound.h"` at the top, and add chirps after each button action:
+
+```cpp
+#include <Arduino.h>
+#include "buttons.h"
+#include "sound.h"
+
+const int PIN_BTN_RED    = 22;
+const int PIN_BTN_YELLOW = 21;
+const int PIN_BTN_GREEN  = 19;
+
+static bool lastRed = false, lastYellow = false, lastGreen = false;
+
+void setupButtons() {
+    pinMode(PIN_BTN_RED,    INPUT_PULLDOWN);
+    pinMode(PIN_BTN_YELLOW, INPUT_PULLDOWN);
+    pinMode(PIN_BTN_GREEN,  INPUT_PULLDOWN);
+}
+
+void readButtons(Pet& pet) {
+    bool red    = digitalRead(PIN_BTN_RED);
+    bool yellow = digitalRead(PIN_BTN_YELLOW);
+    bool green  = digitalRead(PIN_BTN_GREEN);
+
+    if (red && !lastRed) {
+        pet.feed();
+        chirp(pet.mood());
+    }
+    if (yellow && !lastYellow) {
+        pet.drink();
+        chirp(pet.mood());
+    }
+    if (green && !lastGreen) {
+        pet.say(pet.catchphrase());
+        chirp(pet.mood());
+    }
+
+    lastRed = red;
+    lastYellow = yellow;
+    lastGreen = green;
 }
 ```
 
-In `buttons.cpp`, update the red button to play the melody:
+**Update** `tomogatchi.ino` — add `#include "sound.h"` and `setupBuzzer()`:
+
 ```cpp
-if (red && !lastRed) {
-    playMelody(WAKE_MELODY, WAKE_MELODY_LEN);
-    pet.say(pet.catchphrase());
+#include "Pet.h"
+#include "buttons.h"
+#include "sound.h"
+
+Pet pet;
+
+void setup() {
+    pet.begin();
+    setupButtons();
+    setupBuzzer();
+}
+
+void loop() {
+    readButtons(pet);
+    pet.update();
+    delay(50);
 }
 ```
 
-> **Facilitator note:** 15 minutes including Checkpoint 2.
-> If buzzer is silent: check polarity (swap + and -).
-> tone() blocks - this is intentional here, explain it.
-> Encourage changing note values and listening.
+**Checkpoint 2:** Press any button — hear a chirp that matches the pet's mood. Happy pet = bright rising chirp. Sad pet = low descending moan. Try changing frequencies in `chirp()` or composing your own melody!
+
+> **Facilitator note:** 20 min. If buzzer is silent: check polarity. `tone()` blocks — intentional here. Encourage changing note values.
 
 ---
 
-## Checkpoint 2 - Pet Has a Voice
+## Step 3 — Light It Up
 
-Press the red button. Melody plays, phrase shows.
+**Concept:** `digitalWrite()` for output, RGB colour mixing, reading provided code.
 
-Try changing the frequency values. What's the highest note you can hear?
+**Key ideas:**
+- `digitalWrite(pin, HIGH)` / `digitalWrite(pin, LOW)` — turn an output on or off
+- RGB LED has 3 channels — mixing them makes colours:
+  - (1,0,0) = red, (0,1,0) = green, (1,1,0) = yellow, (1,0,1) = magenta
 
----
+**Create** `leds.h`:
 
-## Section 3 - RGB LED + Simon Says
-
-**Files: `leds.h` and `leds.cpp`**
-
-**New concepts:**
-- `digitalWrite(pin, HIGH/LOW)` - turn a digital output on or off
-- RGB LED: three independent colour channels mixed together
-- `random(n)` - returns a random integer from 0 to n-1
-
-**Your tasks:**
-
-In `leds.h` - declare:
 ```cpp
+#pragma once
+
 void setupLeds();
 void setLed(int r, int g, int b);
 bool playSimon();
 ```
 
-In `leds.cpp` - implement setupLeds and setLed:
+**Create** `leds.cpp` — write `setupLeds` and `setLed` yourself:
+
 ```cpp
+#include <Arduino.h>
+#include "leds.h"
+#include "sound.h"
+
+const int PIN_LED_R = 16;
+const int PIN_LED_G = 17;
+const int PIN_LED_B = 18;
+
 void setupLeds() {
-    pinMode(16, OUTPUT);
-    pinMode(17, OUTPUT);
-    pinMode(18, OUTPUT);
+    pinMode(PIN_LED_R, OUTPUT);
+    pinMode(PIN_LED_G, OUTPUT);
+    pinMode(PIN_LED_B, OUTPUT);
 }
 
 void setLed(int r, int g, int b) {
-    digitalWrite(16, r);
-    digitalWrite(17, g);
-    digitalWrite(18, b);
+    digitalWrite(PIN_LED_R, r);
+    digitalWrite(PIN_LED_G, g);
+    digitalWrite(PIN_LED_B, b);
 }
 ```
 
-`playSimon()` is already written in `leds.cpp` - read it, don't edit it.
-It uses YOUR `setLed()` and `playTone()`.
+The Simon Says game is provided below. Copy it into `leds.cpp` after your `setLed` function. Read through it — it uses YOUR `setLed()` and `playTone()` to run a real game.
 
-In `buttons.cpp` add to the yellow button:
 ```cpp
-if (yellow && !lastYellow) {
-    bool won = playSimon();
-    won ? pet.feed() : pet.say("Nope...");
+bool playSimon() {
+    const int SEQ_LEN = 3;
+
+    int colours[3][3] = {
+        {1, 0, 0},   // red
+        {0, 1, 0},   // green
+        {1, 1, 0},   // yellow
+    };
+    int buttons[3] = {22, 19, 21};    // red, green, yellow
+    int tones[3]   = {440, 523, 659}; // A4, C5, E5
+
+    int seq[SEQ_LEN];
+    for (int i = 0; i < SEQ_LEN; i++) seq[i] = random(3);
+
+    delay(500);
+    for (int i = 0; i < SEQ_LEN; i++) {
+        int c = seq[i];
+        setLed(colours[c][0], colours[c][1], colours[c][2]);
+        playTone(tones[c], 400);
+        setLed(0, 0, 0);
+        delay(200);
+    }
+    delay(300);
+
+    for (int i = 0; i < SEQ_LEN; i++) {
+        unsigned long start = millis();
+        bool waiting = true;
+        while (waiting && millis() - start < 5000) {
+            for (int b = 0; b < 3; b++) {
+                if (digitalRead(buttons[b])) {
+                    setLed(colours[b][0], colours[b][1], colours[b][2]);
+                    playTone(tones[b], 200);
+                    setLed(0, 0, 0);
+                    delay(100);
+                    if (b != seq[i]) return false;
+                    waiting = false;
+                    break;
+                }
+            }
+            delay(10);
+        }
+        if (waiting) return false;
+    }
+
+    for (int i = 0; i < 3; i++) {
+        setLed(1, 1, 1);
+        delay(100);
+        setLed(0, 0, 0);
+        delay(100);
+    }
+    return true;
 }
 ```
 
-> **Facilitator note:** 20 minutes including Checkpoint 3.
-> RGB mixing is always fun - encourage setLed(1,1,0) yellow, setLed(1,0,1) magenta.
-> Payoff moment: their setLed() and playTone() now drive a real game.
-> Common issue: wrong colours - check GP16=Red, GP17=Green, GP18=Blue.
+**Update** `buttons.cpp` — add `#include "leds.h"` at the top. Replace the yellow button action and add mood LED glow:
+
+```cpp
+#include <Arduino.h>
+#include "buttons.h"
+#include "sound.h"
+#include "leds.h"
+
+const int PIN_BTN_RED    = 22;
+const int PIN_BTN_YELLOW = 21;
+const int PIN_BTN_GREEN  = 19;
+
+static bool lastRed = false, lastYellow = false, lastGreen = false;
+
+void setupButtons() {
+    pinMode(PIN_BTN_RED,    INPUT_PULLDOWN);
+    pinMode(PIN_BTN_YELLOW, INPUT_PULLDOWN);
+    pinMode(PIN_BTN_GREEN,  INPUT_PULLDOWN);
+}
+
+void readButtons(Pet& pet) {
+    bool red    = digitalRead(PIN_BTN_RED);
+    bool yellow = digitalRead(PIN_BTN_YELLOW);
+    bool green  = digitalRead(PIN_BTN_GREEN);
+
+    if (red && !lastRed) {
+        pet.feed();
+        chirp(pet.mood());
+    }
+
+    if (yellow && !lastYellow) {
+        bool won = playSimon();
+        if (won) {
+            pet.feed();
+            playMelody(VICTORY_TUNE, VICTORY_TUNE_LEN);
+        } else {
+            pet.say("Nope...");
+            playTone(200, 300);
+        }
+    }
+
+    if (green && !lastGreen) {
+        pet.say(pet.catchphrase());
+        chirp(pet.mood());
+    }
+
+    // Mood LED glow after any press
+    if ((red && !lastRed) || (yellow && !lastYellow) || (green && !lastGreen)) {
+        switch (pet.mood()) {
+            case Mood::HAPPY: setLed(0, 1, 0); break;
+            case Mood::SAD:   setLed(1, 0, 0); break;
+            case Mood::DEAD:  setLed(0, 0, 0); break;
+            default:          setLed(1, 1, 0); break;
+        }
+    }
+
+    lastRed = red;
+    lastYellow = yellow;
+    lastGreen = green;
+}
+```
+
+**Update** `tomogatchi.ino` — add `#include "leds.h"` and `setupLeds()`:
+
+```cpp
+#include "Pet.h"
+#include "buttons.h"
+#include "sound.h"
+#include "leds.h"
+
+Pet pet;
+
+void setup() {
+    pet.begin();
+    setupButtons();
+    setupBuzzer();
+    setupLeds();
+}
+
+void loop() {
+    readButtons(pet);
+    pet.update();
+    delay(50);
+}
+```
+
+**Checkpoint 3:** LED glows mood colour on every interaction. Yellow triggers Simon Says — LED flashes a colour sequence with tones, you press matching buttons. Win = pet fed + victory fanfare + white flash. Lose = sad buzz. Common issue: wrong colours means wrong pin wiring (GP16=R, GP17=G, GP18=B).
+
+> **Facilitator note:** 20 min. RGB mixing is fun — encourage experimenting. The payoff: their `setLed()` and `playTone()` drive a real game.
 
 ---
 
-## Checkpoint 3 - Simon Says
+## Step 4 — It Needs You
 
-Yellow button triggers Simon Says. LED flashes a 3-colour sequence.
-Press the matching buttons in order.
+**Concept:** `millis()` for non-blocking timing, counters, assembling the full system.
 
-Win: pet gets fed. Lose: "Nope..."
+**Key ideas:**
+- `millis()` returns milliseconds since the Pico started
+- Unlike `delay()`, it doesn't stop the program — you can check elapsed time while doing other things
+- Pattern:
+  ```cpp
+  unsigned long start = millis();
+  while (millis() - start < 3000) {
+      // runs for 3 seconds
+  }
+  ```
+
+**Create** `game.h`:
+
+```cpp
+#pragma once
+
+int buttonMash(int pin, int durationMs);
+```
+
+**Create** `game.cpp`:
+
+```cpp
+#include <Arduino.h>
+#include "game.h"
+
+int buttonMash(int pin, int durationMs) {
+    int presses = 0;
+    bool lastBtn = digitalRead(pin);
+    unsigned long start = millis();
+
+    while (millis() - start < (unsigned long)durationMs) {
+        bool btn = digitalRead(pin);
+        if (btn && !lastBtn) presses++;
+        lastBtn = btn;
+        delay(10);
+    }
+    return presses;
+}
+```
+
+Now the big moment — **update** `tomogatchi.ino` to wire everything together:
+
+```cpp
+#include "Pet.h"
+#include "buttons.h"
+#include "sound.h"
+#include "leds.h"
+#include "game.h"
+
+Pet pet;
+
+void setup() {
+    pet.begin();
+    setupButtons();
+    setupBuzzer();
+    setupLeds();
+    pet.enableDecay();
+}
+
+void loop() {
+    static bool lastGreen = false;
+    bool green = digitalRead(19);
+
+    if (green && !lastGreen) {
+        pet.say("MASH IT!");
+        int presses = buttonMash(19, 3000);
+        pet.exercise(presses);
+    }
+
+    lastGreen = green;
+    readButtons(pet);
+    pet.update();
+    delay(50);
+}
+```
+
+Key change: `pet.enableDecay()` in setup makes the pet mortal. Stats now decay over time. The green button now triggers a 3-second mash window instead of just a catchphrase.
+
+**Checkpoint 4:** Full tamagotchi running! Leave it alone 30 seconds — watch it get sad, start begging ("Don't forget me!"), LED flashes red. Mash green — "MASH IT!" appears, mash as fast as you can, energy goes up. Feed and water it to keep it alive.
+
+> **Facilitator note:** 15 min. When `enableDecay()` runs, the game goes live — stats fall, pet gets sad, alerts fire. Leave it alone to demo. Then show recovery.
 
 ---
 
-## Section 4 - Button Mash + Full Game
+## Step 5 — Make It Yours
 
-**File: `tomogatchi.ino`**
+Ideas to try during free time:
 
-**New concepts:**
-- `millis()` - milliseconds since the Pico started
-- `millis() - start < 3000` - a non-blocking elapsed time check
-- Counters: tracking button presses in a time window
+**Tune your pet** — change config values in `tomogatchi.ino`:
+```cpp
+PetConfig config;
+config.decayRate = 3;        // faster decay
+config.decayInterval = 5000; // twice as fast
+config.feedAmount = 10;      // less food per press
+pet.begin(config);
+```
 
-**Your tasks:**
+**Compose a melody** — change the notes in `sound.cpp` or write new ones using the frequency table.
 
-1. Uncomment `pet.enableDecay()` in `setup()` - stats now decay over time.
-   The game is real.
+**Custom sprite** — draw at piskelapp.com, export PNG, convert:
+```
+python tools/convert.py face.png --header -o tomogatchi/mysprite.h
+```
 
-2. Replace `loop()` with the button mash version from the comment block
-   in `tomogatchi.ino`. Green button opens a 3-second mash window.
-   The count is passed to `pet.exercise(presses)`.
+**Extend Simon** — change `SEQ_LEN` from 3 to 5 in `leds.cpp`.
 
-> **Facilitator note:** 15 minutes. When they call enableDecay() the game goes
-> live - stats start falling. Leave the pet alone for 30 seconds, watch it
-> get sad. Then mash green and watch it recover.
+**Secret combo** — all three buttons at once = full heal.
 
----
-
-## Checkpoint 4 - Full Game
-
-Everything is live:
-- Stats decay over time
-- Red: feed | Yellow: water + Simon Says | Green: 3-second mash
-- Happy / okay / sad / dead faces
-- LED flashes red when attention is needed
-- Melody plays on button press
-
-Leave it alone. Watch it die. Bring it back.
-
----
-
-## Extensions - Go Further
-
-**Art:**
-- Draw a 120x120 face at piskel.com
-- Export as PNG, then: `python tools/convert.py face.png face.h --header --name MYFACE`
-- Add `#include "face.h"` to sprites.h and use SPRITE_MYFACE in Pet.cpp
-
-**Sound:**
-- Compose a sad melody and switch melodies based on `pet.mood()`
-- Try: `if (pet.mood() == Mood::SAD) playMelody(SAD_MELODY, SAD_LEN);`
-
-**Game tuning:**
-- Change `DECAY_RATE` or `DECAY_INTERVAL` in Pet.cpp
-- Increase Simon sequence length from 3 to 5 in leds.cpp
-- Add a secret button combo
-
-> **Facilitator note:** ~30 minutes free time. Share the repo link.
+> **Facilitator note:** 20 min free time.
 
 ---
 
 ## Wrap Up
 
-**What you built:**
-- A complete interactive embedded device with display, buttons, LED, and buzzer
-- Hardware-interfacing code in Arduino C++
-- A multi-file C++ program with headers, source files, and a state machine
+**What you built:** A complete interactive embedded device with display, buttons, LED, and buzzer.
 
 **What you learned:**
-- GPIO: `pinMode`, `digitalRead`, `digitalWrite`
-- PWM audio: `tone()` and frequency
+- `pinMode`, `digitalRead`, `digitalWrite` — GPIO basics
+- `tone()` — PWM audio and frequency
 - RGB colour mixing
-- `millis()` for elapsed time
-- Header files and multi-file C++ compilation
-- How hardware and software work together in real embedded systems
+- `millis()` — non-blocking timing
+- Header/source file split
+- How hardware and software work together
 
-**Take it home.** Keep your pet alive.
+Take it home. Keep your pet alive.
 
 ---
 
@@ -455,11 +756,10 @@ Leave it alone. Watch it die. Bring it back.
 
 | Problem | Cause | Fix |
 |---------|-------|-----|
-| Buttons fire randomly | Missing INPUT_PULLDOWN | Add third arg to pinMode |
-| Button never responds | Bad wiring | Check jumper from button to GP pin |
+| Buttons fire randomly | Missing INPUT_PULLDOWN | Add to pinMode |
+| Button never responds | Bad wiring | Check jumper wire |
 | Buzzer silent | Reversed polarity | Swap + and - |
-| Wrong LED colour | Wrong pin order | GP16=R, GP17=G, GP18=B |
-| Upload fails | Wrong port or board | Check Tools > Board and Tools > Port |
-| Upload fails (no port) | Pico not in normal mode | Hold BOOTSEL, plug in, release |
-| Wrong board warning | Arduino-Mbed package | Must use Earle Philhower package |
-| tone() question | "Why does it freeze?" | Explain blocking is intentional here |
+| Wrong LED colour | Wrong pin | GP16=R, GP17=G, GP18=B |
+| Upload fails | Wrong port/board | Check Tools menu |
+| No port showing | Pico not connected | Hold BOOTSEL, plug in |
+| Wrong board | Arduino-Mbed package | Use Earle Philhower package |
