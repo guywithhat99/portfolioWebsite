@@ -1,25 +1,23 @@
 #pragma once
+#include "Pet.h"
 
-// =============================================================================
-// SECTION 2 — SOUND
-// =============================================================================
-// Declare your functions here, define them in sound.cpp.
-//
-// You need three things:
-//   void setupBuzzer()                    — configure the buzzer pin
-//   void playTone(int freq, int duration) — play one note
-//   void playMelody(int notes[][2], int len) — play an array of notes
-// =============================================================================
+void setupBuzzer();
+void playTone(int freq, int duration);
+void playMelody(const int notes[][2], int len);
+void chirp(Mood m);
 
-// === YOUR CODE HERE ===
-// void setupBuzzer();
-// void playTone(int freq, int duration);
-// void playMelody(int notes[][2], int len);
+// Pre-made melodies — use these or compose your own!
+extern const int WAKE_TUNE[][2];
+extern const int WAKE_TUNE_LEN;
 
+extern const int HAPPY_TUNE[][2];
+extern const int HAPPY_TUNE_LEN;
 
-// =============================================================================
-// FALLBACK
-// =============================================================================
-// void setupBuzzer();
-// void playTone(int freq, int duration);
-// void playMelody(int notes[][2], int len);
+extern const int SAD_TUNE[][2];
+extern const int SAD_TUNE_LEN;
+
+extern const int VICTORY_TUNE[][2];
+extern const int VICTORY_TUNE_LEN;
+
+extern const int DEATH_TUNE[][2];
+extern const int DEATH_TUNE_LEN;

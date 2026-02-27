@@ -1,73 +1,57 @@
+#include <Arduino.h>
 #include "buttons.h"
-
-// =============================================================================
-// SECTION 1 — BUTTONS + CATCHPHRASES
-// =============================================================================
-//
-// Your job: wire up the three buttons and make the pet speak.
-//
-// Pin numbers:
-//   Red button    -> GP22
-//   Yellow button -> GP21
-//   Green button  -> GP19
-//
-// Step 1 — setupButtons()
-//   Configure each pin as an INPUT with a pull-down resistor:
-//     pinMode(22, INPUT_PULLDOWN);
-//
-//   INPUT_PULLDOWN keeps the pin at LOW (0) when the button is not pressed.
-//   When the button IS pressed, it connects the pin to 3.3V -> reads HIGH (1).
-//
-// Step 2 — readButtons(Pet& pet)
-//   Read each button with digitalRead(pin).
-//   On a fresh press (HIGH now, was LOW last loop), call:
-//     pet.say(pet.catchphrase());
-//
-//   The "last state" trick prevents one press registering many times:
-//     static bool lastRed = false;
-//     bool red = digitalRead(22);
-//     if (red && !lastRed) { /* fresh press */ }
-//     lastRed = red;
-//
-// Once done, go to tomogatchi.ino and uncomment:
-//   setupButtons();   in setup()
-//   readButtons(pet); in loop()
-// =============================================================================
+#include "sound.h"
+#include "leds.h"
 
 const int PIN_BTN_RED    = 22;
 const int PIN_BTN_YELLOW = 21;
 const int PIN_BTN_GREEN  = 19;
 
-// === YOUR CODE HERE ===
+static bool lastRed = false, lastYellow = false, lastGreen = false;
 
-// void setupButtons() {
-//
-// }
+void setupButtons() {
+    pinMode(PIN_BTN_RED,    INPUT_PULLDOWN);
+    pinMode(PIN_BTN_YELLOW, INPUT_PULLDOWN);
+    pinMode(PIN_BTN_GREEN,  INPUT_PULLDOWN);
+}
 
-// void readButtons(Pet& pet) {
-//
-// }
+void readButtons(Pet& pet) {
+    bool red    = digitalRead(PIN_BTN_RED);
+    bool yellow = digitalRead(PIN_BTN_YELLOW);
+    bool green  = digitalRead(PIN_BTN_GREEN);
 
+    if (red && !lastRed) {
+        pet.feed();
+        chirp(pet.mood());
+    }
 
-// =============================================================================
-// FALLBACK (working solution — uncomment if stuck)
-// =============================================================================
-// static bool lastRed = false, lastYellow = false, lastGreen = false;
-//
-// void setupButtons() {
-//     pinMode(PIN_BTN_RED,    INPUT_PULLDOWN);
-//     pinMode(PIN_BTN_YELLOW, INPUT_PULLDOWN);
-//     pinMode(PIN_BTN_GREEN,  INPUT_PULLDOWN);
-// }
-//
-// void readButtons(Pet& pet) {
-//     bool red    = digitalRead(PIN_BTN_RED);
-//     bool yellow = digitalRead(PIN_BTN_YELLOW);
-//     bool green  = digitalRead(PIN_BTN_GREEN);
-//
-//     if (red    && !lastRed)    pet.say(pet.catchphrase());
-//     if (yellow && !lastYellow) pet.say(pet.catchphrase());
-//     if (green  && !lastGreen)  pet.say(pet.catchphrase());
-//
-//     lastRed = red; lastYellow = yellow; lastGreen = green;
-// }
+    if (yellow && !lastYellow) {
+        bool won = playSimon();
+        if (won) {
+            pet.feed();
+            playMelody(VICTORY_TUNE, VICTORY_TUNE_LEN);
+        } else {
+            pet.say("Nope...");
+            playTone(200, 300);
+        }
+    }
+
+    if (green && !lastGreen) {
+        pet.say(pet.catchphrase());
+        chirp(pet.mood());
+    }
+
+    // Mood LED glow after any press
+    if ((red && !lastRed) || (yellow && !lastYellow) || (green && !lastGreen)) {
+        switch (pet.mood()) {
+            case Mood::HAPPY: setLed(0, 1, 0); break;
+            case Mood::SAD:   setLed(1, 0, 0); break;
+            case Mood::DEAD:  setLed(0, 0, 0); break;
+            default:          setLed(1, 1, 0); break;
+        }
+    }
+
+    lastRed = red;
+    lastYellow = yellow;
+    lastGreen = green;
+}
