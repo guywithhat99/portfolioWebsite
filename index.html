@@ -93,12 +93,10 @@
         }
         @keyframes flicker { 0%,97%,100% { opacity: 1; } 98% { opacity: 0.94; } 99% { opacity: 0.99; } }
 
-        /* the layer that actually gets the glass curvature */
+        /* content layer (centered terminal text) */
         .tube {
             position: absolute; inset: 0; z-index: 1;
             display: grid; place-items: center;
-            filter: url(#barrel);
-            -webkit-filter: url(#barrel);
             animation: breathe 6s ease-in-out infinite;
         }
         @keyframes breathe { 0%,100% { opacity: 0.92; } 50% { opacity: 1; } }
@@ -144,8 +142,6 @@
                 radial-gradient(130% 125% at 50% 50%, transparent 58%, rgba(0,0,0,0.6) 100%);
         }
 
-        .svgdefs { position: absolute; width: 0; height: 0; }
-
         @media (prefers-reduced-motion: reduce) {
             .crt, .tube, .caret, .fx { animation: none; }
             .fx { opacity: 1; transform: none; }
@@ -172,13 +168,6 @@
         <div class="scanlines"></div>
         <div class="glare"></div>
     </div>
-
-    <svg class="svgdefs" aria-hidden="true" focusable="false">
-        <filter id="barrel" color-interpolation-filters="sRGB">
-            <feImage href="/crt-map.png" preserveAspectRatio="none" result="map" />
-            <feDisplacementMap in="SourceGraphic" in2="map" scale="60" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-    </svg>
 
     <script>
         const screen = document.getElementById("screen");
