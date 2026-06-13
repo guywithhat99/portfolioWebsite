@@ -1,344 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Your Own Virtual Pet</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jack miller</title>
+    <meta name="description" content="jack miller — embedded systems, avionics & firmware." />
+    <meta name="theme-color" content="#0a0d0b" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="jack miller" />
+    <meta property="og:description" content="embedded systems · avionics · firmware" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://guywithhat.me" />
 
-    <!-- Reveal core -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
 
     <style>
-        /* ═══ PALETTE ═══════════════════════════════════════════════════ */
         :root {
-            --bg:          #0c1019;
-            --bg-surface:  #141b27;
-            --bg-code:     #111820;
-            --text:        #e8dfd0;
-            --text-dim:    #8a8272;
-            --heading:     #f5e6c8;
-            --accent:      #f0a830;
-            --accent-glow: #f0a83066;
-            --green:       #4ade80;
-            --green-dim:   #4ade8033;
-            --red:         #f87171;
-            --blue:        #60a5fa;
-            --purple:      #c084fc;
-            --code-border: #2a3545;
-            --table-line:  #2a3545;
+            --bg: #0a0d0b;
+            --fg: #8fb597;          /* muted sage phosphor */
+            --dim: #586b5d;         /* prompts, labels */
+            --hi: #cde6d2;          /* name only */
+            --mx: 50%;
+            --my: 50%;
         }
 
-        /* ═══ GLOBAL ════════════════════════════════════════════════════ */
-        .reveal-viewport {
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; }
+
+        body {
             background: var(--bg);
-            background-image:
-                radial-gradient(ellipse at 20% 80%, #f0a83008 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, #4ade8006 0%, transparent 50%);
-        }
-
-        .reveal {
-            font-family: 'DM Sans', system-ui, sans-serif;
-            font-size: 32px;
-            color: var(--text);
-        }
-
-        /* ═══ TYPOGRAPHY ════════════════════════════════════════════════ */
-        .reveal h1,
-        .reveal h2,
-        .reveal h3 {
-            font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-            color: var(--heading);
-            text-transform: none;
-            letter-spacing: -0.02em;
-            line-height: 1.15;
-            text-shadow: 0 0 40px #f0a83022;
-        }
-
-        .reveal h1 {
-            font-size: 2.6em;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent) 0%, #fcd34d 50%, var(--accent) 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 6s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% center; }
-            50% { background-position: 200% center; }
-        }
-
-        .reveal h2 {
-            font-size: 1.8em;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        .reveal h3 {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: var(--heading);
-        }
-
-        .reveal p,
-        .reveal li {
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        .reveal strong {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .reveal em {
-            color: var(--green);
-            font-style: normal;
-        }
-
-        .reveal a {
-            color: var(--blue);
-        }
-
-        /* ═══ LISTS ═════════════════════════════════════════════════════ */
-        .reveal ul, .reveal ol {
-            text-align: left;
-        }
-
-        .reveal li {
-            margin-bottom: 0.35em;
-        }
-
-        .reveal li::marker {
-            color: var(--accent);
-        }
-
-        /* ═══ CODE ══════════════════════════════════════════════════════ */
-        .reveal code {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .reveal pre {
-            width: 100%;
-            margin: 0.6em 0;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 #ffffff08;
-            border: 1px solid var(--code-border);
-            border-radius: 10px;
-        }
-
-        .reveal pre code {
-            font-size: 0.9em;
+            color: var(--fg);
+            font-family: "VT323", ui-monospace, monospace;
+            font-size: clamp(19px, 2.4vw, 24px);
             line-height: 1.45;
-            padding: 0.7em 1em;
-            border-radius: 10px;
-            background: var(--bg-code);
-            max-height: 560px;
-        }
-
-        .reveal :not(pre) > code {
-            background: var(--bg-surface);
-            border: 1px solid var(--code-border);
-            color: var(--green);
-            padding: 0.1em 0.4em;
-            border-radius: 5px;
-            font-size: 0.85em;
-        }
-
-        /* ═══ TABLES ════════════════════════════════════════════════════ */
-        .reveal table {
-            margin: 0.6em auto;
-            border-collapse: collapse;
-        }
-
-        .reveal table th {
-            font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-            font-weight: 700;
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-            padding: 0.4em 0.8em;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .reveal table td {
-            padding: 0.35em 0.8em;
-            border-bottom: 1px solid var(--table-line);
-            font-size: 0.8em;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .reveal table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .reveal table tbody tr:hover td {
-            background: #ffffff06;
-        }
-
-        /* ═══ STEP WATERMARKS ══════════════════════════════════════════ */
-        .reveal .step-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 6.5em;
-            font-weight: 700;
-            color: var(--accent);
-            opacity: 0.07;
-            position: absolute;
-            top: -0.05em;
-            right: 0.05em;
-            line-height: 1;
-            pointer-events: none;
-            letter-spacing: -0.04em;
-            user-select: none;
-            z-index: 0;
-        }
-
-        /* ═══ PHOTO PLACEHOLDERS ════════════════════════════════════════ */
-        /* Target all the inline-styled placeholder divs */
-        .reveal section div[style*="dashed"] {
-            font-family: 'DM Sans', system-ui, sans-serif !important;
-            backdrop-filter: blur(4px);
-            transition: all 0.3s ease;
-            position: relative;
+            min-height: 100svh;
+            display: grid;
+            place-items: center;
             overflow: hidden;
-        }
-
-        .reveal section div[style*="dashed"]::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(135deg, transparent 48%, #ffffff06 50%, transparent 52%),
-                linear-gradient(45deg, transparent 48%, #ffffff04 50%, transparent 52%);
-            background-size: 20px 20px;
-            pointer-events: none;
-        }
-
-        /* ═══ SLIDE-SPECIFIC ════════════════════════════════════════════ */
-
-        /* Title slide — bigger subtitle */
-        .reveal section:first-child h3 {
-            color: var(--text-dim);
-            font-weight: 400;
-            font-size: 1em;
-            margin-top: 0.3em;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        /* Step headers (h2 starting with "Step") get a badge */
-        .reveal h2 {
             position: relative;
         }
 
-        /* ═══ BLOCKQUOTES (used for callouts) ═══════════════════════════ */
-        .reveal blockquote {
-            background: var(--bg-surface);
-            border-left: 4px solid var(--accent);
-            padding: 0.6em 1em;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.85em;
-            width: 90%;
-            margin: 0.6em auto;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        /* very faint glow trailing the cursor — the one mouse touch */
+        .cursorglow {
+            position: fixed; inset: 0; z-index: 1; pointer-events: none;
+            background: radial-gradient(340px circle at var(--mx) var(--my), rgba(143,181,151,0.05), transparent 65%);
+            transition: background 0.4s ease;
         }
 
-        /* ═══ CONTROLS & PROGRESS ═══════════════════════════════════════ */
-        .reveal .controls .navigate-left,
-        .reveal .controls .navigate-right,
-        .reveal .controls .navigate-up,
-        .reveal .controls .navigate-down {
-            color: var(--accent);
+        .screen {
+            position: relative; z-index: 2;
+            width: min(620px, 88vw);
+            padding: 8px 4px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            animation: breathe 6s ease-in-out infinite;  /* the only ambient motion */
+        }
+        @keyframes breathe { 0%,100% { opacity: 0.9; } 50% { opacity: 1; } }
+
+        .line { display: block; min-height: 1.45em; }
+        .ps1 { color: var(--dim); }
+        .k   { color: var(--dim); }
+        .big {
+            color: var(--hi);
+            font-size: 2em; line-height: 1.1;
+            display: inline-block; margin: 0.04em 0;
         }
 
-        .reveal .progress span {
-            background: linear-gradient(90deg, var(--accent), var(--green));
+        /* output lines ease in as they print */
+        .fx { opacity: 0; transform: translateY(4px); animation: rise 0.45s ease forwards; }
+        @keyframes rise { to { opacity: 1; transform: none; } }
+
+        a.link {
+            color: var(--fg);
+            text-decoration: none;
+            padding: 0 3px;
+            transition: background 0.14s ease, color 0.14s ease;
+        }
+        a.link:hover, a.link:focus-visible {
+            background: var(--fg);     /* gentle inverse video */
+            color: var(--bg);
+            outline: none;
         }
 
-        .reveal .progress {
-            height: 4px;
+        /* block cursor, smooth blink */
+        .caret {
+            display: inline-block;
+            width: 0.55em; height: 1em;
+            background: var(--fg);
+            vertical-align: -0.12em;
+            animation: blink 1.25s ease-in-out infinite;
+        }
+        @keyframes blink { 0%,40% { opacity: 1; } 70%,100% { opacity: 0; } }
+
+        /* whisper-thin scanlines + soft vignette — barely there */
+        .scanlines {
+            position: fixed; inset: 0; z-index: 3; pointer-events: none;
+            background: repeating-linear-gradient(to bottom,
+                rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.10) 3px);
+            mix-blend-mode: multiply;
+        }
+        .vignette {
+            position: fixed; inset: 0; z-index: 4; pointer-events: none;
+            background: radial-gradient(130% 120% at 50% 50%, transparent 68%, rgba(0,0,0,0.32) 100%);
         }
 
-        /* ═══ SLIDE NUMBER ══════════════════════════════════════════════ */
-        .reveal .slide-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--text-dim);
-            background: transparent;
-            right: 16px;
-            bottom: 16px;
-        }
-
-        /* ═══ FRAGMENT ANIMATIONS ═══════════════════════════════════════ */
-        .reveal .slides section {
-            transition: all 0.4s ease;
-        }
-
-        /* ═══ SCROLLBAR ═════════════════════════════════════════════════ */
-        .reveal pre code::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        .reveal pre code::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .reveal pre code::-webkit-scrollbar-thumb {
-            background: var(--code-border);
-            border-radius: 3px;
-        }
-
-        /* ═══ PRINT / PDF ═══════════════════════════════════════════════ */
-        @media print {
-            .reveal-viewport { background: #1a1a2e; }
-            .reveal section div[style*="dashed"]::before { display: none; }
-        }
-
-        /* ═══ SMALL SCREEN ══════════════════════════════════════════════ */
-        @media (max-width: 768px) {
-            .reveal { font-size: 24px; }
-            .reveal pre code { font-size: 0.5em; }
+        @media (prefers-reduced-motion: reduce) {
+            .screen { animation: none; opacity: 1; }
+            .caret { animation: none; }
+            .fx { animation: none; opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
-    <div class="reveal">
-        <div class="slides">
-            <section data-markdown="presentation.md"
-                     data-separator="^---$"
-                     data-separator-vertical="^----$"
-                     data-separator-notes="^> ">
-            </section>
-        </div>
+    <div class="cursorglow"></div>
+
+    <div class="screen" id="screen" aria-label="terminal">
+        <noscript>
+            <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> whoami</div>
+            <div class="line"><span class="big">jack miller</span></div>
+            <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> ls links/</div>
+            <div class="line"><span class="k">github  </span> <a class="link" href="https://github.com/guywithhat99">github.com/guywithhat99</a></div>
+            <div class="line"><span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jack-miller-51270a158/">linkedin.com/in/jack-miller</a></div>
+        </noscript>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
     <script>
-        Reveal.initialize({
-            hash: true,
-            controls: true,
-            controlsLayout: 'edges',
-            progress: true,
-            slideNumber: 'c/t',
-            transition: 'slide',
-            transitionSpeed: 'default',
-            backgroundTransition: 'fade',
-            center: true,
-            margin: 0.08,
-            width: 1280,
-            height: 720,
-            plugins: [RevealMarkdown, RevealHighlight]
-        });
+        const screen = document.getElementById("screen");
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const fine = matchMedia("(pointer: fine)").matches;
+        const PS1 = '<span class="ps1">visitor@guywithhat.me:~$</span> ';
+
+        if (fine) {
+            const root = document.documentElement;
+            let raf = null, x = innerWidth / 2, y = innerHeight / 2;
+            addEventListener("pointermove", e => {
+                x = e.clientX; y = e.clientY;
+                if (!raf) raf = requestAnimationFrame(() => {
+                    raf = null;
+                    root.style.setProperty("--mx", x + "px");
+                    root.style.setProperty("--my", y + "px");
+                });
+            }, { passive: true });
+        }
+
+        const script = [
+            { cmd: "whoami" },
+            { out: '<span class="big">jack miller</span>' },
+            { gap: 1 },
+            { cmd: "cat role.txt" },
+            { out: "embedded systems · avionics · firmware" },
+            { gap: 1 },
+            { cmd: "ls links/" },
+            { out: '<span class="k">github  </span> <a class="link" href="https://github.com/guywithhat99" target="_blank" rel="noopener noreferrer">github.com/guywithhat99</a>' },
+            { out: '<span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jack-miller-51270a158/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jack-miller</a>' },
+            { gap: 1 },
+            { prompt: true },
+        ];
+
+        const sleep = ms => new Promise(r => setTimeout(r, ms));
+        const caret = () => { const c = document.createElement("span"); c.className = "caret"; return c; };
+
+        function addLine(html = "", fx = false) {
+            const el = document.createElement("div");
+            el.className = "line" + (fx ? " fx" : "");
+            el.innerHTML = html;
+            screen.appendChild(el);
+            return el;
+        }
+
+        async function typeCmd(text) {
+            const el = addLine(PS1);
+            const span = document.createElement("span");
+            el.appendChild(span);
+            const c = caret();
+            el.appendChild(c);
+            for (const ch of text) {
+                span.textContent += ch;
+                await sleep(reduce ? 0 : 46);
+            }
+            c.remove();
+            await sleep(reduce ? 0 : 220);
+        }
+
+        async function run() {
+            for (const step of script) {
+                if (step.cmd) await typeCmd(step.cmd);
+                else if (step.out !== undefined) { addLine(step.out, true); await sleep(reduce ? 0 : 150); }
+                else if (step.gap) addLine("&nbsp;");
+                else if (step.prompt) { const el = addLine(PS1); el.appendChild(caret()); }
+            }
+        }
+        run();
     </script>
 </body>
 </html>
