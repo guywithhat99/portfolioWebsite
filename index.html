@@ -121,9 +121,9 @@
 
         .caret {
             display: inline-block; width: 0.55em; height: 1em; background: var(--fg);
-            vertical-align: -0.12em; animation: blink 1.25s ease-in-out infinite;
+            vertical-align: -0.12em; animation: blink 1.1s steps(1, end) infinite;
         }
-        @keyframes blink { 0%,40% { opacity: 1; } 70%,100% { opacity: 0; } }
+        @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
         /* ===== crisp overlays (outside the curvature filter) ===== */
         .reflection {
@@ -143,7 +143,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .crt, .tube, .caret, .fx { animation: none; }
+            .crt, .tube, .fx { animation: none; }
             .fx { opacity: 1; transform: none; }
             .tube { opacity: 1; }
         }
