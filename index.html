@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jack Miller</title>
     <meta name="description" content="Jack Miller — embedded systems, avionics & firmware." />
-    <meta name="theme-color" content="#171717" />
+    <meta name="theme-color" content="#000000" />
 
     <meta property="og:title" content="Jack Miller" />
     <meta property="og:description" content="embedded systems · avionics · firmware" />
@@ -46,12 +46,12 @@
 
     <style>
         :root {
-            --bg: #171717;
-            --fg: #ffffff;          /* white text */
-            --dim: rgba(255,255,255,0.42); /* prompts, labels */
-            --hi: #ffffff;          /* name */
-            --mx: 50%;
-            --my: 50%;
+            --bg: #171717;          /* screen surface */
+            --fg: #ffffff;
+            --dim: rgba(255,255,255,0.42);
+            --hi: #ffffff;
+            --rx: 50%;              /* glass reflection follows mouse */
+            --ry: 35%;
         }
 
         * {
@@ -61,122 +61,143 @@
         html, body { height: 100%; }
 
         body {
-            background: var(--bg);
+            background: #000;                 /* nothing around the tube */
             color: var(--fg);
             font-family: "VT323", ui-monospace, monospace;
-            font-size: clamp(19px, 2.4vw, 24px);
-            line-height: 1.45;
             min-height: 100svh;
             display: grid;
             place-items: center;
             overflow: hidden;
             position: relative;
         }
-
-        /* very faint glow trailing the cursor — the one mouse touch */
-        .cursorglow {
-            position: fixed; inset: 0; z-index: 1; pointer-events: none;
-            background: radial-gradient(340px circle at var(--mx) var(--my), rgba(255,255,255,0.06), transparent 65%);
-            transition: background 0.4s ease;
+        /* faint light bleed behind the monitor */
+        body::before {
+            content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background: radial-gradient(55% 45% at 50% 50%, rgba(150,170,190,0.05), transparent 70%);
         }
+
+        /* ===== the physical CRT screen ===== */
+        .crt {
+            position: relative; z-index: 1;
+            width: min(680px, 92vw);
+            aspect-ratio: 4 / 3;
+            border-radius: 7% / 9%;           /* curved tube corners */
+            overflow: hidden;
+            background: radial-gradient(125% 125% at 50% 44%, #1e1e1e 0%, #161616 55%, #0e0e0e 100%);
+            box-shadow:
+                0 0 0 2px #0b0b0b,
+                0 0 0 12px #050505,           /* thin black bezel */
+                0 22px 70px rgba(0,0,0,0.85),
+                0 0 90px rgba(150,180,200,0.05);
+            animation: flicker 5.5s steps(1) infinite;
+        }
+        @keyframes flicker { 0%,97%,100% { opacity: 1; } 98% { opacity: 0.94; } 99% { opacity: 0.99; } }
+
+        /* the layer that actually gets the glass curvature */
+        .tube {
+            position: absolute; inset: 0; z-index: 1;
+            display: grid; place-items: center;
+            filter: url(#barrel);
+            -webkit-filter: url(#barrel);
+            animation: breathe 6s ease-in-out infinite;
+        }
+        @keyframes breathe { 0%,100% { opacity: 0.92; } 50% { opacity: 1; } }
 
         .screen {
-            position: relative; z-index: 2;
-            width: min(620px, 88vw);
-            padding: 8px 4px;
-            white-space: pre-wrap;
-            word-break: break-word;
-            animation: breathe 6s ease-in-out infinite;  /* the only ambient motion */
+            width: 82%;
+            white-space: pre;                 /* unwrapped: fixed terminal lines */
+            font-size: clamp(14px, 3.3vw, 23px);
+            line-height: 1.5;
         }
-        @keyframes breathe { 0%,100% { opacity: 0.9; } 50% { opacity: 1; } }
-
-        .line { display: block; min-height: 1.45em; }
-        .ps1 { color: var(--dim); }
-        .k   { color: var(--dim); }
-        .big {
-            color: var(--hi);
-            font-size: 2em; line-height: 1.1;
-            display: inline-block; margin: 0.04em 0;
-        }
-
-        /* output lines ease in as they print */
+        .line { display: block; min-height: 1.5em; }
+        .ps1, .k { color: var(--dim); }
+        .big { color: var(--hi); font-size: 2em; line-height: 1.12; display: inline-block; margin: 0.04em 0; }
         .fx { opacity: 0; transform: translateY(4px); animation: rise 0.45s ease forwards; }
         @keyframes rise { to { opacity: 1; transform: none; } }
 
         a.link {
-            color: var(--fg);
-            text-decoration: none;
-            padding: 0 3px;
+            color: var(--fg); text-decoration: none; padding: 0 3px;
             transition: background 0.14s ease, color 0.14s ease;
         }
-        a.link:hover, a.link:focus-visible {
-            background: var(--fg);     /* gentle inverse video */
-            color: var(--bg);
-            outline: none;
-        }
+        a.link:hover, a.link:focus-visible { background: var(--fg); color: #111; outline: none; }
 
-        /* block cursor, smooth blink */
         .caret {
-            display: inline-block;
-            width: 0.55em; height: 1em;
-            background: var(--fg);
-            vertical-align: -0.12em;
-            animation: blink 1.25s ease-in-out infinite;
+            display: inline-block; width: 0.55em; height: 1em; background: var(--fg);
+            vertical-align: -0.12em; animation: blink 1.25s ease-in-out infinite;
         }
         @keyframes blink { 0%,40% { opacity: 1; } 70%,100% { opacity: 0; } }
 
-        /* whisper-thin scanlines + soft vignette — barely there */
+        /* ===== crisp overlays (outside the curvature filter) ===== */
+        .reflection {
+            position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit;
+            background: radial-gradient(220px circle at var(--rx) var(--ry), rgba(255,255,255,0.06), transparent 60%);
+        }
         .scanlines {
-            position: fixed; inset: 0; z-index: 3; pointer-events: none;
-            background: repeating-linear-gradient(to bottom,
-                rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.10) 3px);
+            position: absolute; inset: 0; z-index: 4; pointer-events: none; border-radius: inherit;
+            background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.16) 3px);
             mix-blend-mode: multiply;
         }
-        .vignette {
-            position: fixed; inset: 0; z-index: 4; pointer-events: none;
-            background: radial-gradient(130% 120% at 50% 50%, transparent 68%, rgba(0,0,0,0.32) 100%);
+        .glare {
+            position: absolute; inset: 0; z-index: 5; pointer-events: none; border-radius: inherit;
+            background:
+                radial-gradient(70% 45% at 30% 16%, rgba(255,255,255,0.10), transparent 55%),
+                radial-gradient(130% 125% at 50% 50%, transparent 58%, rgba(0,0,0,0.6) 100%);
         }
 
+        .svgdefs { position: absolute; width: 0; height: 0; }
+
         @media (prefers-reduced-motion: reduce) {
-            .screen { animation: none; opacity: 1; }
-            .caret { animation: none; }
-            .fx { animation: none; opacity: 1; transform: none; }
+            .crt, .tube, .caret, .fx { animation: none; }
+            .fx { opacity: 1; transform: none; }
+            .tube { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <div class="cursorglow"></div>
-
-    <div class="screen" id="screen" aria-label="terminal">
-        <noscript>
-            <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> whoami</div>
-            <div class="line"><span class="big">Jack Miller</span></div>
-            <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> cat role.txt</div>
-            <div class="line">embedded systems · avionics · firmware</div>
-            <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> ls links/</div>
-            <div class="line"><span class="k">github  </span> <a class="link" href="https://github.com/guywithhat99">github.com/guywithhat99</a></div>
-            <div class="line"><span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jackmiller04">linkedin.com/in/jackmiller04</a></div>
-        </noscript>
+    <div class="crt" id="crt">
+        <div class="tube">
+            <div class="screen" id="screen" aria-label="terminal">
+                <noscript>
+                    <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> whoami</div>
+                    <div class="line"><span class="big">Jack Miller</span></div>
+                    <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> cat role.txt</div>
+                    <div class="line">embedded systems · avionics · firmware</div>
+                    <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> ls links/</div>
+                    <div class="line"><span class="k">github  </span> <a class="link" href="https://github.com/guywithhat99">github.com/guywithhat99</a></div>
+                    <div class="line"><span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jackmiller04">linkedin.com/in/jackmiller04</a></div>
+                </noscript>
+            </div>
+        </div>
+        <div class="reflection" id="reflection"></div>
+        <div class="scanlines"></div>
+        <div class="glare"></div>
     </div>
 
-    <div class="scanlines"></div>
-    <div class="vignette"></div>
+    <svg class="svgdefs" aria-hidden="true" focusable="false">
+        <filter id="barrel" color-interpolation-filters="sRGB">
+            <feImage href="/crt-map.png" preserveAspectRatio="none" result="map" />
+            <feDisplacementMap in="SourceGraphic" in2="map" scale="60" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
 
     <script>
         const screen = document.getElementById("screen");
+        const crt = document.getElementById("crt");
         const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
         const fine = matchMedia("(pointer: fine)").matches;
         const PS1 = '<span class="ps1">visitor@guywithhat.me:~$</span> ';
 
+        // light reflection slides across the glass with the mouse
         if (fine) {
-            const root = document.documentElement;
-            let raf = null, x = innerWidth / 2, y = innerHeight / 2;
+            let raf = null, x = 0.5, y = 0.35;
             addEventListener("pointermove", e => {
-                x = e.clientX; y = e.clientY;
+                const r = crt.getBoundingClientRect();
+                x = (e.clientX - r.left) / r.width;
+                y = (e.clientY - r.top) / r.height;
                 if (!raf) raf = requestAnimationFrame(() => {
                     raf = null;
-                    root.style.setProperty("--mx", x + "px");
-                    root.style.setProperty("--my", y + "px");
+                    crt.style.setProperty("--rx", (x * 100) + "%");
+                    crt.style.setProperty("--ry", (y * 100) + "%");
                 });
             }, { passive: true });
         }
@@ -221,6 +242,8 @@
         }
 
         async function run() {
+            // clear the noscript fallback before typing
+            screen.innerHTML = "";
             for (const step of script) {
                 if (step.cmd) await typeCmd(step.cmd);
                 else if (step.out !== undefined) { addLine(step.out, true); await sleep(reduce ? 0 : 150); }
