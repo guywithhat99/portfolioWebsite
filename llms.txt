@@ -1,0 +1,12 @@
+# Jack Miller
+
+> Embedded systems, avionics, and firmware engineer. This is a single-page personal site / business card at https://guywithhat.me.
+
+## Links
+
+- [GitHub](https://github.com/guywithhat99): Open-source projects, embedded/firmware code, and hardware work.
+- [LinkedIn](https://www.linkedin.com/in/jackmiller04): Professional profile and contact.
+
+## About
+
+Jack Miller works on embedded systems, avionics, and firmware (e.g. Teensy/STM32, flight/GNC electronics, PCB design). This site is a terminal-styled business card; the canonical homepage is https://guywithhat.me/.
