@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jack miller</title>
-    <meta name="description" content="jack miller — embedded systems, avionics & firmware." />
-    <meta name="theme-color" content="#0a0d0b" />
+    <title>Jack Miller</title>
+    <meta name="description" content="Jack Miller — embedded systems, avionics & firmware." />
+    <meta name="theme-color" content="#171717" />
 
-    <meta property="og:title" content="jack miller" />
+    <meta property="og:title" content="Jack Miller" />
     <meta property="og:description" content="embedded systems · avionics · firmware" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://guywithhat.me" />
@@ -18,15 +18,18 @@
 
     <style>
         :root {
-            --bg: #0a0d0b;
-            --fg: #8fb597;          /* muted sage phosphor */
-            --dim: #586b5d;         /* prompts, labels */
-            --hi: #cde6d2;          /* name only */
+            --bg: #171717;
+            --fg: #ffffff;          /* white text */
+            --dim: rgba(255,255,255,0.42); /* prompts, labels */
+            --hi: #ffffff;          /* name */
             --mx: 50%;
             --my: 50%;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box; margin: 0; padding: 0;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect x='3' y='3' width='14' height='14' fill='white' fill-opacity='0.22' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, crosshair;
+        }
         html, body { height: 100%; }
 
         body {
@@ -45,7 +48,7 @@
         /* very faint glow trailing the cursor — the one mouse touch */
         .cursorglow {
             position: fixed; inset: 0; z-index: 1; pointer-events: none;
-            background: radial-gradient(340px circle at var(--mx) var(--my), rgba(143,181,151,0.05), transparent 65%);
+            background: radial-gradient(340px circle at var(--mx) var(--my), rgba(255,255,255,0.06), transparent 65%);
             transition: background 0.4s ease;
         }
 
@@ -119,10 +122,10 @@
     <div class="screen" id="screen" aria-label="terminal">
         <noscript>
             <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> whoami</div>
-            <div class="line"><span class="big">jack miller</span></div>
+            <div class="line"><span class="big">Jack Miller</span></div>
             <div class="line"><span class="ps1">visitor@guywithhat.me:~$</span> ls links/</div>
             <div class="line"><span class="k">github  </span> <a class="link" href="https://github.com/guywithhat99">github.com/guywithhat99</a></div>
-            <div class="line"><span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jack-miller-51270a158/">linkedin.com/in/jack-miller</a></div>
+            <div class="line"><span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jackmiller04">linkedin.com/in/jackmiller04</a></div>
         </noscript>
     </div>
 
@@ -150,14 +153,14 @@
 
         const script = [
             { cmd: "whoami" },
-            { out: '<span class="big">jack miller</span>' },
+            { out: '<span class="big">Jack Miller</span>' },
             { gap: 1 },
             { cmd: "cat role.txt" },
             { out: "embedded systems · avionics · firmware" },
             { gap: 1 },
             { cmd: "ls links/" },
             { out: '<span class="k">github  </span> <a class="link" href="https://github.com/guywithhat99" target="_blank" rel="noopener noreferrer">github.com/guywithhat99</a>' },
-            { out: '<span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jack-miller-51270a158/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jack-miller</a>' },
+            { out: '<span class="k">linkedin</span> <a class="link" href="https://www.linkedin.com/in/jackmiller04" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackmiller04</a>' },
             { gap: 1 },
             { prompt: true },
         ];
