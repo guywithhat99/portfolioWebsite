@@ -1,4 +1,4 @@
-import { METRICS, parseFeed, isStale, seriesFor } from './lib.js';
+import { METRICS, parseFeed, isStale, seriesFor, formatValue, formatTime } from './lib.js';
 
 const CHANNEL_ID = '3472589';
 const RESULTS = 144;             // 144 points at 10 min = 24 hours
@@ -50,6 +50,12 @@ function renderChart(metric, points) {
         backgroundColor: 'rgba(37,99,235,0.08)',
         borderWidth: 2,
         pointRadius: isolatedPointRadius,
+        // Nothing is drawn at each point, so without a hit radius there is
+        // nothing to hover. This gives the cursor a target without cluttering
+        // the line with 144 dots.
+        pointHitRadius: 12,
+        pointHoverRadius: 4,
+        pointHoverBackgroundColor: '#2563eb',
         tension: 0.2,
         spanGaps: false   // a dropped window must read as a gap, not a straight line
       }]
@@ -57,7 +63,22 @@ function renderChart(metric, points) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+      // 'index' + intersect:false means hovering anywhere in the plot snaps to
+      // the nearest time column, instead of requiring a hit on the point itself.
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          displayColors: false,   // one series per chart, the swatch says nothing
+          callbacks: {
+            title: items => items.length ? formatTime(items[0].parsed.x) : '',
+            label: item => `${formatValue(metric, item.parsed.y)} ${metric.unit}`
+          },
+          // A dropped window is a real gap. Showing "null ppm" would imply the
+          // sensor reported something.
+          filter: item => item.raw != null && item.raw.y != null
+        }
+      },
       scales: {
         x: { type: 'time',
              time: { unit: 'hour', displayFormats: { hour: 'HH:mm' } },

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { METRICS, parseFeed, isStale, seriesFor } from '../sensors/lib.js';
+import { METRICS, parseFeed, isStale, seriesFor, formatValue, formatTime } from '../sensors/lib.js';
 
 const sample = {
   channel: { id: 123, name: 'test' },
@@ -58,4 +58,24 @@ test('seriesFor extracts x/y pairs for one metric', () => {
   const { points } = parseFeed(sample);
   const s = seriesFor(points, 'co2');
   assert.deepEqual(s.map(p => p.y), [680, 690]);
+});
+
+test('formatValue uses per-metric precision', () => {
+  const byKey = k => METRICS.find(m => m.key === k);
+  assert.equal(formatValue(byKey('temp_f'), 83.027), '83.0');
+  assert.equal(formatValue(byKey('v_rail'), 5.0182), '5.02');
+  assert.equal(formatValue(byKey('pm_count'), 578), '578');
+  assert.equal(formatValue(byKey('gas'), 33853), '33,853');
+});
+
+test('formatValue rejects nulls rather than printing them', () => {
+  const m = METRICS[0];
+  assert.equal(formatValue(m, null), null);
+  assert.equal(formatValue(m, undefined), null);
+  assert.equal(formatValue(m, NaN), null);
+});
+
+test('formatTime renders a readable 24h stamp', () => {
+  assert.equal(formatTime('2026-08-27T14:20:00Z'), formatTime(new Date('2026-08-27T14:20:00Z')));
+  assert.match(formatTime('2026-08-27T14:20:00Z'), /Aug 27, \d{2}:\d{2}/);
 });

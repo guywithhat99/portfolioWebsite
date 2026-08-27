@@ -1,13 +1,15 @@
 // Field numbers are the contract with the firmware. Changing one here means
 // changing it in net.cpp too.
+// digits is tooltip precision only. The firmware posts 3 decimals for every
+// field, which is noise on a particle count and not enough on a rail voltage.
 export const METRICS = [
-  { field: 1, key: 'temp_f',   label: 'Temperature',   unit: 'degF' },
-  { field: 2, key: 'humidity', label: 'Humidity',      unit: '%RH' },
-  { field: 3, key: 'altitude', label: 'Altitude',      unit: 'ft' },
-  { field: 4, key: 'v_rail',   label: 'Rail Voltage',  unit: 'V' },
-  { field: 5, key: 'pm_count', label: 'Particles 0.3–2.5 µm', unit: 'count / 0.1 L' },
-  { field: 6, key: 'co2',      label: 'CO2',           unit: 'ppm' },
-  { field: 7, key: 'gas',      label: 'Gas Resistance', unit: 'ohm' }
+  { field: 1, key: 'temp_f',   label: 'Temperature',   unit: 'degF', digits: 1 },
+  { field: 2, key: 'humidity', label: 'Humidity',      unit: '%RH',  digits: 1 },
+  { field: 3, key: 'altitude', label: 'Altitude',      unit: 'ft',   digits: 0 },
+  { field: 4, key: 'v_rail',   label: 'Rail Voltage',  unit: 'V',    digits: 2 },
+  { field: 5, key: 'pm_count', label: 'Particles 0.3–2.5 µm', unit: 'count / 0.1 L', digits: 0 },
+  { field: 6, key: 'co2',      label: 'CO2',           unit: 'ppm',  digits: 0 },
+  { field: 7, key: 'gas',      label: 'Gas Resistance', unit: 'ohm', digits: 0 }
 ];
 
 // ThingSpeak hands back every field as a string, and a skipped field as null.
@@ -36,4 +38,21 @@ export function isStale(newest, now, maxAgeMs) {
 
 export function seriesFor(points, key) {
   return points.map(p => ({ x: p.t, y: p.values[key] }));
+}
+
+// Locale is pinned rather than left to the browser so a screenshot of the
+// dashboard reads the same on any machine, including in the report.
+export function formatValue(metric, v) {
+  if (v === null || v === undefined || !Number.isFinite(v)) return null;
+  return v.toLocaleString('en-US', {
+    minimumFractionDigits: metric.digits,
+    maximumFractionDigits: metric.digits
+  });
+}
+
+export function formatTime(t) {
+  return new Date(t).toLocaleString('en-US', {
+    month: 'short', day: 'numeric',
+    hour: '2-digit', minute: '2-digit', hour12: false
+  });
 }
