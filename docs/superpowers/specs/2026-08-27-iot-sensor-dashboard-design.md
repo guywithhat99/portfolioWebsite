@@ -6,7 +6,7 @@ Scope: cloud + web side of the ECEN capstone IoT sensor node workshop
 
 ## Goal
 
-An ESP32 QT Py sensor node on the ECEE lab bench posts environmental readings
+A Seeed XIAO ESP32C6 sensor node on the ECEE lab bench posts environmental readings
 every 10 minutes. Anyone scanning a QR code at the bench lands on
 `https://guywithhat.me/sensors` and sees the last 24 hours graphed, properly
 labeled, with units. Runs unattended for the rest of the school year.
@@ -25,6 +25,39 @@ Mapped from the workshop handout (section 28.3.1):
 | 6 | ESP32 pushes to cloud | HTTP GET to `api.thingspeak.com/update` |
 | 7 | CapstoneWifi only | firmware credentials |
 | 28.8 | Report table of sample rate and samples per point | measured on bench, static table |
+
+## Repositories
+
+Two, deliberately separate:
+
+- `~/Documents/Projects/portfolioWebsite` : the `/sensors` page. Cloudflare
+  Pages, push to main deploys.
+- `~/Desktop/ECEN 4610 - Capstone 1/IOT Sensor` : firmware. PlatformIO,
+  `seeed_xiao_esp32c6` on the pioarduino fork. Already scaffolded with a
+  file split by owner (`sensors.cpp`, `net.cpp`, `main.cpp`).
+
+The ThingSpeak channel is the only contract between them: six field slots and a
+10 minute cadence. Neither repo imports anything from the other.
+
+## Hardware as built
+
+Deviates from the handout, which mandates the ESP32 QT Py. Actual bench build:
+
+| Part | Bus | Addr | Provides |
+|---|---|---|---|
+| Seeed XIAO ESP32C6 | - | - | MCU, wifi |
+| BME688 | I2C | 0x77 | temp, RH, pressure, gas |
+| SCD30 | I2C | 0x61 | CO2 ppm |
+| PMSA003I | I2C | 0x12 | particle count / 0.1 L |
+| resistor divider | ADC1 | - | rail voltage |
+
+Consequences that matter for this design: temperature, humidity and pressure all
+come from one chip, so three of the six metrics share a single failure mode. The
+BME688's gas channel is free once that read is happening, which is why field7 is
+spoken for. The C6 has no ADC2, so the divider must land on A0, A1 or A2.
+
+The I2C bus runs at 100 kHz because the SCD30 caps there and clock-stretches for
+up to 150 ms. That stretch is the binding constraint on the sample loop.
 
 ## Architecture
 
@@ -64,11 +97,12 @@ One public channel. Field assignment is fixed and must match the firmware:
 |-------|--------|------|-------|
 | field1 | temperature | degF | |
 | field2 | humidity | %RH | |
-| field3 | altitude | ft | derived from pressure, sea-level ref assumed |
-| field4 | rail voltage | V | via 2:1 divider into ESP32 ADC |
+| field3 | altitude | ft | derived from BME688 pressure, sea-level ref assumed |
+| field4 | rail voltage | V | 2:1 divider into ADC1 (A0/A1/A2 only on C6) |
 | field5 | particle count | count / 0.1 L | 0.3 to 2.5 um range |
 | field6 | CO2 | ppm | |
-| field7-8 | reserved | | stretch sensors |
+| field7 | gas resistance | ohm | BME688 VOC proxy, free with the temp/RH read |
+| field8 | reserved | | stretch sensors |
 
 Channel set to **public** so the browser reads it with no API key. The write key
 lives only in firmware and is never shipped to the page.
@@ -165,8 +199,8 @@ Checked empirically on 2026-08-27 rather than taken from documentation:
 - Alerting on sensor failure.
 - Views longer than 24 hours. The requirement is 24h; a range selector is a
   later addition and the API supports it via `start`/`end`.
-- The ESP32 firmware itself beyond the post path, which is team-owned hardware
-  work.
+- Sensor driver bring-up beyond what the upload path needs. Owned by teammates
+  per the split in the firmware README.
 
 ## Open items
 
