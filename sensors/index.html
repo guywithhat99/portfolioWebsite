@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sensor Node | Jack Miller</title>
+    <meta name="description" content="Live environmental sensor data from an ESP32C6 node, updated every 10 minutes." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://guywithhat.me/sensors" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="sensors.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sensor Node</h1>
+            <p class="tagline">ECEN 4610 capstone. XIAO ESP32C6 on the bench, one averaged point every 10 minutes.</p>
+        </header>
+
+        <div id="status" class="status" role="status">Loading...</div>
+
+        <main id="charts" class="charts"></main>
+
+        <footer class="sensors-footer">
+            <p>Data stored on ThingSpeak channel
+               <a id="channel-link" href="https://thingspeak.com/channels/3472589">3472589</a>.
+               Graphs rendered here.</p>
+            <p><a href="/">back to guywithhat.me</a></p>
+        </footer>
+    </div>
+
+    <script src="vendor/luxon.min.js"></script>
+    <script src="vendor/chart.umd.min.js"></script>
+    <script src="vendor/chartjs-adapter-luxon.min.js"></script>
+    <script type="module" src="sensors.js"></script>
+</body>
+</html>

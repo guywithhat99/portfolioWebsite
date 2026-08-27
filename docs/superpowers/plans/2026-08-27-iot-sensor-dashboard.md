@@ -410,6 +410,17 @@ function humanAge(ms) {
   return `${hr} hr ${min % 60} min`;
 }
 
+// With pointRadius 0 a reading whose neighbours are both null has no line
+// segment to sit on and draws nothing at all. Give those a visible dot, so a
+// sparse or intermittent sensor reads as sparse rather than as broken.
+function isolatedPointRadius(ctx) {
+  const d = ctx.dataset.data;
+  const i = ctx.dataIndex;
+  const at = k => (k >= 0 && k < d.length && d[k] ? d[k].y : null);
+  if (at(i) === null) return 0;
+  return (at(i - 1) === null && at(i + 1) === null) ? 3 : 0;
+}
+
 function renderChart(metric, points) {
   const card = document.createElement('section');
   card.className = 'chart-card';
@@ -426,7 +437,7 @@ function renderChart(metric, points) {
         borderColor: '#2563eb',
         backgroundColor: 'rgba(37,99,235,0.08)',
         borderWidth: 2,
-        pointRadius: 0,
+        pointRadius: isolatedPointRadius,
         tension: 0.2,
         spanGaps: false   // a dropped window must read as a gap, not a straight line
       }]
@@ -475,7 +486,15 @@ async function load() {
       `Last reading ${humanAge(now - newest)} ago.`, '');
   }
 
-  for (const m of METRICS) renderChart(m, points);
+  // Refresh in place on the interval rather than stacking duplicate canvases.
+  if (charts.length) {
+    METRICS.forEach((m, i) => {
+      charts[i].data.datasets[0].data = seriesFor(points, m.key);
+      charts[i].update('none');
+    });
+  } else {
+    for (const m of METRICS) renderChart(m, points);
+  }
 }
 
 const link = document.getElementById('channel-link');
