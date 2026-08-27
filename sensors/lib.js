@@ -5,7 +5,7 @@ export const METRICS = [
   { field: 2, key: 'humidity', label: 'Humidity',      unit: '%RH' },
   { field: 3, key: 'altitude', label: 'Altitude',      unit: 'ft' },
   { field: 4, key: 'v_rail',   label: 'Rail Voltage',  unit: 'V' },
-  { field: 5, key: 'pm_count', label: 'Particles',     unit: 'count / 0.1 L' },
+  { field: 5, key: 'pm_count', label: 'Particles 0.3–2.5 µm', unit: 'count / 0.1 L' },
   { field: 6, key: 'co2',      label: 'CO2',           unit: 'ppm' },
   { field: 7, key: 'gas',      label: 'Gas Resistance', unit: 'ohm' }
 ];
