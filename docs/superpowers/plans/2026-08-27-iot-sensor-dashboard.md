@@ -189,7 +189,7 @@ test('seriesFor extracts x/y pairs for one metric', () => {
 - [ ] **Step 2: Run the test to verify it fails**
 
 ```bash
-cd "$HOME/Documents/Projects/portfolioWebsite" && node --test tests/
+cd "$HOME/Documents/Projects/portfolioWebsite" && node --test "tests/*.test.mjs"
 ```
 
 Expected: FAIL, cannot find module `../sensors/lib.js`.
@@ -243,7 +243,7 @@ export function seriesFor(points, key) {
 - [ ] **Step 4: Run the tests to verify they pass**
 
 ```bash
-node --test tests/
+node --test "tests/*.test.mjs"
 ```
 
 Expected: PASS, 8 tests.
