@@ -39,8 +39,6 @@ A flat top-down shot works best. Angled photos make the highlight boxes sit wron
 
 ### 02-blink.md
 
-- **IMAGE**: Top-down Arduino Uno, whole board, filling the frame. Reused on later slides with different parts highlighted.
-- **IMAGE**: Same board image.
 
 ## Still to come
 

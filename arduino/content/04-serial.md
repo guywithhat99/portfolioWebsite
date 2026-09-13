@@ -32,7 +32,12 @@ void setup() {
 
 `9600` is the speed. The monitor has to be set to the same number.
 
+The baud rate is how many bits per second. `9600` means 9600.
+
+No wire carries the timing, so both ends agree on the speed in advance.
+
 <p class="sub">Opened once, in <code>setup</code>.</p>
+
 
 ----
 
@@ -41,6 +46,7 @@ void setup() {
 ```cpp
 void setup() {
     Serial.begin(9600);
+    delay(1000);
     Serial.println("Hello");
 }
 
@@ -49,7 +55,7 @@ void loop() {
 }
 ```
 
-Open the connection, then send one line.
+Open the connection, give your laptop a second to connect, then send one line.
 
 <p class="sub">Nothing in <code>loop</code>, so it sends once and then sits there.</p>
 
@@ -57,13 +63,7 @@ Open the connection, then send one line.
 
 ## Opening the monitor
 
-<div class="ph" style="height:300px">
-<span><b>SCREENSHOT</b>
-Arduino IDE with the Serial Monitor open at the bottom,
-"Hello" visible in it, and the baud dropdown in shot.</span>
-</div>
-
-<p class="sub">The magnifying glass icon, top right. Or <strong>Tools → Serial Monitor</strong>.</p>
+<img src="content/img/openmonitor.png" alt="Arduino IDE with the Serial Monitor open, showing Hello, and the baud rate dropdown" style="max-height:600px">
 
 ----
 

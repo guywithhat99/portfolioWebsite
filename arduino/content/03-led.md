@@ -20,11 +20,7 @@ Breadboard · one LED · one 330 Ω resistor · two jumper wires
 <div class="two">
 <div>
 
-<div class="ph" style="height:270px">
-<span><b>PHOTO</b>
-Single LED close up, both legs clearly
-different lengths, on a plain background.</span>
-</div>
+<img src="content/img/led-diagram.png" alt="LED showing the long leg and the short leg" style="max-height:520px">
 
 </div>
 <div>
@@ -52,29 +48,32 @@ The resistor limits the current to something the LED is happy with.
 
 ----
 
+## How the holes connect
+
+<img src="content/img/breadboard-anatomy.svg" alt="Breadboard columns are joined underneath; the centre gap breaks the connection" style="max-height:640px">
+
+----
+
 ## The circuit
 
-<div class="ph" style="height:330px">
-<span><b>FRITZING, SCHEMATIC VIEW</b>
-Pin 9 to resistor, resistor to LED anode,
-LED cathode to GND.</span>
+<div class="two" style="align-items:center">
+<div>
+
+<img src="content/img/LEDcircuit.png" alt="LED circuit wiring diagram" style="max-height:600px">
+
+</div>
+<div>
+
+<img src="content/img/ledcircuitschematic.png" alt="LED circuit schematic: pin 9, resistor, LED, ground" style="max-height:480px">
+
+</div>
 </div>
 
 ----
 
 ## The same thing, on the breadboard
 
-<div class="ph" style="height:360px">
-<span><b>FRITZING, BREADBOARD VIEW</b>
-Same circuit as above, drawn as the physical build.
-This is the one people will copy from.</span>
-</div>
-
-----
-
-## How the holes connect
-
-<img src="content/img/breadboard-anatomy.svg" alt="Breadboard columns are joined underneath; the centre gap breaks the connection" style="max-height:640px">
+<img src="content/img/ledcircuitreal.jpeg" alt="The LED circuit built on a breadboard" style="max-height:620px">
 
 ----
 

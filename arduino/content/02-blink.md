@@ -34,13 +34,9 @@ void loop() {
 The small orange light on the board, marked `L`.
 
 <div class="board">
-<div class="ph" style="height:310px">
-<span><b>IMAGE</b>
-Top-down Arduino Uno, whole board, filling the frame.
-Reused across the next few slides.</span>
-</div>
-<div class="hl" style="left:56%;top:32%;width:9%;height:15%"></div>
-<div class="hltag" style="left:66%;top:34%">the L light</div>
+<img src="content/img/arduinounor3.webp" alt="Arduino Uno R3, top view">
+<div class="hl" style="left:42.5%;top:22.5%;width:7.5%;height:5%"></div>
+<div class="hltag" style="left:51%;top:22.8%">the L light</div>
 </div>
 
 ----
@@ -48,13 +44,10 @@ Reused across the next few slides.</span>
 ## It is wired to pin 13
 
 <div class="board">
-<div class="ph" style="height:310px">
-<span><b>IMAGE</b>
-Same board image.</span>
-</div>
-<div class="hl t" style="left:41%;top:5%;width:7%;height:12%"></div>
-<div class="hltag t" style="left:49%;top:7%">pin 13</div>
-<div class="hl" style="left:56%;top:32%;width:9%;height:15%"></div>
+<img src="content/img/arduinounor3.webp" alt="Arduino Uno R3, top view">
+<div class="hl t" style="left:46.3%;top:8%;width:3.8%;height:11%"></div>
+<div class="hltag t" style="left:44.5%;top:1.5%">pin 13</div>
+<div class="hl" style="left:42.5%;top:22.5%;width:7.5%;height:5%"></div>
 </div>
 
 <p class="sub">Whatever you do to pin 13, that light does.</p>
@@ -231,59 +224,6 @@ void loop() {
 
 </div>
 </div>
-
-----
-
-<p class="modnum">Try it</p>
-<h2 class="tryhead">Type it in</h2>
-
-<div class="try">
-<span class="lbl">Your turn</span>
-
-<span class="step">1.</span> <strong>File → New Sketch</strong>
-
-<span class="step">2.</span> Delete what is already in the window.
-
-<span class="step">3.</span> Type the program above.
-
-<span class="step">4.</span> Upload.
-</div>
-
-----
-
-<p class="modnum">Try it</p>
-<h2 class="tryhead">Break it</h2>
-
-<div class="try">
-<span class="lbl">Your turn</span>
-
-Delete the semicolon at the end of the first <code>delay(1000)</code> line.
-
-Upload, and read the red text at the bottom.
-</div>
-
-----
-
-### What it says
-
-```
-expected ';' before 'digitalWrite'
-```
-
-----
-
-### Look where it points
-
-You broke the `delay` line.
-
-It names the `digitalWrite` line, which is the next one down.
-
-<div class="box note">
-<span class="lbl">Worth knowing</span>
-When an error points at a line that looks fine, check the line above it.
-</div>
-
-Put the semicolon back.
 
 ----
 

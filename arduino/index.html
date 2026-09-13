@@ -83,8 +83,9 @@
 .ph span b{color:var(--orange);display:block;margin-bottom:.4em;letter-spacing:.12em;}
 
 /* persistent board image with highlight overlays */
-.board{position:relative;width:100%;}
-.board > img,.board > .ph{width:100%;display:block;}
+.board{position:relative;width:fit-content;max-width:100%;margin:.3em auto;}
+.board > img{display:block;width:auto;max-width:100%;max-height:540px;margin:0;border-radius:6px;}
+.board > .ph{width:900px;max-width:100%;}
 .hl{position:absolute;border:3px solid var(--orange);background:#c4551a1f;
   border-radius:5px;box-shadow:0 0 0 3px #f5f3edaa;}
 .hl.t{border-color:var(--teal);background:#00767d1f;}
