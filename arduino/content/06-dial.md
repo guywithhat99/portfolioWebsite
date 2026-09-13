@@ -15,17 +15,15 @@ Everything from the last module, plus the potentiometer
 
 ## The potentiometer
 
-<div class="two">
+<div class="two" style="align-items:center">
 <div>
 
-<div class="ph" style="height:250px">
-<span><b>PHOTO</b>
-Potentiometer close up, all three legs visible,
-on a plain background.</span>
-</div>
+<img src="content/img/potentiometer-pinout.webp" alt="Potentiometer internals: resistive track, sliding arm, and three pins" style="max-height:500px">
 
 </div>
 <div>
+
+<img src="content/img/potentiometer.webp" alt="A potentiometer" style="max-height:180px;margin:0 0 .6em 0">
 
 Three legs, and a knob.
 
@@ -95,11 +93,7 @@ So we put 5 V across the track and read the middle leg.
 
 ## Wiring it
 
-<div class="ph" style="height:320px">
-<span><b>FRITZING, BREADBOARD VIEW</b>
-Potentiometer outer legs to 5V and GND, middle leg to A0.
-LED and 330 Ohm still on pin 6 from the last module.</span>
-</div>
+<img src="content/img/potentiometerdiagram.png" alt="Potentiometer wired to 5V, GND and A0" style="max-height:540px">
 
 <p class="sub">Which outer leg goes to 5 V and which to ground only decides which way the knob counts.</p>
 

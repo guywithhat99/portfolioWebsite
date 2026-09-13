@@ -23,35 +23,64 @@ s.append('</svg>')
 open('content/img/current-budget.svg','w').write("\n".join(s)); print("current-budget.svg")
 
 # ---------- 2. transistor as a switch ----------
-W,H=900,450
+import math
+W,H=900,540
 s=[f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">',f'<rect width="{W}" height="{H}" fill="{BG}"/>']
-s.append(f'<text x="{W/2}" y="42" fill="{TEXT}" font-family="{S}" font-size="20" font-weight="700" text-anchor="middle">A transistor lets a small current control a big one</text>')
-BARX,cy=560,250
-BT,BB=cy-46,cy+46
-# symbol
-s.append(f'<line x1="{BARX}" y1="{BT}" x2="{BARX}" y2="{BB}" stroke="{TEXT}" stroke-width="5"/>')
-s.append(f'<line x1="{BARX-72}" y1="{cy}" x2="{BARX}" y2="{cy}" stroke="{TEXT}" stroke-width="2.5"/>')
-s.append(f'<line x1="{BARX}" y1="{BT+14}" x2="{BARX+56}" y2="{BT-34}" stroke="{TEXT}" stroke-width="2.5"/>')
-s.append(f'<line x1="{BARX+56}" y1="{BT-34}" x2="{BARX+56}" y2="{BT-92}" stroke="{TEXT}" stroke-width="2.5"/>')
-s.append(f'<line x1="{BARX}" y1="{BB-14}" x2="{BARX+56}" y2="{BB+34}" stroke="{TEXT}" stroke-width="2.5"/>')
-s.append(f'<line x1="{BARX+56}" y1="{BB+34}" x2="{BARX+56}" y2="{BB+92}" stroke="{TEXT}" stroke-width="2.5"/>')
-s.append(f'<polygon points="{BARX+41},{BB+19} {BARX+30},{BB+8} {BARX+47},{BB+6}" fill="{TEXT}"/>')
-# terminal labels, all clear of the wires
-s.append(f'<text x="{BARX-8}" y="{cy+30}" fill="{TEAL}" font-family="{S}" font-size="16" font-weight="700" text-anchor="end">base</text>')
-s.append(f'<text x="{BARX+78}" y="{BT-84}" fill="{RED}" font-family="{S}" font-size="16" font-weight="700">collector</text>')
-s.append(f'<text x="{BARX+78}" y="{BT-64}" fill="{DIM}" font-family="{S}" font-size="14">up to the motor</text>')
-s.append(f'<text x="{BARX+78}" y="{BB+86}" fill="{DIM}" font-family="{S}" font-size="16" font-weight="700">emitter</text>')
-s.append(f'<text x="{BARX+78}" y="{BB+106}" fill="{DIM}" font-family="{S}" font-size="14">down to ground</text>')
-# drive side
-s.append(f'<rect x="{BARX-330}" y="{cy-26}" width="116" height="52" rx="7" fill="#fff" stroke="{TEAL}" stroke-width="2"/>')
-s.append(f'<text x="{BARX-272}" y="{cy+7}" fill="{TEAL}" font-family="{F}" font-size="17" text-anchor="middle">pin 9</text>')
-s.append(f'<line x1="{BARX-214}" y1="{cy}" x2="{BARX-168}" y2="{cy}" stroke="{TEXT}" stroke-width="2.5"/>')
-s.append(f'<rect x="{BARX-168}" y="{cy-14}" width="38" height="28" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>')
-s.append(f'<text x="{BARX-149}" y="{cy-26}" fill="{DIM}" font-family="{S}" font-size="14" text-anchor="middle">330 Ohm</text>')
-s.append(f'<line x1="{BARX-130}" y1="{cy}" x2="{BARX-72}" y2="{cy}" stroke="{TEXT}" stroke-width="2.5"/>')
-s.append(f'<text x="{BARX-150}" y="{cy+42}" fill="{TEAL}" font-family="{S}" font-size="16" font-weight="700" text-anchor="middle">a few mA</text>')
-s.append(f'<text x="{BARX+160}" y="{BT-30}" fill="{RED}" font-family="{S}" font-size="16" font-weight="700">hundreds of mA</text>')
-s.append(f'<text x="{W/2}" y="{H-16}" fill="{DIM}" font-family="{S}" font-size="17" text-anchor="middle">The pin never carries the motor current. It only opens and closes the valve.</text>')
+BX,CY=430,300                 # transistor bar x, base height
+CX=BX+56                      # x of collector/emitter verticals
+RAIL,GND=70,450
+def ln(x1,y1,x2,y2,col=TEXT,w=2.8): s.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{col}" stroke-width="{w}" stroke-linecap="round"/>')
+def txt(x,y,t,col=TEXT,size=16,weight=400,anchor="start",fam=S): s.append(f'<text x="{x}" y="{y}" fill="{col}" font-family="{fam}" font-size="{size}" font-weight="{weight}" text-anchor="{anchor}">{t}</text>')
+
+# big current path, drawn first so wires sit on top
+PATHX=CX+120
+s.append(f'<line x1="{PATHX}" y1="{RAIL+30}" x2="{PATHX}" y2="{GND-18}" stroke="{RED}" stroke-width="16" opacity=".16" stroke-linecap="round"/>')
+for yy in (150,300,410):
+    s.append(f'<polygon points="{PATHX-11},{yy-9} {PATHX+11},{yy-9} {PATHX},{yy+9}" fill="{RED}" opacity=".75"/>')
+txt(PATHX+24,280,"hundreds of mA",RED,17,700)
+txt(PATHX+24,302,"5 V, through the motor,",DIM,15)
+txt(PATHX+24,322,"through the transistor,",DIM,15)
+txt(PATHX+24,342,"to ground",DIM,15)
+
+# 5 V rail and motor
+ln(CX-60,RAIL,CX+60,RAIL,RED,3.5); txt(CX-70,RAIL+6,"5 V",RED,16,700,"end",F)
+ln(CX,RAIL,CX,118)
+s.append(f'<circle cx="{CX}" cy="150" r="32" fill="#fff" stroke="{TEXT}" stroke-width="2.8"/>')
+txt(CX,157,"M",TEXT,19,700,"middle")
+txt(CX-44,156,"motor",DIM,15,400,"end")
+ln(CX,182,CX,232)
+
+# NPN symbol
+ln(BX,CY-44,BX,CY+44,TEXT,6)
+ln(BX,CY-18,CX,CY-58); ln(CX,CY-58,CX,232)          # collector
+ln(BX,CY+18,CX,CY+58); ln(CX,CY+58,CX,GND)          # emitter
+ang=math.atan2(40,56)                                  # arrow on emitter, pointing away from base
+ax,ay=BX+0.78*(CX-BX), CY+18+0.78*40
+L=15; Wd=8
+p1=(ax,ay); p2=(ax-L*math.cos(ang)+Wd*math.sin(ang), ay-L*math.sin(ang)-Wd*math.cos(ang)); p3=(ax-L*math.cos(ang)-Wd*math.sin(ang), ay-L*math.sin(ang)+Wd*math.cos(ang))
+s.append(f'<polygon points="{p1[0]:.1f},{p1[1]:.1f} {p2[0]:.1f},{p2[1]:.1f} {p3[0]:.1f},{p3[1]:.1f}" fill="{TEXT}"/>')
+txt(CX+14,CY-62,"collector",RED,16,700)
+txt(CX+14,CY+74,"emitter",DIM,16,700)
+txt(BX-14,CY+62,"base",TEAL,16,700,"end")
+
+# ground
+for i,w in enumerate((30,20,10)): ln(CX-w,GND+i*8,CX+w,GND+i*8,DIM,2.8)
+txt(CX-40,GND+14,"ground",DIM,15,400,"end")
+
+# base drive
+ln(BX-90,CY,BX,CY)
+s.append(f'<rect x="{BX-140}" y="{CY-14}" width="50" height="28" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>')
+txt(BX-115,CY+38,"330 Ω",DIM,14,400,"middle")
+ln(BX-200,CY,BX-140,CY)
+s.append(f'<rect x="{BX-320}" y="{CY-26}" width="120" height="52" rx="7" fill="#fff" stroke="{TEAL}" stroke-width="2"/>')
+txt(BX-260,CY+7,"pin 9",TEAL,17,400,"middle",F)
+# small current arrow
+ln(BX-190,CY-34,BX-30,CY-34,TEAL,2.2)
+s.append(f'<polygon points="{BX-22},{CY-34} {BX-34},{CY-41} {BX-34},{CY-27}" fill="{TEAL}"/>')
+txt(BX-110,CY-44,"a few mA",TEAL,16,700,"middle")
+
+txt(W/2,H-40,"A small current into the base lets a big current flow through the motor.",TEXT,18,700,"middle")
+txt(W/2,H-14,"The pin never carries the motor current. It only opens and closes the valve.",DIM,16,400,"middle")
 s.append('</svg>')
 open('content/img/transistor-switch.svg','w').write("\n".join(s)); print("transistor-switch.svg")
 

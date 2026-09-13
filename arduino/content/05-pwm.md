@@ -34,13 +34,7 @@ Spend more of each cycle on, and the LED looks brighter. Less, and it looks dimm
 
 ## One cycle
 
-<img src="content/img/pwm-wave.svg" alt="A PWM cycle showing on time and off time">
-
-----
-
-## Changing the duty cycle
-
-<img src="content/img/pwm-duty.svg" alt="Duty cycle against LED brightness" style="max-height:600px">
+<img src="content/img/pwm-wave.svg" alt="PWM wave over 3 ms: on for 0.75 ms, off for 0.25 ms each cycle" style="max-height:600px">
 
 ----
 
@@ -58,18 +52,20 @@ Spend more of each cycle on, and the LED looks brighter. Less, and it looks dimm
 
 ----
 
+## Changing the duty cycle
+
+<img src="content/img/pwm-duty.svg" alt="Duty cycle against LED brightness" style="max-height:600px">
+
+----
+
 ## Only six pins can do it
 
 <div class="board">
-<div class="ph" style="height:300px">
-<span><b>IMAGE</b>
-Same board image, with the six pins marked ~
-highlighted along the digital header.</span>
-</div>
-<div class="hl" style="left:30%;top:5%;width:5%;height:12%"></div>
-<div class="hl" style="left:38%;top:5%;width:5%;height:12%"></div>
-<div class="hl" style="left:46%;top:5%;width:5%;height:12%"></div>
-<div class="hltag" style="left:57%;top:6%">3 5 6 9 10 11</div>
+<img src="content/img/arduinounor3.webp" alt="Arduino Uno R3, top view, with the PWM pins highlighted">
+<div class="hl" style="left:52.7%;top:8.0%;width:9.1%;height:11.7%"></div>
+<div class="hl" style="left:69.5%;top:8.0%;width:6.1%;height:11.7%"></div>
+<div class="hl" style="left:78.6%;top:8.0%;width:3.0%;height:11.7%"></div>
+<div class="hltag" style="left:60%;top:1.2%">pins 3, 5, 6, 9, 10, 11</div>
 </div>
 
 <p class="sub">Look for the tilde. <code>analogWrite</code> on any other pin does nothing useful.</p>
@@ -166,14 +162,6 @@ A <strong>motor</strong> averages it out, because it is heavy and cannot react t
 
 A <strong>radio</strong> or an <strong>audio circuit</strong> will not average it out. It will hear the switching.
 </div>
-
-----
-
-## The same trick drives a motor
-
-`analogWrite` on a motor sets its **speed**, for exactly the same reason.
-
-<p class="sub">Wiring a motor needs a transistor, which is the next module.</p>
 
 ----
 

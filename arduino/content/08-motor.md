@@ -51,7 +51,7 @@ Anything that needs real current gets its power from the supply, and the pin onl
 
 ## A transistor does that job
 
-<img src="content/img/transistor-switch.svg" alt="Small base current controls a large collector current">
+<img src="content/img/transistor-switch.svg" alt="Transistor circuit: pin 9 through a resistor into the base, motor from 5 V to the collector, emitter to ground" style="max-height:600px">
 
 ----
 
@@ -120,12 +120,7 @@ Fitted the wrong way it is a direct short across your supply. Check the band bef
 
 ## Wiring it
 
-<div class="ph" style="height:320px">
-<span><b>FRITZING, BREADBOARD VIEW</b>
-Pin 9 through 330 Ohm to transistor base. Motor between
-5V and collector. Emitter to GND. Diode across the motor,
-band to the 5V side.</span>
-</div>
+<img src="content/img/motordiagram.png" alt="Motor driver wiring: pin 9 through a resistor to the transistor base, motor to 5V, diode across the motor" style="max-height:600px">
 
 ----
 

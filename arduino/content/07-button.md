@@ -111,11 +111,7 @@ reads <span class="yes">LOW</span>
 
 ## Wiring it
 
-<div class="ph" style="height:330px">
-<span><b>FRITZING, BREADBOARD VIEW</b>
-Button straddling the centre gap. One side to pin 2,
-other side to GND. LED and 330 Ω still on pin 6.</span>
-</div>
+<img src="content/img/buttondiagram.png" alt="Button straddling the breadboard gap, wired to pin 2 and GND" style="max-height:540px">
 
 <p class="sub">Two wires. One to pin 2, one to ground.</p>
 
