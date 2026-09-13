@@ -1,0 +1,26 @@
+<svg viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="470" fill="#f5f3ed"/>
+<text x="450.0" y="44" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">The band on the part is the bar in the symbol</text>
+<path d="M 255 184 C 380 108, 520 108, 656 184" fill="none" stroke="#c4551a" stroke-width="2" stroke-dasharray="7,6"/>
+<text x="450" y="112" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">same end</text>
+<text x="255" y="206" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">the band</text>
+<text x="656" y="206" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">the bar</text>
+<line x1="255" y1="216" x2="255" y2="250" stroke="#c4551a" stroke-width="2"/>
+<line x1="656" y1="216" x2="656" y2="246" stroke="#c4551a" stroke-width="2"/>
+<line x1="70" y1="280" x2="140" y2="280" stroke="#9aa0a6" stroke-width="4"/>
+<line x1="270" y1="280" x2="340" y2="280" stroke="#9aa0a6" stroke-width="4"/>
+<rect x="140" y="254" width="130" height="52" rx="9" fill="#2b2b2e"/>
+<rect x="248" y="254" width="15" height="52" fill="#e6e3dc"/>
+<line x1="520" y1="280" x2="616" y2="280" stroke="#1b1e22" stroke-width="3"/>
+<polygon points="616,250 616,310 656,280" fill="#1b1e22"/>
+<line x1="656" y1="250" x2="656" y2="310" stroke="#1b1e22" stroke-width="6"/>
+<line x1="656" y1="280" x2="790" y2="280" stroke="#1b1e22" stroke-width="3"/>
+<text x="205" y="342" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">the actual part</text>
+<text x="205" y="364" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">a grey stripe near one end</text>
+<text x="655" y="342" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">how it is drawn</text>
+<text x="655" y="364" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">the line the triangle points at</text>
+<line x1="300" y1="425" x2="596" y2="425" stroke="#1a7f4b" stroke-width="3"/>
+<polygon points="600,425 585,417 585,433" fill="#1a7f4b"/>
+<text x="450" y="412" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">current can only flow this way</text>
+<text x="450.0" y="458" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">Towards the band. Fitted backwards it blocks instead of conducting.</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg viewBox="0 0 900 390" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="390" fill="#f5f3ed"/>
+<text x="450.0" y="44" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">How much current things want</text>
+<text x="242" y="122" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" text-anchor="end">an LED</text>
+<rect x="260" y="100" width="17" height="32" fill="#1a7f4b" opacity=".75" rx="5"/>
+<text x="289" y="122" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">about 10 mA</text>
+<text x="242" y="186" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" text-anchor="end">what a pin can give</text>
+<rect x="260" y="164" width="34" height="32" fill="#00767d" opacity=".75" rx="5"/>
+<text x="306" y="186" fill="#00767d" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">20 mA, comfortably</text>
+<text x="242" y="250" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" text-anchor="end">absolute maximum</text>
+<rect x="260" y="228" width="68" height="32" fill="#c4551a" opacity=".75" rx="5"/>
+<text x="340" y="250" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">40 mA, and not for long</text>
+<text x="242" y="314" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" text-anchor="end">a small DC motor</text>
+<rect x="260" y="292" width="425" height="32" fill="#b4241f" opacity=".75" rx="5"/>
+<text x="697" y="314" fill="#b4241f" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">250 mA or more when starting</text>
+<line x1="328" y1="92" x2="328" y2="338" stroke="#c4551a" stroke-width="2" stroke-dasharray="6,5"/>
+<text x="450.0" y="372" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">The motor wants roughly ten times what the pin can survive.</text>
+</svg>

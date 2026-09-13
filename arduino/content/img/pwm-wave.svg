@@ -1,0 +1,18 @@
+<svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="400" fill="#f5f3ed"/>
+<line x1="110" y1="110" x2="800" y2="110" stroke="#1a7f4b" stroke-width="1" stroke-dasharray="4,5" opacity=".5"/>
+<text x="96" y="116" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="17" text-anchor="end">5 V</text>
+<line x1="110" y1="250" x2="800" y2="250" stroke="#5d6670" stroke-width="1" stroke-dasharray="4,5" opacity=".5"/>
+<text x="96" y="256" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="17" text-anchor="end">0 V</text>
+<rect x="110" y="110" width="248" height="140" fill="#c4551a" opacity=".13"/>
+<rect x="455.0" y="110" width="248" height="140" fill="#c4551a" opacity=".13"/>
+<polyline points="110,250 110,110 358,110 358,250 455,250 455,110 703,110 703,250 800,250" fill="none" stroke="#c4551a" stroke-width="3" stroke-linejoin="miter"/>
+<text x="234" y="187" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">on</text>
+<text x="407" y="187" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">off</text>
+<line x1="110" y1="292" x2="455.0" y2="292" stroke="#1d4ed8" stroke-width="1.6"/>
+<line x1="110" y1="286" x2="110" y2="298" stroke="#1d4ed8" stroke-width="1.6"/>
+<line x1="455.0" y1="286" x2="455.0" y2="298" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="282" y="315" fill="#1d4ed8" font-family="DM Sans,sans-serif" font-size="17" text-anchor="middle">one cycle</text>
+<text x="450" y="360" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">On for 72% of every cycle. That is a duty cycle of 72%.</text>
+<text x="450" y="386" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="17" text-anchor="middle">The pin is still only ever at 5 V or 0 V.</text>
+</svg>

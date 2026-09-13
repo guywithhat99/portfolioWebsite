@@ -1,0 +1,22 @@
+<svg viewBox="0 0 900 346" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="346" fill="#f5f3ed"/>
+<text x="186.0" y="150" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">analogWrite</text>
+<text x="476.4" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">(</text>
+<text x="502.8" y="150" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">9</text>
+<text x="529.2" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">, </text>
+<text x="582.0" y="150" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">128</text>
+<text x="661.2" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">)</text>
+<text x="687.6" y="150" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">;</text>
+<line x1="331.2" y1="98.0" x2="331.2" y2="70.0" stroke="#00767d" stroke-width="2"/>
+<line x1="188.0" y1="98.0" x2="474.4" y2="98.0" stroke="#00767d" stroke-width="2"/>
+<text x="331.2" y="56.0" fill="#00767d" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">sets a duty cycle</text>
+<text x="331.2" y="79.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">not a real voltage</text>
+<line x1="516.0" y1="166.0" x2="516.0" y2="214.0" stroke="#c4551a" stroke-width="2"/>
+<line x1="504.8" y1="166.0" x2="527.2" y2="166.0" stroke="#c4551a" stroke-width="2"/>
+<text x="516.0" y="244.0" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">which pin</text>
+<text x="516.0" y="267.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">must be one of the six ~ pins</text>
+<line x1="621.6" y1="212.0" x2="621.6" y2="260.0" stroke="#1a7f4b" stroke-width="2"/>
+<line x1="584.0" y1="212.0" x2="659.2" y2="212.0" stroke="#1a7f4b" stroke-width="2"/>
+<text x="621.6" y="290.0" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">how much</text>
+<text x="621.6" y="313.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">0 is always off, 255 is always on</text>
+</svg>

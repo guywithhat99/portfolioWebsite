@@ -1,0 +1,35 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="460" fill="#f5f3ed"/>
+<text x="450.0" y="44" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Inside is one resistor track with a sliding contact on it</text>
+<rect x="163" y="110" width="54" height="176" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<rect x="163" y="286" width="54" height="44" fill="#c0a970" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="150" y="204" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">8 k</text>
+<text x="150" y="314" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">2 k</text>
+<polygon points="217,286 235,276 235,296" fill="#00767d"/>
+<line x1="235" y1="286" x2="268" y2="286" stroke="#00767d" stroke-width="3"/>
+<line x1="163" y1="110" x2="138" y2="110" stroke="#5d6670" stroke-width="2.5"/>
+<line x1="163" y1="330" x2="138" y2="330" stroke="#5d6670" stroke-width="2.5"/>
+<text x="190" y="370" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">8 k + 2 k</text>
+<rect x="423" y="110" width="54" height="110" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<rect x="423" y="220" width="54" height="110" fill="#c0a970" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="410" y="171" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">5 k</text>
+<text x="410" y="281" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">5 k</text>
+<polygon points="477,220 495,210 495,230" fill="#00767d"/>
+<line x1="495" y1="220" x2="528" y2="220" stroke="#00767d" stroke-width="3"/>
+<line x1="423" y1="110" x2="398" y2="110" stroke="#5d6670" stroke-width="2.5"/>
+<line x1="423" y1="330" x2="398" y2="330" stroke="#5d6670" stroke-width="2.5"/>
+<text x="450" y="370" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">5 k + 5 k</text>
+<rect x="683" y="110" width="54" height="44" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<rect x="683" y="154" width="54" height="176" fill="#c0a970" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="670" y="138" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">2 k</text>
+<text x="670" y="248" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">8 k</text>
+<polygon points="737,154 755,144 755,164" fill="#00767d"/>
+<line x1="755" y1="154" x2="788" y2="154" stroke="#00767d" stroke-width="3"/>
+<line x1="683" y1="110" x2="658" y2="110" stroke="#5d6670" stroke-width="2.5"/>
+<line x1="683" y1="330" x2="658" y2="330" stroke="#5d6670" stroke-width="2.5"/>
+<text x="710" y="370" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">2 k + 8 k</text>
+<text x="190" y="96" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="14" text-anchor="middle">outer leg</text>
+<text x="268" y="268" fill="#00767d" font-family="DM Sans,sans-serif" font-size="14" text-anchor="middle">middle leg</text>
+<text x="450.0" y="418" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">The contact splits the track into two resistances.</text>
+<text x="450.0" y="444" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="17" text-anchor="middle">Turn the knob and one grows as the other shrinks. They always add up to 10 k.</text>
+</svg>

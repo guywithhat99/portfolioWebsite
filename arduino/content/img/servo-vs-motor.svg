@@ -1,0 +1,27 @@
+<svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="380" fill="#f5f3ed"/>
+<text x="230" y="46" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">The DC motor</text>
+<rect x="70" y="90" width="150" height="62" rx="8" fill="#fff" stroke="#b4241f" stroke-width="2.5"/>
+<text x="145.0" y="121.0" fill="#b4241f" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">your code</text>
+<line x1="220" y1="121" x2="290" y2="121" stroke="#b4241f" stroke-width="2.5"/>
+<polygon points="300,121 289,114 289,128" fill="#b4241f"/>
+<rect x="300" y="90" width="150" height="62" rx="8" fill="#fff" stroke="#b4241f" stroke-width="2.5"/>
+<text x="375.0" y="121.0" fill="#b4241f" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">motor spins</text>
+<text x="230" y="196" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">You set how hard to push.</text>
+<text x="230" y="218" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">Nothing knows where it ended up.</text>
+<text x="670" y="46" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">The servo</text>
+<rect x="505" y="90" width="140" height="62" rx="8" fill="#fff" stroke="#1a7f4b" stroke-width="2.5"/>
+<text x="575.0" y="121.0" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">your code</text>
+<line x1="645" y1="121" x2="690" y2="121" stroke="#1a7f4b" stroke-width="2.5"/>
+<polygon points="700,121 689,114 689,128" fill="#1a7f4b"/>
+<rect x="700" y="90" width="140" height="62" rx="8" fill="#fff" stroke="#1a7f4b" stroke-width="2.5"/>
+<text x="770.0" y="115.0" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">servo</text>
+<text x="770.0" y="137.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">and its own circuit</text>
+<path d="M 770 152 C 770 200, 575 200, 575 156" fill="none" stroke="#1a7f4b" stroke-width="2.5"/>
+<polygon points="575,152 568,164 582,164" fill="#1a7f4b"/>
+<text x="672" y="222" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">it checks where it actually is</text>
+<text x="670" y="250" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">You set where to go, and it gets itself there.</text>
+<line x1="460" y1="70" x2="460" y2="290" stroke="#d9d3c7" stroke-width="1.5"/>
+<text x="450.0" y="330" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">The servo has a sensor inside it. The motor does not.</text>
+<text x="450.0" y="358" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">That is the whole difference, and it is why one holds position and the other cannot.</text>
+</svg>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro to Microcontrollers</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+<style>
+:root{
+  --bg:#f5f3ed; --surface:#eae6dd; --surface2:#e2ddd2; --code-bg:#16191d;
+  --text:#1b1e22; --dim:#5d6670; --line:#d9d3c7;
+  --teal:#00767d; --teal-lt:#e0f0f1;
+  --orange:#c4551a; --orange-lt:#fbeade;
+  --green:#1a7f4b; --green-lt:#e3f3e9;
+  --red:#b4241f; --red-lt:#fbe8e7;
+  --purple:#6d28d9; --purple-lt:#efe9fb;
+}
+
+.reveal-viewport{background:var(--bg);}
+.reveal{font-family:'DM Sans',system-ui,sans-serif;font-size:30px;color:var(--text);}
+.reveal .slides{text-align:left;}
+.reveal .slides section{height:100%;}
+
+/* ── type ───────────────────────────────────────── */
+.reveal h1,.reveal h2,.reveal h3,.reveal h4{
+  font-family:'DM Sans',sans-serif;color:var(--text);
+  text-transform:none;letter-spacing:-.022em;line-height:1.12;margin:0 0 .45em;}
+.reveal h1{font-size:2.2em;font-weight:700;}
+.reveal h2{font-size:1.5em;font-weight:700;}
+.reveal h3{font-size:1.1em;font-weight:700;}
+.reveal h4{font-size:.78em;font-weight:700;color:var(--teal);
+  text-transform:uppercase;letter-spacing:.11em;margin-bottom:.5em;}
+.reveal p,.reveal li{line-height:1.5;}
+.reveal li{margin:.4em 0;}
+.reveal strong{font-weight:700;}
+.reveal a{color:var(--teal);}
+.big{font-size:1.2em;line-height:1.35;font-weight:500;}
+.sub{color:var(--dim);}
+.modnum{font-family:'JetBrains Mono',monospace;font-size:.5em;color:var(--orange);
+  text-transform:uppercase;letter-spacing:.18em;font-weight:700;margin-bottom:.2em;}
+
+/* ── code ───────────────────────────────────────── */
+.reveal pre{width:100%;box-shadow:0 2px 10px #0000000f;margin:.35em 0;font-size:.56em;}
+.reveal pre code{
+  display:block;overflow:auto;word-wrap:normal;white-space:pre;
+  font-family:'JetBrains Mono',monospace;background:var(--code-bg);
+  border-radius:8px;padding:.95em 1.15em;max-height:none;line-height:1.55;
+  tab-size:4;}
+.reveal code:not(pre code){
+  font-family:'JetBrains Mono',monospace;background:var(--surface);color:#0d5a60;
+  padding:.1em .4em;border-radius:4px;font-size:.85em;border:1px solid var(--line);}
+
+/* ── tables ─────────────────────────────────────── */
+.reveal table{border-collapse:collapse;font-size:.64em;margin:.3em 0;width:100%;}
+.reveal table th{color:var(--teal);border-bottom:2px solid var(--teal);
+  text-transform:uppercase;letter-spacing:.06em;font-size:.8em;
+  padding:.45em .75em;text-align:left;}
+.reveal table td{border-bottom:1px solid var(--line);padding:.45em .75em;}
+
+/* line-numbered code blocks use a table; keep my table styles off them */
+.reveal pre code table{font-size:inherit;width:auto;margin:0;border-collapse:collapse;}
+.reveal pre code table td{border:none;padding:0 0 0 .9em;}
+.reveal pre code table td:first-child{padding:0;text-align:right;opacity:.35;
+  user-select:none;border-right:1px solid #ffffff1f;padding-right:.7em;}
+.reveal pre code .highlight-line{background:#ffffff12;}
+.reveal pre code:not(.highlight-loading) .highlight-line{filter:none;}
+
+/* ── images ─────────────────────────────────────── */
+.reveal img{max-width:100%;border-radius:8px;display:block;margin:0 auto;}
+
+/* placeholder */
+.ph{border:2px dashed #c3bcac;border-radius:10px;background:var(--surface);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:1em;}
+.ph span{font-family:'JetBrains Mono',monospace;font-size:.46em;
+  color:var(--dim);line-height:1.6;max-width:85%;}
+.ph span b{color:var(--orange);display:block;margin-bottom:.4em;letter-spacing:.12em;}
+
+/* persistent board image with highlight overlays */
+.board{position:relative;width:100%;}
+.board > img,.board > .ph{width:100%;display:block;}
+.hl{position:absolute;border:3px solid var(--orange);background:#c4551a1f;
+  border-radius:5px;box-shadow:0 0 0 3px #f5f3edaa;}
+.hl.t{border-color:var(--teal);background:#00767d1f;}
+.hl.g{border-color:var(--green);background:#1a7f4b1f;}
+.hl.r{border-color:var(--red);background:#b4241f1f;}
+.hltag{position:absolute;font-family:'DM Sans';font-size:.44em;font-weight:700;
+  color:#fff;background:var(--orange);padding:.15em .55em;border-radius:4px;white-space:nowrap;}
+.hltag.t{background:var(--teal);} .hltag.g{background:var(--green);} .hltag.r{background:var(--red);}
+
+/* ── callouts ───────────────────────────────────── */
+.box{border-radius:8px;padding:.75em 1em;margin:.4em 0;font-size:.7em;line-height:1.5;}
+.box p:first-child{margin-top:0;} .box p:last-child{margin-bottom:0;}
+.box .lbl{display:block;font-weight:700;font-size:.8em;
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4em;}
+.box ul{margin:.25em 0;padding-left:1.15em;}
+.box li{margin:.3em 0;}
+
+.kit{background:var(--teal-lt);border-left:3px solid var(--teal);}
+.kit .lbl{color:var(--teal);}
+.note{background:var(--purple-lt);border-left:3px solid var(--purple);}
+.note .lbl{color:var(--purple);}
+.warn{background:var(--orange-lt);border-left:3px solid var(--orange);}
+.warn .lbl{color:var(--orange);}
+.trouble{background:var(--surface);border-left:3px solid var(--dim);}
+.trouble .lbl{color:var(--dim);}
+
+.try{background:var(--green-lt);border:1px solid #1a7f4b40;border-left:3px solid var(--green);
+  border-radius:8px;padding:.8em 1.05em;margin:.4em 0;font-size:.74em;line-height:1.5;}
+.try .lbl{display:block;color:var(--green);font-weight:700;font-size:.78em;
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4em;}
+h2.tryhead{color:var(--green);}
+h2.tryhead::before{content:"▶ ";font-size:.66em;vertical-align:.14em;}
+
+.yes{color:var(--green);font-weight:700;}
+.no{color:var(--red);font-weight:700;}
+
+/* ── collapsibles ───────────────────────────────── */
+.reveal details{background:var(--surface);border:1px solid var(--line);
+  border-radius:8px;padding:.45em .85em;margin:.4em 0;font-size:.7em;}
+.reveal details[open]{border-color:var(--teal);background:var(--teal-lt);}
+.reveal details summary{cursor:pointer;font-weight:700;color:var(--teal);list-style:none;}
+.reveal details summary::-webkit-details-marker{display:none;}
+.reveal details summary::before{content:"▸  ";}
+.reveal details[open] summary::before{content:"▾  ";}
+.reveal details pre{font-size:.86em;}
+
+/* ── layout ─────────────────────────────────────── */
+.two{display:flex;gap:1.4em;align-items:flex-start;}
+.two > *{flex:1;min-width:0;}
+.two.img-l > :first-child{flex:1.25;}
+.step{color:var(--orange);font-family:'JetBrains Mono',monospace;font-weight:700;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.5em;color:var(--dim);
+  text-transform:uppercase;letter-spacing:.15em;}
+
+.reveal .slide-number{background:transparent;color:var(--dim);font-size:.46em;}
+.reveal .progress{color:var(--teal);height:3px;}
+.reveal .controls{color:var(--teal);}
+
+@media (max-width:768px){
+  .reveal{font-size:22px;}
+  .reveal pre{font-size:.46em;}
+  .two{flex-direction:column;gap:.7em;}
+}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <section data-markdown="content/00-start.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/01-setup.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/02-blink.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/03-led.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/04-serial.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/05-pwm.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/06-dial.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/07-button.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/08-motor.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/09-servo.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script>
+Reveal.initialize({
+  hash:true, controls:true, controlsLayout:'edges', progress:true,
+  slideNumber:'c/t', transition:'fade', transitionSpeed:'fast',
+  center:false, margin:0.06, width:1280, height:800,
+  plugins:[RevealMarkdown, RevealHighlight]
+});
+document.addEventListener('click', e=>{ if(e.target.closest('summary')) e.stopPropagation(); }, true);
+
+// warn in console about any slide taller than the frame
+Reveal.on('ready', ()=>{ setTimeout(()=>{
+  const over=[];
+  Reveal.getSlides().forEach((s,i)=>{ if(s.scrollHeight > 810) over.push(i+1+' ('+s.scrollHeight+'px)'); });
+  console.log(over.length ? 'OVERFLOWING SLIDES: '+over.join(', ') : 'all slides fit');
+},600); });
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<svg viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="430" fill="#f5f3ed"/>
+<text x="450.0" y="40" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Switching a motor off makes a voltage spike</text>
+<text x="260" y="80" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">No diode</text>
+<line x1="200" y1="110" x2="320" y2="110" stroke="#b4241f" stroke-width="3"/>
+<text x="330" y="115" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="15">5 V</text>
+<line x1="260" y1="110" x2="260" y2="140" stroke="#1b1e22" stroke-width="2.5"/>
+<circle cx="260" cy="172" r="32" fill="#fff" stroke="#1b1e22" stroke-width="2.5"/>
+<text x="260" y="179" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">M</text>
+<line x1="260" y1="204" x2="260" y2="300" stroke="#1b1e22" stroke-width="2.5"/>
+<line x1="244" y1="300" x2="276" y2="300" stroke="#1b1e22" stroke-width="3"/>
+<line x1="276" y1="300" x2="306" y2="274" stroke="#1b1e22" stroke-width="2.5"/>
+<text x="316" y="286" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13">just switched off</text>
+<line x1="260" y1="300" x2="260" y2="330" stroke="#1b1e22" stroke-width="2.5"/>
+<line x1="234" y1="330" x2="286" y2="330" stroke="#5d6670" stroke-width="2.5"/>
+<line x1="243" y1="337" x2="277" y2="337" stroke="#5d6670" stroke-width="2.5"/>
+<line x1="251" y1="344" x2="269" y2="344" stroke="#5d6670" stroke-width="2.5"/>
+<text x="260" y="396" fill="#b4241f" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">the spike has nowhere to go</text>
+<text x="660" y="80" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">With a diode</text>
+<line x1="600" y1="110" x2="720" y2="110" stroke="#b4241f" stroke-width="3"/>
+<text x="730" y="115" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="15">5 V</text>
+<line x1="660" y1="110" x2="660" y2="140" stroke="#1b1e22" stroke-width="2.5"/>
+<circle cx="660" cy="172" r="32" fill="#fff" stroke="#1b1e22" stroke-width="2.5"/>
+<text x="660" y="179" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">M</text>
+<line x1="660" y1="204" x2="660" y2="300" stroke="#1b1e22" stroke-width="2.5"/>
+<line x1="660" y1="140" x2="746" y2="140" stroke="#1a7f4b" stroke-width="2.5"/>
+<line x1="746" y1="140" x2="746" y2="204" stroke="#1a7f4b" stroke-width="2.5"/>
+<line x1="660" y1="204" x2="746" y2="204" stroke="#1a7f4b" stroke-width="2.5"/>
+<polygon points="733,185 759,185 746,161" fill="#1a7f4b"/>
+<line x1="732" y1="159" x2="760" y2="159" stroke="#1a7f4b" stroke-width="3"/>
+<text x="770" y="177" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="14" font-weight="700">diode</text>
+<line x1="644" y1="300" x2="676" y2="300" stroke="#1b1e22" stroke-width="3"/>
+<line x1="676" y1="300" x2="706" y2="274" stroke="#1b1e22" stroke-width="2.5"/>
+<text x="716" y="286" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13">just switched off</text>
+<line x1="660" y1="300" x2="660" y2="330" stroke="#1b1e22" stroke-width="2.5"/>
+<line x1="634" y1="330" x2="686" y2="330" stroke="#5d6670" stroke-width="2.5"/>
+<line x1="643" y1="337" x2="677" y2="337" stroke="#5d6670" stroke-width="2.5"/>
+<line x1="651" y1="344" x2="669" y2="344" stroke="#5d6670" stroke-width="2.5"/>
+<text x="660" y="396" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">the spike loops round harmlessly</text>
+<line x1="460" y1="70" x2="460" y2="400" stroke="#d9d3c7" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg viewBox="0 0 900 346" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="346" fill="#f5f3ed"/>
+<text x="186.0" y="150" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">pinMode</text>
+<text x="370.8" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">(</text>
+<text x="397.2" y="150" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">13</text>
+<text x="450.0" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">, </text>
+<text x="502.8" y="150" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">OUTPUT</text>
+<text x="661.2" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">)</text>
+<text x="687.6" y="150" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">;</text>
+<line x1="278.4" y1="98.0" x2="278.4" y2="70.0" stroke="#00767d" stroke-width="2"/>
+<line x1="188.0" y1="98.0" x2="368.8" y2="98.0" stroke="#00767d" stroke-width="2"/>
+<text x="278.4" y="56.0" fill="#00767d" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">the name</text>
+<text x="278.4" y="79.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">what you want done</text>
+<line x1="423.6" y1="166.0" x2="423.6" y2="214.0" stroke="#c4551a" stroke-width="2"/>
+<line x1="399.2" y1="166.0" x2="448.0" y2="166.0" stroke="#c4551a" stroke-width="2"/>
+<text x="423.6" y="244.0" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">which pin</text>
+<text x="423.6" y="267.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">the number on the board</text>
+<line x1="582.0" y1="212.0" x2="582.0" y2="260.0" stroke="#1a7f4b" stroke-width="2"/>
+<line x1="504.8" y1="212.0" x2="659.2" y2="212.0" stroke="#1a7f4b" stroke-width="2"/>
+<text x="582.0" y="290.0" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">which direction</text>
+<text x="582.0" y="313.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">OUTPUT drives, INPUT reads</text>
+<line x1="700.8" y1="98.0" x2="700.8" y2="70.0" stroke="#b4241f" stroke-width="2"/>
+<line x1="689.6" y1="98.0" x2="712.0" y2="98.0" stroke="#b4241f" stroke-width="2"/>
+<text x="700.8" y="56.0" fill="#b4241f" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">semicolon</text>
+<text x="700.8" y="79.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">ends the line</text>
+</svg>

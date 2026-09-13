@@ -1,0 +1,45 @@
+<svg viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="470" fill="#f5f3ed"/>
+<text x="450.0" y="44" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Put a voltage across the ends and the contact taps off part of it</text>
+<rect x="163" y="110" width="54" height="176" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<rect x="163" y="286" width="54" height="44" fill="#c0a970" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="150" y="204" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">8 k</text>
+<text x="150" y="314" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">2 k</text>
+<polygon points="217,286 235,276 235,296" fill="#00767d"/>
+<line x1="235" y1="286" x2="268" y2="286" stroke="#00767d" stroke-width="3"/>
+<line x1="163" y1="110" x2="128" y2="110" stroke="#b4241f" stroke-width="3"/>
+<text x="122" y="116" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="end">5 V</text>
+<line x1="163" y1="330" x2="128" y2="330" stroke="#5d6670" stroke-width="3"/>
+<text x="122" y="336" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="end">0 V</text>
+<text x="274" y="281" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700">1.0 V</text>
+<text x="274" y="302" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="14">reads 204</text>
+<text x="190" y="372" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">2 of 10</text>
+<rect x="423" y="110" width="54" height="110" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<rect x="423" y="220" width="54" height="110" fill="#c0a970" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="410" y="171" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">5 k</text>
+<text x="410" y="281" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">5 k</text>
+<polygon points="477,220 495,210 495,230" fill="#00767d"/>
+<line x1="495" y1="220" x2="528" y2="220" stroke="#00767d" stroke-width="3"/>
+<line x1="423" y1="110" x2="388" y2="110" stroke="#b4241f" stroke-width="3"/>
+<text x="382" y="116" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="end">5 V</text>
+<line x1="423" y1="330" x2="388" y2="330" stroke="#5d6670" stroke-width="3"/>
+<text x="382" y="336" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="end">0 V</text>
+<text x="534" y="215" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700">2.5 V</text>
+<text x="534" y="236" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="14">reads 511</text>
+<text x="450" y="372" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">5 of 10</text>
+<rect x="683" y="110" width="54" height="44" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<rect x="683" y="154" width="54" height="176" fill="#c0a970" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="670" y="138" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">2 k</text>
+<text x="670" y="248" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="16" text-anchor="end">8 k</text>
+<polygon points="737,154 755,144 755,164" fill="#00767d"/>
+<line x1="755" y1="154" x2="788" y2="154" stroke="#00767d" stroke-width="3"/>
+<line x1="683" y1="110" x2="648" y2="110" stroke="#b4241f" stroke-width="3"/>
+<text x="642" y="116" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="end">5 V</text>
+<line x1="683" y1="330" x2="648" y2="330" stroke="#5d6670" stroke-width="3"/>
+<text x="642" y="336" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="end">0 V</text>
+<text x="794" y="149" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700">4.0 V</text>
+<text x="794" y="170" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="14">reads 818</text>
+<text x="710" y="372" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">8 of 10</text>
+<text x="450.0" y="428" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="18" font-weight="700" text-anchor="middle">The voltage on the middle leg follows the ratio, not the resistance.</text>
+<text x="450.0" y="454" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="17" text-anchor="middle">Two thirds of the way up the track means two thirds of the voltage.</text>
+</svg>
