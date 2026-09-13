@@ -36,10 +36,6 @@ A flat top-down shot works best. Angled photos make the highlight boxes sit wron
 
 ### 01-setup.md
 
-- **SCREENSHOT**: Arduino IDE 2.x just opened, empty sketch visible. Full window.
-- **PHOTO**: Uno powered on, green ON LED clearly lit, USB cable attached.
-- **SCREENSHOT**: Tools → Board menu open, Arduino Uno highlighted. Cropped to the menu.
-- **SCREENSHOT**: IDE toolbar, cropped tight, Upload arrow clearly visible.
 
 ### 02-blink.md
 

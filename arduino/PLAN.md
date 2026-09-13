@@ -234,7 +234,7 @@ Full detail and sources in `research/how-to-run-it.md`. The short version:
 | **Name tags** | Reported as a surprisingly large effect on interaction |
 | **Check the room every ~15 min** | A quick thumbs or one MCQ. Tells *you* whether to move on |
 | **10-minute reflection at the end of each part** | Cheap, and the thing most workshops skip |
-| **Offline installers on USB sticks** | Arduino IDE + CH340 driver + the three BMP280 libraries as `.zip` |
+| **Attendees download the IDE themselves** | Arduino IDE 2 from arduino.cc. Genuine Unos, so no CH340 driver needed |
 | **Pre-sort resistors into labelled bags** | Colour bands are genuinely hard to read, a real, quiet time sink |
 | **Say out loud that the hardware is hard to break** | Beginners are visibly afraid of damaging equipment that isn't theirs |
 

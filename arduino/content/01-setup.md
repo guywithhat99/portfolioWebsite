@@ -4,23 +4,31 @@
 
 ----
 
-## Install the IDE
+## Download the IDE
 
-<span class="step">1.</span> Copy the installer off one of the USB sticks.
+Go to **[arduino.cc/en/software](https://www.arduino.cc/en/software)**
 
-<span class="step">2.</span> Run it. Accept the defaults.
+Download **Arduino IDE 2** for your operating system.
 
-<span class="step">3.</span> On Windows, say yes if it asks to install a driver.
+<p class="sub">Not the Legacy IDE (1.8). Version 2 is the current one.</p>
+
+----
+
+## Install it
+
+| Your system | What to do |
+|---|---|
+| **Windows** | Run the `.exe`. Accept the defaults. Say yes when it asks to install drivers |
+| **macOS** | Open the `.dmg` and drag Arduino IDE into Applications |
+| **Linux** | Use the AppImage. Make it executable, then run it |
+
+<p class="sub">The first time it opens it may download a few extra parts. Let it finish.</p>
 
 ----
 
 ### When it opens
 
-<div class="ph" style="height:400px">
-<span><b>SCREENSHOT</b>
-Arduino IDE 2.x just opened, empty sketch visible.
-Full window.</span>
-</div>
+<img src="content/img/arduinoideopen.png" alt="Arduino IDE 2 just opened, showing an empty sketch" style="max-height:620px">
 
 ----
 
@@ -28,11 +36,7 @@ Full window.</span>
 
 <div class="two img-l">
 <div>
-<div class="ph" style="height:330px">
-<span><b>PHOTO</b>
-Uno powered on, green ON LED clearly lit,
-USB cable attached.</span>
-</div>
+<img src="content/img/uno-powered-on.jpeg" alt="Arduino Uno powered on with the green ON light lit" style="max-height:380px">
 </div>
 <div>
 
@@ -51,11 +55,7 @@ A green light marked <code>ON</code> should come on.
 
 **Tools → Board → Arduino AVR Boards → Arduino Uno**
 
-<div class="ph" style="height:330px">
-<span><b>SCREENSHOT</b>
-Tools → Board menu open, Arduino Uno highlighted.
-Cropped to the menu.</span>
-</div>
+<img src="content/img/choosetheboard.png" alt="Tools, Board menu with Arduino Uno selected" style="max-height:480px">
 
 ----
 
@@ -100,10 +100,7 @@ Which cable to send it down.
 
 <span class="step">2.</span> Click the arrow button, top left.
 
-<div class="ph" style="height:230px">
-<span><b>SCREENSHOT</b>
-IDE toolbar, cropped tight, Upload arrow clearly visible.</span>
-</div>
+<img src="content/img/UploadArrow.png" alt="The Upload arrow button in the IDE toolbar" style="max-height:260px">
 
 ----
 
@@ -133,49 +130,3 @@ Change both to <code>delay(100);</code> and upload again.
 Milliseconds.
 
 `1000` is one second. `100` is a tenth of a second.
-
-----
-
-## If it did not work
-
-<p class="sub">Find the one that matches what you are seeing.</p>
-
-----
-
-### No green light
-
-<div class="box trouble">
-<span class="lbl">Try in this order</span>
-<ul>
-<li><strong>A different USB cable.</strong> Some carry power but no data.</li>
-<li><strong>A different USB port.</strong> Avoid hubs and docks.</li>
-<li><strong>A different board.</strong> Grab a spare rather than debugging it.</li>
-</ul>
-</div>
-
-----
-
-### The Port menu is empty
-
-<div class="box trouble">
-<span class="lbl">Try in this order</span>
-<ul>
-<li><strong>A different USB cable.</strong> Power-only cables light the board but your laptop never sees a device.</li>
-<li><strong>Close and reopen the IDE.</strong> The port list is built at startup and does not always notice a board plugged in afterwards.</li>
-<li><strong>Try another USB port.</strong> Costs five seconds and fixes it more often than it should.</li>
-</ul>
-</div>
-
-----
-
-### The upload fails
-
-<div class="box trouble">
-<span class="lbl">Match the message</span>
-<ul>
-<li><code>programmer is not responding</code><br>Wrong port, or a cable with no data wires.</li>
-<li><code>Board at ... is not available</code><br>Unplug, wait five seconds, plug back in, reselect the port.</li>
-<li><strong>Compiles but never finishes</strong><br>Another program is holding the port. Close other IDE windows.</li>
-<li><strong>Uploads but nothing blinks</strong><br>Check the board is set to Uno, not Nano.</li>
-</ul>
-</div>
