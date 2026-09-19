@@ -86,6 +86,13 @@ CALLS = [
      ("9","which pin","must be one of the six ~ pins",False),
      ("128","how much","0 is always off, 255 is always on",False,1)],
     "content/img/fn-analogwrite.svg"),
+  (  # defining a function
+    [("byte","name"),(" ","punct"),("readRegister","arg1"),("(","punct"),
+     ("byte reg","arg2"),(")","punct"),(" {","punct")],
+    [("byte","hands back","the type of the answer",True),
+     ("readRegister","the name","you choose this one",False),
+     ("byte reg","what it needs","a type, then a name for it",False,1)],
+    "content/img/fn-define.svg"),
 ]
 
 if __name__ == "__main__":

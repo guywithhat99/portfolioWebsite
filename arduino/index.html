@@ -89,6 +89,7 @@
 .hl{position:absolute;border:3px solid var(--orange);background:#c4551a1f;
   border-radius:5px;box-shadow:0 0 0 3px #f5f3edaa;}
 .hl.t{border-color:var(--teal);background:#00767d1f;}
+.hl.ring{background:transparent;border-width:4px;box-shadow:0 0 0 2px #f5f3edcc;}
 .hl.g{border-color:var(--green);background:#1a7f4b1f;}
 .hl.r{border-color:var(--red);background:#b4241f1f;}
 .hltag{position:absolute;font-family:'DM Sans';font-size:.44em;font-weight:700;
@@ -174,6 +175,20 @@ h2.tryhead::before{content:"▶ ";font-size:.66em;vertical-align:.14em;}
            data-separator="^---$" data-separator-vertical="^----$"></section>
   <section data-markdown="content/09-servo.md"
            data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/10-inside-a-chip.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/11-i2c.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/12-wiring-bmp280.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/13-chip-id.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/14-ctrl-meas.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/15-reading-data.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
+  <section data-markdown="content/16-compensation.md"
+           data-separator="^---$" data-separator-vertical="^----$"></section>
 
 </div></div>
 
@@ -188,6 +203,16 @@ Reveal.initialize({
   plugins:[RevealMarkdown, RevealHighlight]
 });
 document.addEventListener('click', e=>{ if(e.target.closest('summary')) e.stopPropagation(); }, true);
+
+// links out of the deck (datasheets, references) open in a new tab
+function externaliseLinks(){
+  document.querySelectorAll('.reveal a[href]').forEach(a=>{
+    const h=a.getAttribute('href');
+    if(h && !h.startsWith('#')){ a.target='_blank'; a.rel='noopener noreferrer'; }
+  });
+}
+Reveal.on('ready', externaliseLinks);
+Reveal.on('slidechanged', externaliseLinks);
 
 // warn in console about any slide taller than the frame
 Reveal.on('ready', ()=>{ setTimeout(()=>{

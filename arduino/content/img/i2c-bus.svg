@@ -1,0 +1,45 @@
+<svg viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="430" fill="#f5f3ed"/>
+<text x="450.0" y="40" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Everything shares the same two wires</text>
+<line x1="180" y1="82" x2="300" y2="82" stroke="#b4241f" stroke-width="3"/>
+<text x="312" y="88" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="15">3.3 V</text>
+<line x1="200" y1="82" x2="200" y2="102" stroke="#1b1e22" stroke-width="2"/>
+<rect x="187" y="102" width="26" height="30" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<line x1="200" y1="132" x2="200" y2="150" stroke="#1b1e22" stroke-width="2"/>
+<line x1="240" y1="82" x2="240" y2="102" stroke="#1b1e22" stroke-width="2"/>
+<rect x="227" y="102" width="26" height="30" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<line x1="240" y1="132" x2="240" y2="196" stroke="#1b1e22" stroke-width="2"/>
+<text x="262" y="126" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="14">pull-ups</text>
+<line x1="150" y1="150" x2="800" y2="150" stroke="#00767d" stroke-width="3.5"/>
+<text x="812" y="156" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700">SDA</text>
+<line x1="150" y1="196" x2="800" y2="196" stroke="#6d28d9" stroke-width="3.5"/>
+<text x="812" y="202" fill="#6d28d9" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700">SCL</text>
+<g opacity="1">
+<line x1="234" y1="150" x2="234" y2="300" stroke="#00767d" stroke-width="2.5"/>
+<line x1="266" y1="196" x2="266" y2="300" stroke="#6d28d9" stroke-width="2.5"/>
+<circle cx="234" cy="150" r="5" fill="#00767d"/>
+<circle cx="266" cy="196" r="5" fill="#6d28d9"/>
+<rect x="160" y="300" width="180" height="66" rx="8" fill="#fff" stroke="#1b1e22" stroke-width="2.5"/>
+<text x="250" y="326" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Arduino</text>
+<text x="250" y="350" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">in charge</text>
+</g>
+<g opacity="1">
+<line x1="504" y1="150" x2="504" y2="300" stroke="#00767d" stroke-width="2.5"/>
+<line x1="536" y1="196" x2="536" y2="300" stroke="#6d28d9" stroke-width="2.5"/>
+<circle cx="504" cy="150" r="5" fill="#00767d"/>
+<circle cx="536" cy="196" r="5" fill="#6d28d9"/>
+<rect x="430" y="300" width="180" height="66" rx="8" fill="#fff" stroke="#1a7f4b" stroke-width="2.5"/>
+<text x="520" y="326" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">BMP280</text>
+<text x="520" y="350" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">0x76</text>
+</g>
+<g opacity=".45">
+<line x1="754" y1="150" x2="754" y2="300" stroke="#00767d" stroke-width="2.5"/>
+<line x1="786" y1="196" x2="786" y2="300" stroke="#6d28d9" stroke-width="2.5"/>
+<circle cx="754" cy="150" r="5" fill="#00767d"/>
+<circle cx="786" cy="196" r="5" fill="#6d28d9"/>
+<rect x="680" y="300" width="180" height="66" rx="8" fill="#fff" stroke="#5d6670" stroke-width="2.5"/>
+<text x="770" y="326" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">something else</text>
+<text x="770" y="350" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">0x68</text>
+</g>
+<text x="450.0" y="416" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">Each chip has its own address, so the Arduino can say which one it is talking to.</text>
+</svg>

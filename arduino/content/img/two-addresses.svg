@@ -1,0 +1,49 @@
+<svg viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="470" fill="#f5f3ed"/>
+<text x="450.0" y="40" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Two different numbers, both written in hex</text>
+<text x="175" y="82" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">on the bus</text>
+<line x1="60" y1="116" x2="300" y2="116" stroke="#00767d" stroke-width="3"/>
+<line x1="60" y1="140" x2="300" y2="140" stroke="#6d28d9" stroke-width="3"/>
+<line x1="120" y1="140" x2="120" y2="196" stroke="#5d6670" stroke-width="2.5"/>
+<rect x="62" y="196" width="116" height="56" rx="8" fill="#fff" stroke="#5d6670" stroke-width="2"/>
+<text x="120" y="228" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">0x68</text>
+<line x1="250" y1="140" x2="250" y2="196" stroke="#5d6670" stroke-width="2.5"/>
+<rect x="192" y="196" width="116" height="56" rx="8" fill="#fff" stroke="#1a7f4b" stroke-width="3"/>
+<text x="250" y="228" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">0x76</text>
+<text x="250" y="276" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">which chip</text>
+<text x="120" y="276" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="14" text-anchor="middle">a different chip</text>
+<path d="M 308 196 L 470 108" stroke="#1a7f4b" stroke-width="1.6" stroke-dasharray="6,5"/>
+<path d="M 308 252 L 470 402" stroke="#1a7f4b" stroke-width="1.6" stroke-dasharray="6,5"/>
+<text x="655" y="82" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">inside that chip</text>
+<rect x="470" y="98" width="370" height="314" rx="10" fill="#fff" stroke="#1a7f4b" stroke-width="2.5"/>
+<rect x="496" y="128" width="86" height="30" rx="4" fill="#6d28d9" opacity=".14"/>
+<rect x="496" y="128" width="86" height="30" rx="4" fill="none" stroke="#6d28d9" stroke-width="1.5"/>
+<text x="539" y="149" fill="#6d28d9" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xD0</text>
+<text x="598" y="149" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15">chip id</text>
+<rect x="496" y="168" width="86" height="30" rx="4" fill="#1a7f4b" opacity=".14"/>
+<rect x="496" y="168" width="86" height="30" rx="4" fill="none" stroke="#1a7f4b" stroke-width="1.5"/>
+<text x="539" y="189" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xE0</text>
+<text x="598" y="189" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15">reset</text>
+<rect x="496" y="208" width="86" height="30" rx="4" fill="#5d6670" opacity=".14"/>
+<rect x="496" y="208" width="86" height="30" rx="4" fill="none" stroke="#5d6670" stroke-width="1.5"/>
+<text x="539" y="229" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xF3</text>
+<text x="598" y="229" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15">status</text>
+<rect x="496" y="248" width="86" height="30" rx="4" fill="#c4551a" opacity=".14"/>
+<rect x="496" y="248" width="86" height="30" rx="4" fill="none" stroke="#c4551a" stroke-width="1.5"/>
+<text x="539" y="269" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xF4</text>
+<text x="598" y="269" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15">ctrl_meas</text>
+<rect x="496" y="288" width="86" height="30" rx="4" fill="#c4551a" opacity=".14"/>
+<rect x="496" y="288" width="86" height="30" rx="4" fill="none" stroke="#c4551a" stroke-width="1.5"/>
+<text x="539" y="309" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xF5</text>
+<text x="598" y="309" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15">config</text>
+<rect x="496" y="328" width="86" height="30" rx="4" fill="#00767d" opacity=".14"/>
+<rect x="496" y="328" width="86" height="30" rx="4" fill="none" stroke="#00767d" stroke-width="1.5"/>
+<text x="539" y="349" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xF7</text>
+<text x="598" y="349" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15">pressure</text>
+<rect x="496" y="368" width="86" height="30" rx="4" fill="#00767d" opacity=".14"/>
+<rect x="496" y="368" width="86" height="30" rx="4" fill="none" stroke="#00767d" stroke-width="1.5"/>
+<text x="539" y="389" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xFA</text>
+<text x="598" y="389" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15">temperature</text>
+<text x="539" y="424" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="18" text-anchor="middle">...</text>
+<text x="655" y="440" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">which box inside it</text>
+</svg>

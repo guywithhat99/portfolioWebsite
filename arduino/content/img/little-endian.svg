@@ -1,0 +1,27 @@
+<svg viewBox="0 0 940 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="940" height="420" fill="#f5f3ed"/>
+<text x="470.0" y="40" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">The low half arrives first</text>
+<text x="180" y="144" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="end">what arrives</text>
+<rect x="200" y="100" width="180" height="70" rx="8" fill="#c4551a" opacity=".16"/>
+<rect x="200" y="100" width="180" height="70" rx="8" fill="none" stroke="#c4551a" stroke-width="2.2"/>
+<text x="290.0" y="144" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x88</text>
+<text x="290.0" y="194" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">first byte</text>
+<rect x="410" y="100" width="180" height="70" rx="8" fill="#00767d" opacity=".16"/>
+<rect x="410" y="100" width="180" height="70" rx="8" fill="none" stroke="#00767d" stroke-width="2.2"/>
+<text x="500.0" y="144" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x89</text>
+<text x="500.0" y="194" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">second byte</text>
+<path d="M 290.0 196 C 290.0 240, 590.0 240, 590.0 276" fill="none" stroke="#c4551a" stroke-width="2.5" stroke-dasharray="7,5"/>
+<polygon points="590.0,282 582.0,266 598.0,266" fill="#c4551a"/>
+<path d="M 500.0 196 C 500.0 240, 250.0 240, 250.0 276" fill="none" stroke="#00767d" stroke-width="2.5" stroke-dasharray="7,5"/>
+<polygon points="250.0,282 242.0,266 258.0,266" fill="#00767d"/>
+<text x="180" y="330" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="end">what it means</text>
+<rect x="200" y="286" width="180" height="70" rx="8" fill="#00767d" opacity=".16"/>
+<rect x="200" y="286" width="180" height="70" rx="8" fill="none" stroke="#00767d" stroke-width="2.2"/>
+<text x="290.0" y="330" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x89</text>
+<text x="290.0" y="380" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">high half</text>
+<rect x="410" y="286" width="180" height="70" rx="8" fill="#c4551a" opacity=".16"/>
+<rect x="410" y="286" width="180" height="70" rx="8" fill="none" stroke="#c4551a" stroke-width="2.2"/>
+<text x="500.0" y="330" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x88</text>
+<text x="500.0" y="380" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">low half</text>
+<text x="612" y="330" fill="#6d28d9" font-family="JetBrains Mono,monospace" font-size="19" font-weight="700">one 16-bit number</text>
+</svg>

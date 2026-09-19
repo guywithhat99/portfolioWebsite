@@ -1,0 +1,22 @@
+<svg viewBox="0 0 1045 346" xmlns="http://www.w3.org/2000/svg">
+<rect width="1045" height="346" fill="#f5f3ed"/>
+<text x="139.7" y="150" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">byte</text>
+<text x="245.3" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve"> </text>
+<text x="271.7" y="150" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">readRegister</text>
+<text x="588.5" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">(</text>
+<text x="614.9" y="150" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">byte reg</text>
+<text x="826.1" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve">)</text>
+<text x="852.5" y="150" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="44" font-weight="700" xml:space="preserve"> {</text>
+<line x1="192.5" y1="98.0" x2="192.5" y2="70.0" stroke="#00767d" stroke-width="2"/>
+<line x1="141.7" y1="98.0" x2="243.3" y2="98.0" stroke="#00767d" stroke-width="2"/>
+<text x="192.5" y="56.0" fill="#00767d" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">hands back</text>
+<text x="192.5" y="79.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">the type of the answer</text>
+<line x1="430.1" y1="166.0" x2="430.1" y2="214.0" stroke="#c4551a" stroke-width="2"/>
+<line x1="273.7" y1="166.0" x2="586.5" y2="166.0" stroke="#c4551a" stroke-width="2"/>
+<text x="430.1" y="244.0" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">the name</text>
+<text x="430.1" y="267.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">you choose this one</text>
+<line x1="720.5" y1="212.0" x2="720.5" y2="260.0" stroke="#1a7f4b" stroke-width="2"/>
+<line x1="616.9" y1="212.0" x2="824.1" y2="212.0" stroke="#1a7f4b" stroke-width="2"/>
+<text x="720.5" y="290.0" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="19" font-weight="700" text-anchor="middle">what it needs</text>
+<text x="720.5" y="313.0" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">a type, then a name for it</text>
+</svg>

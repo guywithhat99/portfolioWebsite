@@ -1,0 +1,41 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="420" fill="#f5f3ed"/>
+<text x="450.0" y="42" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">One byte is always two hex digits</text>
+<rect x="162.0" y="92" width="60" height="62" rx="7" fill="#00767d" opacity=".15"/>
+<rect x="162.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="192.0" y="134" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">1</text>
+<rect x="230.0" y="92" width="60" height="62" rx="7" fill="#00767d" opacity=".15"/>
+<rect x="230.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="260.0" y="134" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">1</text>
+<rect x="298.0" y="92" width="60" height="62" rx="7" fill="#00767d" opacity=".15"/>
+<rect x="298.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="328.0" y="134" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">0</text>
+<rect x="366.0" y="92" width="60" height="62" rx="7" fill="#00767d" opacity=".15"/>
+<rect x="366.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="396.0" y="134" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">1</text>
+<rect x="474.0" y="92" width="60" height="62" rx="7" fill="#c4551a" opacity=".15"/>
+<rect x="474.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#c4551a" stroke-width="2"/>
+<text x="504.0" y="134" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">0</text>
+<rect x="542.0" y="92" width="60" height="62" rx="7" fill="#c4551a" opacity=".15"/>
+<rect x="542.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#c4551a" stroke-width="2"/>
+<text x="572.0" y="134" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">0</text>
+<rect x="610.0" y="92" width="60" height="62" rx="7" fill="#c4551a" opacity=".15"/>
+<rect x="610.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#c4551a" stroke-width="2"/>
+<text x="640.0" y="134" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">0</text>
+<rect x="678.0" y="92" width="60" height="62" rx="7" fill="#c4551a" opacity=".15"/>
+<rect x="678.0" y="92" width="60" height="62" rx="7" fill="none" stroke="#c4551a" stroke-width="2"/>
+<text x="708.0" y="134" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700" text-anchor="middle">0</text>
+<line x1="162.0" y1="172" x2="426.0" y2="172" stroke="#00767d" stroke-width="2.4"/>
+<line x1="162.0" y1="165" x2="162.0" y2="179" stroke="#00767d" stroke-width="2.4"/>
+<line x1="426.0" y1="165" x2="426.0" y2="179" stroke="#00767d" stroke-width="2.4"/>
+<text x="294.0" y="206" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">four bits, worth 13</text>
+<text x="294.0" y="254" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="40" font-weight="700" text-anchor="middle">D</text>
+<line x1="474.0" y1="172" x2="738.0" y2="172" stroke="#c4551a" stroke-width="2.4"/>
+<line x1="474.0" y1="165" x2="474.0" y2="179" stroke="#c4551a" stroke-width="2.4"/>
+<line x1="738.0" y1="165" x2="738.0" y2="179" stroke="#c4551a" stroke-width="2.4"/>
+<text x="606.0" y="206" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">four bits, worth 0</text>
+<text x="606.0" y="254" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="40" font-weight="700" text-anchor="middle">0</text>
+<text x="450.0" y="330" fill="#1b1e22" font-family="JetBrains Mono,monospace" font-size="30" font-weight="700" text-anchor="middle">0xD0</text>
+<text x="450.0" y="368" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">Four bits have sixteen possible values, so one digit covers them exactly.</text>
+<text x="450.0" y="394" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">Decimal cannot do that, which is why datasheets do not use it.</text>
+</svg>

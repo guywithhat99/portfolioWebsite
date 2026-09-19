@@ -1,0 +1,53 @@
+<svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="400" fill="#f5f3ed"/>
+<text x="450.0" y="42" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">One register, three separate settings</text>
+<text x="198.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 7</text>
+<text x="270.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 6</text>
+<text x="342.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 5</text>
+<text x="414.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 4</text>
+<text x="486.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 3</text>
+<text x="558.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 2</text>
+<text x="630.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 1</text>
+<text x="702.0" y="92" fill="#5d6670" font-family="JetBrains Mono,monospace" font-size="15" text-anchor="middle">bit 0</text>
+<rect x="166.0" y="106" width="64" height="62" rx="7" fill="#00767d" opacity="0.16"/>
+<rect x="166.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#00767d" stroke-width="2.2" opacity="1"/>
+<text x="198.0" y="148" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<rect x="238.0" y="106" width="64" height="62" rx="7" fill="#00767d" opacity="0.16"/>
+<rect x="238.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#00767d" stroke-width="2.2" opacity="1"/>
+<text x="270.0" y="148" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<rect x="310.0" y="106" width="64" height="62" rx="7" fill="#00767d" opacity="0.16"/>
+<rect x="310.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#00767d" stroke-width="2.2" opacity="1"/>
+<text x="342.0" y="148" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<rect x="382.0" y="106" width="64" height="62" rx="7" fill="#c4551a" opacity="0.16"/>
+<rect x="382.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#c4551a" stroke-width="2.2" opacity="1"/>
+<text x="414.0" y="148" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<rect x="454.0" y="106" width="64" height="62" rx="7" fill="#c4551a" opacity="0.16"/>
+<rect x="454.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#c4551a" stroke-width="2.2" opacity="1"/>
+<text x="486.0" y="148" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<rect x="526.0" y="106" width="64" height="62" rx="7" fill="#c4551a" opacity="0.16"/>
+<rect x="526.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#c4551a" stroke-width="2.2" opacity="1"/>
+<text x="558.0" y="148" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<rect x="598.0" y="106" width="64" height="62" rx="7" fill="#1a7f4b" opacity="0.16"/>
+<rect x="598.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#1a7f4b" stroke-width="2.2" opacity="1"/>
+<text x="630.0" y="148" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<rect x="670.0" y="106" width="64" height="62" rx="7" fill="#1a7f4b" opacity="0.16"/>
+<rect x="670.0" y="106" width="64" height="62" rx="7" fill="none" stroke="#1a7f4b" stroke-width="2.2" opacity="1"/>
+<text x="702.0" y="148" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="27" font-weight="700" text-anchor="middle" opacity="1">?</text>
+<line x1="166.0" y1="192" x2="374.0" y2="192" stroke="#00767d" stroke-width="2.4"/>
+<line x1="166.0" y1="185" x2="166.0" y2="199" stroke="#00767d" stroke-width="2.4"/>
+<line x1="374.0" y1="185" x2="374.0" y2="199" stroke="#00767d" stroke-width="2.4"/>
+<text x="270.0" y="222" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">osrs_t</text>
+<text x="270.0" y="245" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">temperature</text>
+<line x1="382.0" y1="192" x2="590.0" y2="192" stroke="#c4551a" stroke-width="2.4"/>
+<line x1="382.0" y1="185" x2="382.0" y2="199" stroke="#c4551a" stroke-width="2.4"/>
+<line x1="590.0" y1="185" x2="590.0" y2="199" stroke="#c4551a" stroke-width="2.4"/>
+<text x="486.0" y="222" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">osrs_p</text>
+<text x="486.0" y="245" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">pressure</text>
+<line x1="598.0" y1="192" x2="734.0" y2="192" stroke="#1a7f4b" stroke-width="2.4"/>
+<line x1="598.0" y1="185" x2="598.0" y2="199" stroke="#1a7f4b" stroke-width="2.4"/>
+<line x1="734.0" y1="185" x2="734.0" y2="199" stroke="#1a7f4b" stroke-width="2.4"/>
+<text x="666.0" y="222" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">mode</text>
+<text x="666.0" y="245" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">running or not</text>
+<text x="450.0" y="326" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">Writing to 0xF4 sets all three at once.</text>
+<text x="450.0" y="356" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">There is no way to change one without writing the whole byte.</text>
+</svg>

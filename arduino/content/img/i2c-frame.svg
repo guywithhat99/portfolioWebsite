@@ -1,0 +1,94 @@
+<svg viewBox="0 0 1166 440" xmlns="http://www.w3.org/2000/svg">
+<rect width="1166" height="440" fill="#f5f3ed"/>
+<text x="583.0" y="34" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">One message: telling chip 0x76 that you want register 0xD0</text>
+<polyline points="96,136 142,136 142,196 166,196 166,136 216,136 216,136 266,136 266,136 316,136 316,196 366,196 366,136 416,136 416,136 466,136 466,196 516,196 516,196 566,196 566,196 616,196 616,136 666,136 666,136 716,136 716,196 766,196 766,136 816,136 816,196 866,196 866,196 916,196 916,196 966,196 966,196 1016,196 1016,196 1066,196 1066,196 1092,196 1092,136 1136,136" fill="none" stroke="#00767d" stroke-width="3" stroke-linejoin="miter"/>
+<polyline points="96,268 142,268 166,268 166,328 191,328 191,268 216,268 216,268 216,328 241,328 241,268 266,268 266,268 266,328 291,328 291,268 316,268 316,268 316,328 341,328 341,268 366,268 366,268 366,328 391,328 391,268 416,268 416,268 416,328 441,328 441,268 466,268 466,268 466,328 491,328 491,268 516,268 516,268 516,328 541,328 541,268 566,268 566,268 566,328 591,328 591,268 616,268 616,268 616,328 641,328 641,268 666,268 666,268 666,328 691,328 691,268 716,268 716,268 716,328 741,328 741,268 766,268 766,268 766,328 791,328 791,268 816,268 816,268 816,328 841,328 841,268 866,268 866,268 866,328 891,328 891,268 916,268 916,268 916,328 941,328 941,268 966,268 966,268 966,328 991,328 991,268 1016,268 1016,268 1016,328 1041,328 1041,268 1066,268 1066,328 1080,328 1080,268 1136,268" fill="none" stroke="#6d28d9" stroke-width="3" stroke-linejoin="miter"/>
+<text x="86" y="158" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700" text-anchor="end">SDA</text>
+<text x="86" y="290" fill="#6d28d9" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700" text-anchor="end">SCL</text>
+<line x1="166" y1="122" x2="166" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="216" y1="122" x2="216" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="266" y1="122" x2="266" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="316" y1="122" x2="316" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="366" y1="122" x2="366" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="416" y1="122" x2="416" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="466" y1="122" x2="466" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="516" y1="122" x2="516" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="566" y1="122" x2="566" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="616" y1="122" x2="616" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="666" y1="122" x2="666" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="716" y1="122" x2="716" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="766" y1="122" x2="766" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="816" y1="122" x2="816" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="866" y1="122" x2="866" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="916" y1="122" x2="916" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="966" y1="122" x2="966" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="1016" y1="122" x2="1016" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<line x1="1066" y1="122" x2="1066" y2="342" stroke="#5d6670" stroke-width="1" stroke-dasharray="3,4" opacity=".55"/>
+<rect x="191" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="241" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="291" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="341" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="391" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="441" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="491" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="541" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="591" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="641" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="691" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="741" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="791" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="841" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="891" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="941" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="991" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<rect x="1041" y="122" width="25" height="220" fill="#6d28d9" opacity=".055"/>
+<text x="191" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="241" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="291" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="341" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="391" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="441" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="491" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="541" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="591" y="230" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="641" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="691" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="741" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="791" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">1</text>
+<text x="841" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="891" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="941" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="991" y="230" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<text x="1041" y="230" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle">0</text>
+<line x1="166" y1="92" x2="516" y2="92" stroke="#00767d" stroke-width="2"/>
+<line x1="166" y1="86" x2="166" y2="98" stroke="#00767d" stroke-width="2"/>
+<line x1="516" y1="86" x2="516" y2="98" stroke="#00767d" stroke-width="2"/>
+<text x="341" y="82" fill="#00767d" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">address 0x76</text>
+<text x="341" y="114" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">which chip</text>
+<line x1="516" y1="92" x2="566" y2="92" stroke="#c4551a" stroke-width="2"/>
+<line x1="516" y1="86" x2="516" y2="98" stroke="#c4551a" stroke-width="2"/>
+<line x1="566" y1="86" x2="566" y2="98" stroke="#c4551a" stroke-width="2"/>
+<text x="541" y="82" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">R/W</text>
+<text x="541" y="114" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">0 = writing</text>
+<line x1="566" y1="92" x2="616" y2="92" stroke="#1a7f4b" stroke-width="2"/>
+<line x1="566" y1="86" x2="566" y2="98" stroke="#1a7f4b" stroke-width="2"/>
+<line x1="616" y1="86" x2="616" y2="98" stroke="#1a7f4b" stroke-width="2"/>
+<text x="591" y="82" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">ACK</text>
+<text x="591" y="131" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">chip answers</text>
+<line x1="616" y1="92" x2="1016" y2="92" stroke="#00767d" stroke-width="2"/>
+<line x1="616" y1="86" x2="616" y2="98" stroke="#00767d" stroke-width="2"/>
+<line x1="1016" y1="86" x2="1016" y2="98" stroke="#00767d" stroke-width="2"/>
+<text x="816" y="82" fill="#00767d" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">data 0xD0</text>
+<text x="816" y="114" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">which register</text>
+<line x1="1016" y1="92" x2="1066" y2="92" stroke="#1a7f4b" stroke-width="2"/>
+<line x1="1016" y1="86" x2="1016" y2="98" stroke="#1a7f4b" stroke-width="2"/>
+<line x1="1066" y1="86" x2="1066" y2="98" stroke="#1a7f4b" stroke-width="2"/>
+<text x="1041" y="82" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">ACK</text>
+<text x="1041" y="131" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">chip answers</text>
+<line x1="142" y1="120" x2="142" y2="346" stroke="#b4241f" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="142" y="366" fill="#b4241f" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">START</text>
+<line x1="1092" y1="120" x2="1092" y2="346" stroke="#b4241f" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="1092" y="366" fill="#b4241f" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="middle">STOP</text>
+<text x="583.0" y="396" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">Every dotted line is an SDA change, and SCL is low at all of them.</text>
+<text x="583.0" y="422" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">The shaded half of each slot is where SCL is high and the bit is read.</text>
+</svg>

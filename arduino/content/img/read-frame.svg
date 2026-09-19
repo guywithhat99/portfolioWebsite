@@ -1,0 +1,64 @@
+<svg viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="960" height="420" fill="#f5f3ed"/>
+<text x="480.0" y="40" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Reading one takes two</text>
+<text x="60" y="94" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">First</text>
+<rect x="130" y="70" width="56" height="56" rx="7" fill="#b4241f" opacity=".14"/>
+<rect x="130" y="70" width="56" height="56" rx="7" fill="none" stroke="#b4241f" stroke-width="2"/>
+<text x="158.0" y="106" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">S</text>
+<text x="158.0" y="148" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">start</text>
+<rect x="193" y="70" width="170" height="56" rx="7" fill="#00767d" opacity=".14"/>
+<rect x="193" y="70" width="170" height="56" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="278.0" y="106" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0x76 + W</text>
+<text x="278.0" y="148" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">chip 0x76,</text>
+<text x="278.0" y="165" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">I am writing</text>
+<rect x="370" y="70" width="76" height="56" rx="7" fill="#1a7f4b" opacity=".14"/>
+<rect x="370" y="70" width="76" height="56" rx="7" fill="none" stroke="#1a7f4b" stroke-width="2"/>
+<text x="408.0" y="106" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">ACK</text>
+<text x="408.0" y="148" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">chip:</text>
+<text x="408.0" y="165" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">I am here</text>
+<rect x="453" y="70" width="118" height="56" rx="7" fill="#00767d" opacity=".14"/>
+<rect x="453" y="70" width="118" height="56" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="512.0" y="106" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">0xD0</text>
+<text x="512.0" y="148" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">which</text>
+<text x="512.0" y="165" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">register</text>
+<rect x="578" y="70" width="76" height="56" rx="7" fill="#1a7f4b" opacity=".14"/>
+<rect x="578" y="70" width="76" height="56" rx="7" fill="none" stroke="#1a7f4b" stroke-width="2"/>
+<text x="616.0" y="106" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">ACK</text>
+<text x="616.0" y="148" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">chip:</text>
+<text x="616.0" y="165" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">got it</text>
+<rect x="661" y="70" width="56" height="56" rx="7" fill="#b4241f" opacity=".14"/>
+<rect x="661" y="70" width="56" height="56" rx="7" fill="none" stroke="#b4241f" stroke-width="2"/>
+<text x="689.0" y="106" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">P</text>
+<text x="689.0" y="148" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">stop</text>
+<text x="60" y="254" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">Then</text>
+<rect x="130" y="230" width="56" height="56" rx="7" fill="#b4241f" opacity=".14"/>
+<rect x="130" y="230" width="56" height="56" rx="7" fill="none" stroke="#b4241f" stroke-width="2"/>
+<text x="158.0" y="266" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">S</text>
+<text x="158.0" y="308" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">start</text>
+<rect x="193" y="230" width="170" height="56" rx="7" fill="#00767d" opacity=".14"/>
+<rect x="193" y="230" width="170" height="56" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="278.0" y="266" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0x76 + R</text>
+<text x="278.0" y="308" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">chip 0x76,</text>
+<text x="278.0" y="325" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">I am reading</text>
+<rect x="370" y="230" width="76" height="56" rx="7" fill="#1a7f4b" opacity=".14"/>
+<rect x="370" y="230" width="76" height="56" rx="7" fill="none" stroke="#1a7f4b" stroke-width="2"/>
+<text x="408.0" y="266" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">ACK</text>
+<text x="408.0" y="308" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">chip:</text>
+<text x="408.0" y="325" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">I am here</text>
+<rect x="453" y="230" width="118" height="56" rx="7" fill="#1a7f4b" opacity=".14"/>
+<rect x="453" y="230" width="118" height="56" rx="7" fill="none" stroke="#1a7f4b" stroke-width="2"/>
+<text x="512.0" y="266" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">0x58</text>
+<text x="512.0" y="308" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">the sensor</text>
+<text x="512.0" y="325" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">sends the byte</text>
+<rect x="578" y="230" width="84" height="56" rx="7" fill="#00767d" opacity=".14"/>
+<rect x="578" y="230" width="84" height="56" rx="7" fill="none" stroke="#00767d" stroke-width="2"/>
+<text x="620.0" y="266" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">NACK</text>
+<text x="620.0" y="308" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">that is all</text>
+<text x="620.0" y="325" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">I wanted</text>
+<rect x="669" y="230" width="56" height="56" rx="7" fill="#b4241f" opacity=".14"/>
+<rect x="669" y="230" width="56" height="56" rx="7" fill="none" stroke="#b4241f" stroke-width="2"/>
+<text x="697.0" y="266" fill="#b4241f" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" text-anchor="middle">P</text>
+<text x="697.0" y="308" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">stop</text>
+<text x="480.0" y="376" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">The first message says which register. The second collects it.</text>
+<text x="480.0" y="402" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">In between, the direction on the wire has to reverse.</text>
+</svg>

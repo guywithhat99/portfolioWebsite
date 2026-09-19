@@ -1,0 +1,27 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="460" fill="#f5f3ed"/>
+<text x="450.0" y="40" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Reading one register takes two messages</text>
+<rect x="124" y="66" width="152" height="46" rx="8" fill="#fff" stroke="#00767d" stroke-width="2.5"/>
+<text x="200" y="96" fill="#00767d" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">Arduino</text>
+<line x1="200" y1="112" x2="200" y2="410" stroke="#d9d3c7" stroke-width="2" stroke-dasharray="6,6"/>
+<rect x="624" y="66" width="152" height="46" rx="8" fill="#fff" stroke="#1a7f4b" stroke-width="2.5"/>
+<text x="700" y="96" fill="#1a7f4b" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">BMP280</text>
+<line x1="700" y1="112" x2="700" y2="410" stroke="#d9d3c7" stroke-width="2" stroke-dasharray="6,6"/>
+<text x="70" y="168" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">first</text>
+<line x1="200" y1="168" x2="686" y2="168" stroke="#00767d" stroke-width="2.5"/>
+<polygon points="700,168 686,161 686,175" fill="#00767d"/>
+<text x="450.0" y="156" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0x76, listen up</text>
+<line x1="200" y1="228" x2="686" y2="228" stroke="#00767d" stroke-width="2.5"/>
+<polygon points="700,228 686,221 686,235" fill="#00767d"/>
+<text x="450.0" y="216" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0xD0</text>
+<text x="450.0" y="250" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="14" text-anchor="middle">the register I want</text>
+<text x="70" y="316" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="15" font-weight="700">then</text>
+<line x1="200" y1="316" x2="686" y2="316" stroke="#00767d" stroke-width="2.5"/>
+<polygon points="700,316 686,309 686,323" fill="#00767d"/>
+<text x="450.0" y="304" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0x76, send me one byte</text>
+<line x1="700" y1="376" x2="214" y2="376" stroke="#1a7f4b" stroke-width="2.5"/>
+<polygon points="200,376 214,369 214,383" fill="#1a7f4b"/>
+<text x="450.0" y="364" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" text-anchor="middle">0x58</text>
+<text x="450.0" y="398" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="14" text-anchor="middle">whatever was in that register</text>
+<text x="450.0" y="446" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">Say which register, then ask for the contents. Two separate messages.</text>
+</svg>

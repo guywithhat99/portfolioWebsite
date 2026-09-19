@@ -202,8 +202,8 @@ void loop() {
 }
 ```
 
-No `delay` needed. The loop runs thousands of times a second and the LED simply
-tracks the knob.
+No `delay` needed. The loop runs thousands of times a second, so the LED tracks
+the knob.
 </details>
 
 ----

@@ -1,0 +1,65 @@
+<svg viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="470" fill="#f5f3ed"/>
+<text x="450.0" y="40" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" text-anchor="middle">The address and the R/W bit travel as one byte</text>
+<line x1="205.0" y1="118" x2="633.0" y2="118" stroke="#00767d" stroke-width="2"/>
+<line x1="205.0" y1="112" x2="205.0" y2="124" stroke="#00767d" stroke-width="2"/>
+<line x1="633.0" y1="112" x2="633.0" y2="124" stroke="#00767d" stroke-width="2"/>
+<text x="419.0" y="106" fill="#00767d" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">the 7 address bits, 0x76</text>
+<text x="667.0" y="106" fill="#c4551a" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="middle">R/W</text>
+<rect x="205.0" y="132" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="205.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="233.0" y="171" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="267.0" y="132" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="267.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="295.0" y="171" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="329.0" y="132" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="329.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="357.0" y="171" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="391.0" y="132" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="391.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="419.0" y="171" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">0</text>
+<rect x="453.0" y="132" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="453.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="481.0" y="171" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="515.0" y="132" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="515.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="543.0" y="171" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="577.0" y="132" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="577.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="605.0" y="171" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">0</text>
+<rect x="639.0" y="132" width="56" height="58" rx="6" fill="#c4551a" opacity=".16"/>
+<rect x="639.0" y="132" width="56" height="58" rx="6" fill="none" stroke="#c4551a" stroke-width="2.4"/>
+<text x="667.0" y="171" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">0</text>
+<text x="184.0" y="169" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="end">writing</text>
+<text x="716.0" y="169" fill="#c4551a" font-family="JetBrains Mono,monospace" font-size="20" font-weight="700">0xEC</text>
+<rect x="205.0" y="238" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="205.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="233.0" y="277" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="267.0" y="238" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="267.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="295.0" y="277" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="329.0" y="238" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="329.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="357.0" y="277" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="391.0" y="238" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="391.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="419.0" y="277" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">0</text>
+<rect x="453.0" y="238" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="453.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="481.0" y="277" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="515.0" y="238" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="515.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="543.0" y="277" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<rect x="577.0" y="238" width="56" height="58" rx="6" fill="#00767d" opacity=".13"/>
+<rect x="577.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#00767d" stroke-width="1.8"/>
+<text x="605.0" y="277" fill="#00767d" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">0</text>
+<rect x="639.0" y="238" width="56" height="58" rx="6" fill="#1a7f4b" opacity=".16"/>
+<rect x="639.0" y="238" width="56" height="58" rx="6" fill="none" stroke="#1a7f4b" stroke-width="2.4"/>
+<text x="667.0" y="277" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="25" font-weight="700" text-anchor="middle">1</text>
+<text x="184.0" y="275" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" text-anchor="end">reading</text>
+<text x="716.0" y="275" fill="#1a7f4b" font-family="JetBrains Mono,monospace" font-size="20" font-weight="700">0xED</text>
+<text x="450.0" y="344" fill="#1b1e22" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">Same seven bits both times. Only the last one changes.</text>
+<rect x="150" y="372" width="600" height="72" rx="8" fill="#fff" stroke="#d9d3c7" stroke-width="1.6"/>
+<text x="450.0" y="399" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">You write <tspan font-family="JetBrains Mono,monospace" fill="#1b1e22">0x76</tspan> in your code. The library shifts it up one place</text>
+<text x="450.0" y="424" fill="#5d6670" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle">and fills in the last bit, depending on which call you made.</text>
+</svg>

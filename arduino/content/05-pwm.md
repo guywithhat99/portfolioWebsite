@@ -148,7 +148,7 @@ The pin slamming between 5 and 0, hundreds of times a second.
 </div>
 </div>
 
-<p class="sub">Put a meter on it and you will read an average. Put a scope on it and you will see the square wave.</p>
+<p class="sub">A meter reads the average. A scope shows the square wave.</p>
 
 ----
 
