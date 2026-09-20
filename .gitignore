@@ -5,8 +5,7 @@
 *.log
 
 # Datasheets and other third-party documents (copyrighted, and large)
-*.pdf
-arduino/datasheets/
+#arduino/datasheets/
 
 # Form responses and anything derived from them (attendee data, public repo)
 *.csv
