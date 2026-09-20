@@ -1,0 +1,48 @@
+<svg viewBox="0 58 900 412" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="470" fill="#FAF9F5"/>
+<text x="250" y="82" fill="#14202E" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">Switch open</text>
+<line x1="194" y1="120" x2="306" y2="120" stroke="#B34B0A" stroke-width="3"/>
+<text x="316" y="125" fill="#B34B0A" font-family="JetBrains Mono,monospace" font-size="14">3.3 V</text>
+<line x1="250" y1="120" x2="250" y2="154" stroke="#14202E" stroke-width="2.5"/>
+<rect x="235" y="154" width="30" height="34" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="226" y="176" fill="#66707D" font-family="DM Sans,sans-serif" font-size="13" text-anchor="end">pull-up</text>
+<line x1="250" y1="188" x2="250" y2="250" stroke="#14202E" stroke-width="2.5"/>
+<circle cx="250" cy="250" r="5" fill="#14202E"/>
+<line x1="250" y1="250" x2="380" y2="250" stroke="#1E6B45" stroke-width="3.5"/>
+<text x="388" y="255" fill="#1E6B45" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700">the bus</text>
+<line x1="250" y1="250" x2="250" y2="296" stroke="#14202E" stroke-width="2.5"/>
+<circle cx="250" cy="296" r="4.5" fill="#14202E"/>
+<circle cx="250" cy="352" r="4.5" fill="#14202E"/>
+<line x1="250" y1="296" x2="284" y2="328" stroke="#14202E" stroke-width="2.5"/>
+<line x1="250" y1="352" x2="250" y2="392" stroke="#14202E" stroke-width="2.5"/>
+<line x1="226" y1="392" x2="274" y2="392" stroke="#66707D" stroke-width="2.5"/>
+<line x1="235" y1="399" x2="265" y2="399" stroke="#66707D" stroke-width="2.5"/>
+<line x1="243" y1="406" x2="257" y2="406" stroke="#66707D" stroke-width="2.5"/>
+<rect x="158" y="274" width="176" height="100" rx="8" fill="none" stroke="#66707D" stroke-width="1.6" stroke-dasharray="6,5"/>
+<text x="152" y="329.0" fill="#66707D" font-family="DM Sans,sans-serif" font-size="14" text-anchor="end">inside</text>
+<text x="152" y="346.0" fill="#66707D" font-family="DM Sans,sans-serif" font-size="14" text-anchor="end">the chip</text>
+<text x="250" y="434" fill="#1E6B45" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">the resistor wins, line is HIGH</text>
+<text x="660" y="82" fill="#14202E" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">Switch closed</text>
+<line x1="604" y1="120" x2="716" y2="120" stroke="#B34B0A" stroke-width="3"/>
+<text x="726" y="125" fill="#B34B0A" font-family="JetBrains Mono,monospace" font-size="14">3.3 V</text>
+<line x1="660" y1="120" x2="660" y2="154" stroke="#14202E" stroke-width="2.5"/>
+<rect x="645" y="154" width="30" height="34" fill="#d9c79a" stroke="#8a7f6a" stroke-width="1.5" rx="4"/>
+<text x="636" y="176" fill="#66707D" font-family="DM Sans,sans-serif" font-size="13" text-anchor="end">pull-up</text>
+<line x1="660" y1="188" x2="660" y2="250" stroke="#14202E" stroke-width="2.5"/>
+<circle cx="660" cy="250" r="5" fill="#14202E"/>
+<line x1="660" y1="250" x2="790" y2="250" stroke="#1D5FD1" stroke-width="3.5"/>
+<text x="798" y="255" fill="#1D5FD1" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700">the bus</text>
+<line x1="660" y1="250" x2="660" y2="296" stroke="#14202E" stroke-width="2.5"/>
+<circle cx="660" cy="296" r="4.5" fill="#14202E"/>
+<circle cx="660" cy="352" r="4.5" fill="#14202E"/>
+<line x1="660" y1="296" x2="660" y2="352" stroke="#1D5FD1" stroke-width="3.5"/>
+<line x1="660" y1="352" x2="660" y2="392" stroke="#14202E" stroke-width="2.5"/>
+<line x1="636" y1="392" x2="684" y2="392" stroke="#66707D" stroke-width="2.5"/>
+<line x1="645" y1="399" x2="675" y2="399" stroke="#66707D" stroke-width="2.5"/>
+<line x1="653" y1="406" x2="667" y2="406" stroke="#66707D" stroke-width="2.5"/>
+<rect x="568" y="274" width="176" height="100" rx="8" fill="none" stroke="#66707D" stroke-width="1.6" stroke-dasharray="6,5"/>
+<text x="562" y="329.0" fill="#66707D" font-family="DM Sans,sans-serif" font-size="14" text-anchor="end">inside</text>
+<text x="562" y="346.0" fill="#66707D" font-family="DM Sans,sans-serif" font-size="14" text-anchor="end">the chip</text>
+<text x="660" y="434" fill="#1D5FD1" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" text-anchor="middle">the chip wins, line is LOW</text>
+<line x1="455" y1="66" x2="455" y2="430" stroke="#D9D6CA" stroke-width="1.5"/>
+</svg>

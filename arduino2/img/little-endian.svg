@@ -1,0 +1,26 @@
+<svg viewBox="0 62 940 358" xmlns="http://www.w3.org/2000/svg">
+<rect width="940" height="420" fill="#FAF9F5"/>
+<text x="180" y="144" fill="#14202E" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="end">what arrives</text>
+<rect x="200" y="100" width="180" height="70" rx="8" fill="#B34B0A" opacity=".16"/>
+<rect x="200" y="100" width="180" height="70" rx="8" fill="none" stroke="#B34B0A" stroke-width="2.2"/>
+<text x="290.0" y="144" fill="#B34B0A" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x88</text>
+<text x="290.0" y="194" fill="#66707D" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">first byte</text>
+<rect x="410" y="100" width="180" height="70" rx="8" fill="#1D5FD1" opacity=".16"/>
+<rect x="410" y="100" width="180" height="70" rx="8" fill="none" stroke="#1D5FD1" stroke-width="2.2"/>
+<text x="500.0" y="144" fill="#1D5FD1" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x89</text>
+<text x="500.0" y="194" fill="#66707D" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">second byte</text>
+<path d="M 290.0 196 C 290.0 240, 590.0 240, 590.0 276" fill="none" stroke="#B34B0A" stroke-width="2.5" stroke-dasharray="7,5"/>
+<polygon points="590.0,282 582.0,266 598.0,266" fill="#B34B0A"/>
+<path d="M 500.0 196 C 500.0 240, 250.0 240, 250.0 276" fill="none" stroke="#1D5FD1" stroke-width="2.5" stroke-dasharray="7,5"/>
+<polygon points="250.0,282 242.0,266 258.0,266" fill="#1D5FD1"/>
+<text x="180" y="330" fill="#14202E" font-family="DM Sans,sans-serif" font-size="15" font-weight="700" text-anchor="end">what it means</text>
+<rect x="200" y="286" width="180" height="70" rx="8" fill="#1D5FD1" opacity=".16"/>
+<rect x="200" y="286" width="180" height="70" rx="8" fill="none" stroke="#1D5FD1" stroke-width="2.2"/>
+<text x="290.0" y="330" fill="#1D5FD1" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x89</text>
+<text x="290.0" y="380" fill="#66707D" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">high half</text>
+<rect x="410" y="286" width="180" height="70" rx="8" fill="#B34B0A" opacity=".16"/>
+<rect x="410" y="286" width="180" height="70" rx="8" fill="none" stroke="#B34B0A" stroke-width="2.2"/>
+<text x="500.0" y="330" fill="#B34B0A" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" text-anchor="middle">0x88</text>
+<text x="500.0" y="380" fill="#66707D" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">low half</text>
+<text x="612" y="330" fill="#66707D" font-family="JetBrains Mono,monospace" font-size="19" font-weight="700">one 16-bit number</text>
+</svg>

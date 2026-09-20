@@ -175,19 +175,7 @@ h2.tryhead::before{content:"▶ ";font-size:.66em;vertical-align:.14em;}
            data-separator="^---$" data-separator-vertical="^----$"></section>
   <section data-markdown="content/09-servo.md"
            data-separator="^---$" data-separator-vertical="^----$"></section>
-  <section data-markdown="content/10-inside-a-chip.md"
-           data-separator="^---$" data-separator-vertical="^----$"></section>
-  <section data-markdown="content/11-i2c.md"
-           data-separator="^---$" data-separator-vertical="^----$"></section>
-  <section data-markdown="content/12-wiring-bmp280.md"
-           data-separator="^---$" data-separator-vertical="^----$"></section>
-  <section data-markdown="content/13-chip-id.md"
-           data-separator="^---$" data-separator-vertical="^----$"></section>
-  <section data-markdown="content/14-ctrl-meas.md"
-           data-separator="^---$" data-separator-vertical="^----$"></section>
-  <section data-markdown="content/15-reading-data.md"
-           data-separator="^---$" data-separator-vertical="^----$"></section>
-  <section data-markdown="content/16-compensation.md"
+  <section data-markdown="content/17-part2.md"
            data-separator="^---$" data-separator-vertical="^----$"></section>
 
 </div></div>
@@ -195,12 +183,13 @@ h2.tryhead::before{content:"▶ ";font-size:.66em;vertical-align:.14em;}
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
 <script>
 Reveal.initialize({
   hash:true, controls:true, controlsLayout:'edges', progress:true,
   slideNumber:'c/t', transition:'fade', transitionSpeed:'fast',
   center:false, margin:0.06, width:1280, height:800,
-  plugins:[RevealMarkdown, RevealHighlight]
+  plugins:[RevealMarkdown, RevealHighlight, RevealNotes]
 });
 document.addEventListener('click', e=>{ if(e.target.closest('summary')) e.stopPropagation(); }, true);
 
